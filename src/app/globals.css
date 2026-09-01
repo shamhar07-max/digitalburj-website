@@ -1,26 +1,149 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --db-bg: #06070d;
+  --db-bg-soft: #0a0d18;
+  --db-surface: #0f1320;
+  --db-surface-2: #141a2b;
+  --db-border: #212a41;
+  --db-border-soft: #1a2133;
+  --db-fg: #f3f5fb;
+  --db-fg-muted: #9aa3ba;
+  --db-fg-faint: #616c86;
+
+  --db-indigo: #5b6ef5;
+  --db-violet: #8b5cf6;
+  --db-gold: #f2c14e;
+  --db-gold-deep: #d4a94a;
+  --db-cyan: #4fd1c5;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--db-bg);
+  --color-bg-soft: var(--db-bg-soft);
+  --color-surface: var(--db-surface);
+  --color-surface-2: var(--db-surface-2);
+  --color-border: var(--db-border);
+  --color-border-soft: var(--db-border-soft);
+  --color-fg: var(--db-fg);
+  --color-fg-muted: var(--db-fg-muted);
+  --color-fg-faint: var(--db-fg-faint);
+
+  --color-indigo: var(--db-indigo);
+  --color-violet: var(--db-violet);
+  --color-gold: var(--db-gold);
+  --color-gold-deep: var(--db-gold-deep);
+  --color-cyan: var(--db-cyan);
+
+  --font-display: var(--font-bricolage);
+  --font-sans: var(--font-inter);
+
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-spin-slow: spin 18s linear infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
 
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-18px) translateX(10px);
+  }
+}
+
+* {
+  border-color: var(--db-border);
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--db-bg);
+  color: var(--db-fg);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--db-gold);
+  color: #14101a;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--db-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--db-border);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--db-indigo);
+}
+
+@layer utilities {
+  .container-db {
+    width: 100%;
+    max-width: 84rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .container-db {
+      padding-inline: 2rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container-db {
+      padding-inline: 3rem;
+    }
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(100deg, #f8dd8a 0%, var(--db-gold) 45%, var(--db-gold-deep) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-indigo {
+    background: linear-gradient(100deg, #93a2ff 0%, var(--db-indigo) 55%, var(--db-violet) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .card-glass {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01));
+    border: 1px solid var(--db-border);
+    backdrop-filter: blur(6px);
+  }
+
+  .noise-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+  }
+
+  .grid-fade {
+    background-image: linear-gradient(to right, var(--db-border-soft) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--db-border-soft) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 90%);
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 90%);
+  }
 }
