@@ -3,7 +3,7 @@ import { SectionTag } from "@/components/SectionTag";
 export function PageHero({ tag, title, sub, editorial, chips }: { tag: string; title: React.ReactNode; sub: string; editorial?: string; chips?: string[] }) {
   return (
     <section className="aurora relative overflow-hidden border-b border-hair">
-      <div className="blueprint blueprint-drift absolute inset-0" aria-hidden />
+      <div className="blueprint absolute inset-0" aria-hidden />
       <div className="container-db relative pb-12 pt-12 sm:pt-16">
         <div className="mb-6 flex gap-1.5" aria-hidden>
           <span className="h-1.5 w-14 rounded-full bg-cobalt" />

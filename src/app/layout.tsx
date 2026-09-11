@@ -61,6 +61,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${grotesk.variable} ${groteskBlack.variable} ${jbmono.variable} ${plexserif.variable}`}>
       <body className="flex min-h-full flex-col bg-lab text-ink">
+        <link rel="preconnect" href="https://picsum.photos" />
+        <link rel="dns-prefetch" href="https://picsum.photos" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_JSONLD) }} />
         <Navbar />
         <main className="flex-1">{children}</main>

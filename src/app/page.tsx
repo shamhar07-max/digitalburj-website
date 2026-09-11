@@ -28,17 +28,10 @@ export default function Home() {
 
       {/* HERO — broadsheet */}
       <section className="aurora relative overflow-hidden border-b border-hair">
-        <div className="blueprint blueprint-drift absolute inset-0" aria-hidden />
+        <div className="blueprint absolute inset-0" aria-hidden />
         <div className="container-db relative grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1.15fr_1fr]">
           <div>
-            <p className="font-mono-d flex items-center gap-2 text-[11px] tracking-[0.18em] text-ink-faint">
-              <span className="text-cobalt">db-lab:~$</span> verify capability --live
-              <span className="animate-blink inline-block h-3.5 w-2 bg-cobalt" aria-hidden />
-            </p>
-            <p className="font-mono-d mt-3 text-xs font-semibold uppercase tracking-[0.24em] text-coral">
-              A Dubai practice for skills · technology · talent
-            </p>
-            <h1 className="font-display mt-6 tracking-tight text-ink" style={{ fontSize: "clamp(2.6rem, 6.4vw, 5rem)", lineHeight: 0.98 }}>
+            <h1 className="font-display mt-2 tracking-tight text-ink" style={{ fontSize: "clamp(2.6rem, 6.4vw, 5rem)", lineHeight: 0.98 }}>
               SKILLS TODAY.
               <span className="block">OPPORTUNITIES <span className="font-ed font-normal italic text-gold-deep">tomorrow.</span></span>
             </h1>
