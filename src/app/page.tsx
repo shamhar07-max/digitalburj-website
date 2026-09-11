@@ -186,7 +186,7 @@ export default function Home() {
       {/* LAB */}
       <section className="container-db py-14 sm:py-20">
         <Reveal>
-          <SectionHead index="05" kicker="Digital Burj Lab" title={<>Company + lab + studio.</>} lede="Experiments running inside the practice. Active systems ship to clients; experimental ones stay in the lab until they earn it." />
+          <SectionHead index="04" kicker="Digital Burj Lab" title={<>Company + lab + studio.</>} lede="Experiments running inside the practice. Active systems ship to clients; experimental ones stay in the lab until they earn it." />
         </Reveal>
         <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_1.4fr]">
           <div className="overflow-hidden rounded-2xl border-2 border-ink bg-panel">
@@ -230,7 +230,7 @@ export default function Home() {
       {/* FAQ */}
       <section className="container-db max-w-4xl py-14 sm:py-20">
         <Reveal>
-          <SectionHead index="06" kicker="Straight answers" title={<>Asked often, answered plainly.</>} />
+          <SectionHead index="05" kicker="Straight answers" title={<>Asked often, answered plainly.</>} />
         </Reveal>
         <div className="mt-8"><Faq /></div>
         <div className="mt-12"><CTASection /></div>

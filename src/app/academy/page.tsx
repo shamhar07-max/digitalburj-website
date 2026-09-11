@@ -115,7 +115,7 @@ export default function Academy() {
                         <span className="font-mono-d rounded-md bg-cobalt/10 px-2.5 py-1 text-xs font-bold text-cobalt">{c.code}</span>
                         <span className="min-w-0 flex-1">
                           <span className="block font-bold text-ink">{c.name}</span>
-                          <span className="mt-0.5 block truncate text-[13px] text-ink-soft">{c.outcome}</span>
+                          <span className="mt-0.5 block line-clamp-2 text-[13px] leading-snug text-ink-soft">{c.outcome}</span>
                         </span>
                         <span className="font-mono-d hidden rounded-full border border-hair px-2.5 py-1 text-[10px] uppercase tracking-[0.1em] text-ink-faint sm:inline">{c.level}</span>
                         <span className="text-xl font-bold leading-none text-cyanx transition-transform group-open:rotate-45">+</span>

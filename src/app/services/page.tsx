@@ -43,7 +43,7 @@ export default function ServicesPage() {
       ))}
       <section className="container-db max-w-4xl pb-20">
         <Reveal>
-          <SectionHead index="07" kicker="Not sure which door?" title={<>Start with the problem, not the category.</>} />
+            <SectionHead index="08" kicker="Not sure which door?" title={<>Start with the problem, not the category.</>} />
         </Reveal>
         <div className="mt-8"><CTASection eyebrow="Discovery" title="Tell us what's wrong. We'll map the rest." description="A short call is enough to route you to Transform, Build, Automate or Grow." /></div>
       </section>

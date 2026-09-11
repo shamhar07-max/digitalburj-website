@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowUpRight, ChevronDown } from "lucide-react";
-import { navPrimary, navSolutions, navEcosystem } from "@/lib/data";
+import { navSolutions, navEcosystem } from "@/lib/data";
 import { Logo } from "@/components/Logo";
 import { cn } from "@/lib/utils";
 
@@ -109,17 +109,14 @@ export function Navbar() {
       <header className="sticky top-0 z-50 border-b-2 border-ink bg-paper">
         <div className="container-db flex h-[68px] items-center justify-between gap-4">
           <Logo />
-          <nav className="hidden items-center gap-5 lg:flex" aria-label="Primary">
-            {navPrimary.slice(0, 3).map((item) => (
-              <a key={item.href} href={item.href}
-                className={cn("rounded-md px-1 py-2 text-[13px] font-bold uppercase tracking-[0.08em] transition-colors hover:text-ink hover:underline hover:decoration-gold hover:decoration-2 hover:underline-offset-4",
-                  pathname === item.href ? "text-ink underline decoration-gold decoration-2 underline-offset-4" : "text-ink-soft")}>
-                {item.label}
-              </a>
-            ))}
+          <nav className="hidden items-center gap-4 whitespace-nowrap lg:flex xl:gap-5" aria-label="Primary">
             <Drop label="Solutions" items={navSolutions} active={solActive} />
             <Drop label="Ecosystem" items={navEcosystem} active={ecoActive} />
-            {navPrimary.slice(3).map((item) => (
+            {[
+              { label: "Work", href: "/work" },
+              { label: "Journal", href: "/journal" },
+              { label: "About", href: "/about" },
+            ].map((item) => (
               <a key={item.href} href={item.href}
                 className={cn("rounded-md px-1 py-2 text-[13px] font-bold uppercase tracking-[0.08em] transition-colors hover:text-ink hover:underline hover:decoration-gold hover:decoration-2 hover:underline-offset-4",
                   pathname === item.href ? "text-ink underline decoration-gold decoration-2 underline-offset-4" : "text-ink-soft")}>
@@ -147,8 +144,11 @@ export function Navbar() {
         {open && (
           <div className="max-h-[70vh] overflow-y-auto border-t-2 border-ink bg-paper lg:hidden">
             <nav className="container-db flex flex-col py-3" aria-label="Mobile">
-              <p className="font-mono-d px-2 pb-1 pt-2 text-[10px] uppercase tracking-[0.2em] text-ink-faint">Menu</p>
-              {navPrimary.map((item) => (
+              {[
+                { label: "Work", href: "/work" },
+                { label: "Journal", href: "/journal" },
+                { label: "About", href: "/about" },
+              ].map((item) => (
                 <a key={item.href} href={item.href} onClick={() => setOpen(false)}
                   className="rounded-lg px-2 py-3 text-base font-bold uppercase tracking-[0.06em] text-ink-soft hover:bg-panel-deep hover:text-ink">
                   {item.label}
