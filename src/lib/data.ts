@@ -1,10 +1,9 @@
 export const navPrimary = [
   { label: "What We Do", href: "/services" },
   { label: "How We Work", href: "/projects" },
-  { label: "Work", href: "/#work" },
+  { label: "Work", href: "/work" },
   { label: "Academy", href: "/academy" },
   { label: "Studio", href: "/studio" },
-  { label: "About", href: "/about" },
 ];
 
 export const navSolutions = [
@@ -22,6 +21,7 @@ export const navEcosystem = [
   { label: "Business", href: "/business-ai" },
   { label: "Talent", href: "/talent" },
   { label: "Jobs", href: "/jobs" },
+  { label: "Journal", href: "/journal" },
 ];
 
 /** @deprecated Use navPrimary/navSolutions/navEcosystem. */

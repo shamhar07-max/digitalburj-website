@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowUpRight, ChevronDown } from "lucide-react";
 import { navPrimary, navSolutions, navEcosystem } from "@/lib/data";
@@ -8,24 +8,77 @@ import { Logo } from "@/components/Logo";
 import { cn } from "@/lib/utils";
 
 function Drop({ label, items, active }: { label: string; items: { label: string; href: string }[]; active: boolean }) {
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const itemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onDocClick = (e: MouseEvent) => {
+      if (rootRef.current && !rootRef.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener("mousedown", onDocClick);
+    return () => document.removeEventListener("mousedown", onDocClick);
+  }, [open ]);
+
+  const onButtonKey = (e: React.KeyboardEvent) => {
+    if (e.key === "ArrowDown" || e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      setOpen(true);
+      requestAnimationFrame(() => itemRefs.current[0]?.focus());
+    } else if (e.key === "Escape") {
+      setOpen(false);
+    }
+  };
+
+  const onItemKey = (e: React.KeyboardEvent, i: number) => {
+    if (e.key === "Escape") {
+      setOpen(false);
+      (rootRef.current?.querySelector("button") as HTMLElement | null)?.focus();
+    } else if (e.key === "ArrowDown") {
+      e.preventDefault();
+      itemRefs.current[(i + 1) % items.length]?.focus();
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      itemRefs.current[(i - 1 + items.length) % items.length]?.focus();
+    } else if (e.key === "Tab" && !e.shiftKey && i === items.length - 1) {
+      setOpen(false);
+    }
+  };
+
   return (
-    <div className="group relative">
+    <div
+      ref={rootRef}
+      className="relative"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
       <button
         className={cn(
           "flex items-center gap-1 rounded-md px-1 py-2 text-[13px] font-bold uppercase tracking-[0.08em] transition-colors focus-visible:outline-2 focus-visible:outline-cobalt",
-          active ? "text-ink underline decoration-gold decoration-2 underline-offset-4" : "text-ink-soft group-hover:text-ink"
+          active ? "text-ink underline decoration-gold decoration-2 underline-offset-4" : "text-ink-soft hover:text-ink"
         )}
         aria-haspopup="true"
+        aria-expanded={open}
+        onClick={() => setOpen((v) => !v)}
+        onKeyDown={onButtonKey}
       >
-        {label} <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
+        {label} <ChevronDown size={14} className={cn("transition-transform duration-200", open && "rotate-180")} />
       </button>
-      <div className="invisible absolute left-0 top-full w-56 translate-y-1 pt-2 opacity-0 transition-all duration-200 focus-within:visible focus-within:translate-y-0 focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
-        <div className="overflow-hidden rounded-xl border-2 border-ink bg-panel shadow-[5px_5px_0_rgba(18,51,42,0.2)]">
-          {items.map((item) => (
+      <div className={cn(
+        "absolute left-0 top-full w-56 translate-y-1 pt-2 transition-all duration-200",
+        open ? "visible translate-y-0 opacity-100" : "invisible opacity-0"
+      )}>
+        <div className="overflow-hidden rounded-xl border-2 border-ink bg-panel shadow-[5px_5px_0_rgba(18,51,42,0.2)]" role="menu">
+          {items.map((item, i) => (
             <a
               key={item.href + item.label}
+              ref={(el) => { itemRefs.current[i] = el; }}
               href={item.href}
-              className="block px-4 py-2.5 text-[13px] font-semibold text-ink-soft transition-colors hover:bg-panel-deep hover:text-ink"
+              role="menuitem"
+              tabIndex={open ? 0 : -1}
+              onKeyDown={(e) => onItemKey(e, i)}
+              className="block px-4 py-2.5 text-[13px] font-semibold text-ink-soft transition-colors hover:bg-panel-deep hover:text-ink focus-visible:bg-panel-deep focus-visible:text-ink focus-visible:outline-none"
             >
               {item.label}
             </a>
@@ -44,14 +97,13 @@ export function Navbar() {
 
   return (
     <>
-      <div className="bg-amberx text-[#171204]">
+      <div className="bg-panel-deep text-ink-soft">
         <div className="container-db flex items-center justify-between py-1.5 font-mono-d text-[11px] tracking-[0.14em]">
           <span>DUBAI — U.A.E.</span>
-          <span className="hidden sm:inline">INTELLIGENCE. ENGINEERED.</span>
-          <span className="inline-flex items-center gap-1.5 font-bold">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#171204]" />
-            TAKING Q4 PROJECTS
-          </span>
+          <a href="mailto:hello@digitalburj.com" className="hidden transition-colors hover:text-ink sm:inline">
+            hello@digitalburj.com
+          </a>
+          <span className="sm:hidden">DB LAB</span>
         </div>
       </div>
       <header className="sticky top-0 z-50 border-b-2 border-ink bg-paper">
@@ -116,6 +168,10 @@ export function Navbar() {
                   {item.label}
                 </a>
               ))}
+              <a href="/about" onClick={() => setOpen(false)}
+                className="rounded-lg px-2 py-2.5 text-[15px] font-semibold text-ink-soft hover:bg-panel-deep hover:text-ink">
+                About
+              </a>
               <a href="/contact" className="my-4 rounded-lg bg-navy px-5 py-3 text-center text-sm font-bold uppercase tracking-[0.06em] text-paper">Start a project</a>
             </nav>
           </div>

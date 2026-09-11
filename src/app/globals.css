@@ -7,7 +7,7 @@
   --db-panel-deep: #f1ebdd;
   --db-ink: #17251f;
   --db-ink-soft: #44554c;
-  --db-ink-faint: #7a887f;
+  --db-ink-faint: #5f6b63;
   --db-hair: #e3dccb;
   --db-hair-soft: #ede7d6;
   --db-navy: #12332a;
@@ -68,10 +68,10 @@
   --color-brick: var(--db-cyan);
 
   --font-display: var(--font-sora);
-  --font-black: var(--font-unbounded);
+  --font-black: var(--font-black);
   --font-serif2: var(--font-plexserif);
   --font-mono2: var(--font-plexmono);
-  --font-sans: var(--font-plexsans);
+  --font-sans: var(--font-inter);
 
   --animate-marquee-x: marqueeX 30s linear infinite;
   --animate-floaty: floaty 6s ease-in-out infinite;
@@ -99,7 +99,7 @@
 
 * { border-color: var(--db-hair); }
 *:focus-visible { outline: 2px solid var(--db-cyan); outline-offset: 3px; border-radius: 4px; }
-[id] { scroll-margin-top: 96px; }
+[id] { scroll-margin-top: 128px; }
 html { scroll-behavior: smooth; }
 body {
   background: var(--db-lab);

@@ -85,13 +85,16 @@ export default function Academy() {
         <Reveal>
           <SectionHead index="05" kicker="Pathways, not courses" title={<>Pick a destination. The route is mapped.</>} lede="Six tracks from complete beginner to professional operator. Every step lists its code, so progress is unambiguous." />
         </Reveal>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 overflow-hidden rounded-2xl border border-hair bg-panel">
+          <div className="hidden grid-cols-[88px_1fr_1.2fr_1fr] gap-4 border-b-2 border-ink bg-panel-deep/60 px-5 py-3 font-mono-d text-[11px] font-bold uppercase tracking-[0.14em] text-ink-faint sm:grid" aria-hidden>
+            <span>Track</span><span>Destination</span><span>Route</span><span>Outcome</span>
+          </div>
           {PATHWAYS.map((p) => (
-            <div key={p.code} className="kpi-edge rounded-2xl border border-hair bg-panel p-5">
-              <p className="font-mono-d text-xs font-bold text-cobalt">TRACK {p.code}</p>
-              <h3 className="mt-1.5 text-lg font-extrabold text-ink" style={{ fontFamily: "var(--font-sora)" }}>{p.name}</h3>
-              <p className="font-mono-d mt-2 text-[11px] leading-relaxed text-ink-faint">{p.path}</p>
-              <p className="mt-2.5 border-t border-hair pt-2.5 text-sm text-ink-soft">{p.out}</p>
+            <div key={p.code} className="grid gap-1.5 border-b border-hair px-5 py-4 last:border-b-0 sm:grid-cols-[88px_1fr_1.2fr_1fr] sm:items-baseline sm:gap-4">
+              <span className="font-mono-d text-xs font-bold text-cobalt">TRACK {p.code}</span>
+              <span className="font-bold text-ink">{p.name}</span>
+              <span className="font-mono-d text-[11px] leading-relaxed text-ink-faint">{p.path}</span>
+              <span className="text-sm text-ink-soft">{p.out}</span>
             </div>
           ))}
         </div>
