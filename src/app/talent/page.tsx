@@ -20,7 +20,7 @@ const LEVELS = [
 export default function Talent() {
   return (
     <>
-      <PageHero tag="talent.digitalburj.com" title={<>Prove what you can do, <span className="text-foil-gold">not only what you hold.</span></>} sub="Certificates here describe exactly what was assessed — with an ID anyone can verify. Experience records only cover supervised work actually completed." />
+      <PageHero tag="talent.digitalburj.com" title={<>Capability backed by evidence.</>} sub="Certificates here describe exactly what was assessed — with an ID anyone can verify. Experience records only cover supervised work actually completed." />
       <section className="container-db grid gap-5 py-12 md:grid-cols-2 lg:grid-cols-3">
         {LEVELS.map(([t, d], i) => (
           <Reveal key={t} delay={i * 0.05}>

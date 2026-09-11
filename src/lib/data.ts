@@ -1,22 +1,31 @@
 export const navPrimary = [
+  { label: "What We Do", href: "/#what-we-do" },
+  { label: "How We Work", href: "/#how-we-work" },
+  { label: "Work", href: "/#work" },
   { label: "Academy", href: "/academy" },
   { label: "Studio", href: "/studio" },
-  { label: "Talent", href: "/talent" },
-  { label: "Journal", href: "/journal" },
-];
-
-export const navMore = [
-  { label: "Business AI", href: "/business-ai" },
-  { label: "Global Careers", href: "/global-careers" },
-  { label: "Method", href: "/projects" },
-  { label: "Skills", href: "/skills" },
-  { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
-  { label: "Community", href: "/community" },
 ];
 
-/** @deprecated Use navPrimary/navMore. */
-export const nav = [...navPrimary, ...navMore, { label: "Contact", href: "/contact" }];
+export const navSolutions = [
+  { label: "Transform", href: "/services#transform" },
+  { label: "Build", href: "/services#build" },
+  { label: "Intelligence", href: "/services#intelligence" },
+  { label: "Automate", href: "/services#automate" },
+  { label: "Grow", href: "/services#grow" },
+  { label: "Operate", href: "/services#operate" },
+];
+
+export const navEcosystem = [
+  { label: "Academy", href: "/academy" },
+  { label: "Studio", href: "/studio" },
+  { label: "Business", href: "/business-ai" },
+  { label: "Talent", href: "/talent" },
+  { label: "Jobs", href: "/jobs" },
+];
+
+/** @deprecated Use navPrimary/navSolutions/navEcosystem. */
+export const nav = [...navPrimary];
 
 export type Pillar = "Build" | "Automate" | "Grow";
 

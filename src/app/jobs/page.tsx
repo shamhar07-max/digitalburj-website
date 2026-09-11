@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function Jobs() {
   return (
     <>
-      <PageHero tag="jobs.digitalburj.com" title={<>Real work, <span className="text-foil-gold">earned.</span></>} sub="Two boards: supervised Client Projects from our Studio, and External Jobs clearly labelled by employer. Performance decides eligibility." />
+      <PageHero tag="jobs.digitalburj.com" title={<>Opportunity meets demonstrated capability.</>} sub="Two boards: supervised Client Projects from our Studio, and External Jobs clearly labelled by employer. Performance decides eligibility." />
       <section className="container-db grid gap-6 py-12 md:grid-cols-2">
         <Reveal>
           <div className="card-tower rounded-3xl p-8"><h2 className="font-display text-xl font-bold text-ink">Client Projects</h2><p className="mt-2 text-sm text-fg-muted">Paid tasks from Studio/Business delivery — site fixes, automation ops, lead-gen support. Contracted, supervised, reviewed. Best performers graduate to L5 and retainers.</p></div>

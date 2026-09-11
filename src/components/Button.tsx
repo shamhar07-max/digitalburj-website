@@ -17,8 +17,8 @@ export function Button({ href, children, variant = "primary", className, showArr
   const variants = {
     primary: "border-2 border-ink bg-cobalt text-white shadow-[4px_4px_0_#12332A] hover:shadow-[6px_6px_0_#12332A]",
     dark: "border-2 border-ink bg-navy text-white shadow-[4px_4px_0_rgba(18,51,42,0.35)] hover:shadow-[6px_6px_0_rgba(18,51,42,0.4)]",
-    gold: "border-2 border-ink bg-amberx text-ink shadow-[4px_4px_0_#12332A] hover:shadow-[6px_6px_0_#12332A]",
-    paper: "border-2 border-white/70 bg-white text-ink shadow-[4px_4px_0_rgba(0,0,0,0.35)] hover:shadow-[6px_6px_0_rgba(0,0,0,0.4)]",
+    gold: "border-2 border-ink bg-amberx text-[#171204] shadow-[4px_4px_0_rgba(0,0,0,0.4)] hover:shadow-[6px_6px_0_rgba(0,0,0,0.4)]",
+    paper: "border-2 border-white/70 bg-white text-[#0A1B3F] shadow-[4px_4px_0_rgba(0,0,0,0.35)] hover:shadow-[6px_6px_0_rgba(0,0,0,0.4)]",
     outline: "border-2 border-ink/70 bg-transparent text-ink hover:border-cobalt hover:text-cobalt",
     ghost: "text-ink-soft hover:text-cobalt underline-offset-4 hover:underline",
   };

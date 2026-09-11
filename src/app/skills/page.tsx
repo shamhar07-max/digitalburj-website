@@ -19,7 +19,7 @@ export default function Skills() {
             <a href="/services" className="group block h-full rounded-2xl border border-hair bg-panel p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-cyanx/50">
               <div className="flex items-center justify-between">
                 <span className="font-mono-d text-xs font-semibold text-ink-faint">CAP.{String(i + 1).padStart(2, "0")}</span>
-                <span className="font-mono-d rounded bg-cobalt/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.12em] text-[#9db1ff]">Teach + Ship</span>
+                <span className="font-mono-d rounded bg-cobalt/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.12em] text-cobalt">Teach + Ship</span>
               </div>
               <h2 className="mt-3 text-xl font-extrabold tracking-tight text-ink group-hover:text-cyanx" style={{ fontFamily: "var(--font-sora)" }}>{s.name}</h2>
               <p className="mt-1.5 text-sm text-ink-soft">{s.tagline}</p>

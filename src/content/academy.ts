@@ -1,55 +1,120 @@
-// DigitalBurj Academy curriculum — DB-00 → DB-22, pathways, mission system.
-// Compact encoding: course code, name, outcome, condensed modules.
+// Digital Burj Academy — FINAL production curriculum DB-00 → DB-22.
+// Statuses: complete topic lists, projects, simulations. Rendered on /academy.
 
-export type Course = { code: string; name: string; level: string; outcome: string; modules: string[] };
+export type Course = {
+  code: string; name: string; level: string; outcome: string;
+  modules: string[]; project?: string; simulation?: string;
+};
 
 export const LEVELS: { name: string; courses: Course[] }[] = [
 { name: "Foundation", courses: [
-{ code: "DB-00", name: "Digital Foundations", level: "Start here", outcome: "Reads any digital product without feeling lost: browser → server → database → deploy.", modules: ["Digital world tour: sites, apps, SaaS, cloud", "Builder workspace: files, editors, terminal", "How the internet works: DNS, HTTP, servers", "First logic: variables, conditions, loops", "Git & GitHub: recover yesterday's site", "First deployment: live URL for a client"] },
-{ code: "DB-01", name: "Problem Solving & Product Thinking", level: "Start here", outcome: "Turns 'we need an app' into requirements, scope and a not-building list.", modules: ["Symptoms vs root problems", "Discovery interviews", "Requirements & acceptance criteria", "Process mapping", "Build vs buy vs automate", "Scope, MVP and change control", "Final: the client discovery room"] },
+{ code: "DB-00", name: "Digital Foundations", level: "Start here",
+  outcome: "Reads any digital product without feeling lost — and deploys a first site.",
+  modules: ["How computers and software actually work", "Internet fundamentals: DNS, domains, HTTP/HTTPS, hosting", "Websites vs web applications", "Frontend vs backend", "Servers, cloud computing, JSON, APIs", "Files, storage, Git and GitHub", "Dev environments, command line, environment variables", "Software terminology fluency"],
+  project: "Build and deploy a personal/business landing page." },
+{ code: "DB-01", name: "Real-World Problem Solving & Product Thinking", level: "Start here",
+  outcome: "Turns 'we need an app' into requirements, scope and a not-building list.",
+  modules: ["Identifying real problems: symptoms vs root causes", "User research, personas, journeys, jobs-to-be-done", "Stakeholder interviews", "Functional vs non-functional requirements", "Acceptance criteria", "MVP thinking and prioritization", "Product-market assumptions, business models, success metrics", "Risks and constraints"],
+  simulation: "A transport company runs on WhatsApp and Excel — determine what is broken, what to automate, what to build, what stays manual." },
 ] },
 { name: "Build", courses: [
-{ code: "DB-02", name: "Professional Web Development", level: "Builder", outcome: "Ships a production-quality business website from a brief.", modules: ["HTML structure", "CSS + responsive", "Mobile-first fixes", "JavaScript + forms", "UI/UX teardown", "React fundamentals", "Design systems + Tailwind", "Deploy with domain + HTTPS"] },
-{ code: "DB-03", name: "Backend, APIs & Databases", level: "Builder", outcome: "Builds a complete business app: login → dashboard → orders → admin.", modules: ["Why backends exist", "APIs: endpoints, JSON, status codes", "Node.js + npm", "Express routes + validation", "PostgreSQL essentials", "Database design from a spreadsheet", "Authentication", "Authorization (the invoice-leak scenario)", "Transactions + idempotency"] },
-{ code: "DB-05", name: "Data & PostgreSQL", level: "Builder", outcome: "Fixes a company's contradictory data at the system level.", modules: ["Data thinking", "Relational design", "SQL fluency", "Indexing + constraints", "Migrations + backups", "Reporting queries"] },
-{ code: "DB-14", name: "Mobile App Development", level: "Builder", outcome: "Ships a mobile companion on a real backend.", modules: ["Mobile UX + navigation", "State + API integration", "Auth + storage + push", "Permissions + errors", "Store deployment concepts"] },
+{ code: "DB-02", name: "Professional Web Development", level: "Builder",
+  outcome: "Ships a production-style business website and dashboard.",
+  modules: ["HTML, CSS, responsive design, accessibility", "Forms, validation, loading and empty states", "JavaScript: state, events, API consumption", "React + TypeScript + Vite", "Component architecture, routing, reusable UI", "Mobile UX and performance"],
+  project: "Production-style business website + dashboard from a brief." },
+{ code: "DB-03", name: "Backend, APIs & Databases", level: "Builder",
+  outcome: "Builds customer → order → payment → delivery backends that survive concurrency.",
+  modules: ["Node.js, Express: routes, controllers, middleware, validation", "REST: endpoints, JSON, status codes, error handling", "PostgreSQL: tables, keys, relationships, indexes", "Transactions, constraints, migrations", "Authentication vs authorization", "Logging and rate limiting"],
+  project: "Complete business application with login, dashboard, orders and admin." },
+{ code: "DB-05", name: "Data, PostgreSQL & Business Data", level: "Builder",
+  outcome: "Fixes contradictory business data at the system level.",
+  modules: ["Relational modelling and normalization", "SQL: joins, aggregation, reporting", "Indexing, transactions, integrity", "Audit trails", "Analytics foundations", "Backup and recovery", "Data lifecycle"],
+  project: "Business database for customers, orders, transactions and audit." },
+{ code: "DB-14", name: "Mobile App Builder", level: "Builder",
+  outcome: "Ships a mobile companion on a real backend.",
+  modules: ["Mobile UX and navigation", "State and API integration", "Auth, storage, push, camera, location", "Offline mode and permissions", "Error handling and testing", "App deployment"] },
 ] },
 { name: "AI", courses: [
-{ code: "DB-04", name: "AI-Native Development", level: "Signature", outcome: "Uses AI as an engineering partner — and catches it when it's wrong.", modules: ["What AI can/can't do", "Builder prompting", "THINK → PLAN → BUILD → REVIEW → TEST → SHIP", "AI code review drills", "AI debugging triage", "AI architecture critique", "Verification discipline", "Final: AI vs Engineer"] },
-{ code: "DB-12", name: "AI Agents & Automation", level: "Flagship", outcome: "Ships an AI employee for one business function.", modules: ["Automation thinking", "Trigger → Logic → Action → Verify", "APIs + webhooks", "Low-code workflows", "AI classification + routing", "Agent guardrails + permissions", "Human-in-the-loop design", "Agent security review"] },
+{ code: "DB-04", name: "AI-Native Software Development", level: "Signature",
+  outcome: "Directs AI effectively — and verifies everything it produces.",
+  modules: ["AI-assisted coding and context engineering", "Prompting for builders", "AI code review: finding bugs and bad assumptions", "AI debugging triage", "AI architecture assistance", "AI docs, tests and research", "Hallucinations, limits, model selection", "Agentic development and human judgment"],
+  project: "AI vs Engineer: generate, inspect, test, break, fix, and document what AI got wrong." },
+{ code: "DB-12", name: "AI Agents, Automation & Business Workflows", level: "Flagship",
+  outcome: "Ships an AI employee for one business function.",
+  modules: ["Automation thinking: triggers, conditions, approvals", "Workflow design and webhooks/APIs", "AI classification, extraction, routing", "Agents: tools, memory, guardrails, permissions", "Human-in-the-loop design", "Agent security review", "RAG over company knowledge"],
+  project: "Build an AI employee: lead qualification, support, or reporting agent." },
 ] },
 { name: "Production", courses: [
-{ code: "DB-06", name: "Production Engineering", level: "Professional", outcome: "Deploys with monitoring, backups and a rollback plan.", modules: ["Environments + secrets", "CI/CD gates", "Monitoring + alerts", "Backups + recovery drills", "Rollback runs", "Incident room simulation"] },
-{ code: "DB-07", name: "Secure Software", level: "Professional", outcome: "Attacks their own app ethically, then fixes it.", modules: ["Auth + sessions", "Access control", "Injection, XSS, CSRF", "API + upload security", "Rate limits + headers", "Threat modeling", "Break labs + audit mission"] },
-{ code: "DB-08", name: "Testing & QA", level: "Professional", outcome: "Owns a regression suite that catches the double-charge.", modules: ["Test strategy", "Unit + integration + API tests", "Playwright end-to-end", "Regression + edge cases", "Failure analysis"] },
-{ code: "DB-10", name: "Real-Time Systems", level: "Professional", outcome: "Ships a live operations dashboard.", modules: ["WebSockets + events", "Notifications + presence", "Reconnection + duplicates", "Offline behaviour"] },
-{ code: "DB-11", name: "Documents & Storage", level: "Professional", outcome: "Ships a secure document vault.", modules: ["Uploads + object storage", "Presigned URLs + access control", "Validation + versioning", "Confidential handling"] },
-{ code: "DB-09", name: "Payments & Ledgers", level: "Advanced", outcome: "Survives duplicate webhooks and timeout storms.", modules: ["Payment lifecycle", "Webhooks + idempotency", "Refunds + payouts", "Ledger + reconciliation", "Approvals + audit trails"] },
+{ code: "DB-06", name: "Production Engineering", level: "Professional",
+  outcome: "Deploys systems a business can depend on — and recovers them.",
+  modules: ["Dev, staging, production; env management and secrets", "CI/CD pipelines", "Deployment, migrations, rollbacks", "Health checks and monitoring", "Performance, caching, queues and workers", "Backups and graceful failure", "Dependency management", "Incident Lab: database connection fails — diagnose and recover"] },
+{ code: "DB-07", name: "Secure Software & Cybersecurity", level: "Professional",
+  outcome: "Attacks their own app ethically — then fixes it.",
+  modules: ["Security mindset", "Authentication, sessions, passwords, secrets", "Authorization and RBAC", "Injection, XSS, CSRF", "API, upload and webhook security", "Rate limiting and security headers", "Supply-chain and dependency risks", "Logging, audit trails, OWASP Top 10", "Threat modeling"],
+  project: "Security audit: find and fix 10 planted vulnerabilities." },
+{ code: "DB-08", name: "Software Testing & Quality Engineering", level: "Professional",
+  outcome: "Owns a regression suite that catches the double-charge.",
+  modules: ["Test strategy: happy, wrong, malicious, failure, concurrency paths", "Unit, integration and API tests", "Playwright end-to-end", "Regression, smoke, UAT", "Mocks and test databases", "CI testing and failure analysis"],
+  project: "Automated regression suite for a checkout flow." },
+{ code: "DB-10", name: "Real-Time Applications", level: "Professional",
+  outcome: "Ships a live operations dashboard.",
+  modules: ["WebSockets and Socket.IO", "Events, notifications, presence", "Live dashboards", "Reconnection and duplicate events", "Ordering and offline behaviour"] },
+{ code: "DB-11", name: "Documents, Uploads & Storage", level: "Professional",
+  outcome: "Ships a secure business document system.",
+  modules: ["Uploads and object storage", "Private files and signed URLs", "MIME validation and size limits", "Malware awareness and metadata", "Hashing and versioning", "Evidence systems and extraction"] },
+{ code: "DB-09", name: "Payments, Ledgers, Webhooks & Money", level: "Advanced",
+  outcome: "Prevents double payment when webhooks arrive twice.",
+  modules: ["Payment lifecycle: auth, capture, refund, chargeback", "Gateways", "Webhooks and idempotency", "Duplicate-payment defense", "Ledgers and reconciliation", "Fees, commission, currency, rounding", "Audit trails and two-person approval", "Financial race conditions"],
+  simulation: "Two requests release the same payment simultaneously — design recovery." },
 ] },
 { name: "Business Tech", courses: [
-{ code: "DB-13", name: "CRM / ERP / HRM", level: "Consultant", outcome: "Replaces six spreadsheets with one operating system.", modules: ["CRM pipelines", "ERP: stock, purchasing, finance", "HRM: onboarding to offboarding", "Mini-OS final project"] },
-{ code: "DB-15", name: "Search & AI Visibility", level: "Consultant", outcome: "Makes a business understandable to Google and AI answers.", modules: ["Technical SEO", "Answer-engine content", "Entity + citation strategy", "Visibility audit mission"] },
-{ code: "DB-16", name: "Social Content Systems", level: "Consultant", outcome: "Runs a 30-day content system from zero.", modules: ["Pillars + hooks + scripts", "Short-form production", "Repurpose engine", "Analytics + funnels"] },
+{ code: "DB-13", name: "CRM / ERP / HRM", level: "Consultant",
+  outcome: "Replaces six spreadsheets with one operating system.",
+  modules: ["CRM: leads, pipeline, activities, follow-ups, support", "ERP: products, orders, inventory, purchasing, finance", "HRM: records, onboarding, attendance, leave, approvals"],
+  project: "Mini business OS for a fictional company." },
+{ code: "DB-15", name: "Search & AI Visibility Engineering", level: "Consultant",
+  outcome: "Makes a business understandable to Google and AI answers.",
+  modules: ["Technical SEO: crawl, index, speed, schema", "Search intent and content architecture", "Local SEO", "AEO: answer-oriented content", "GEO: entities, citations, topical authority", "Analytics and conversion"],
+  project: "Full search visibility audit and implementation." },
+{ code: "DB-16", name: "Social Media & Content Operations", level: "Consultant",
+  outcome: "Runs social as a system, not a lottery.",
+  modules: ["Audience and positioning", "Content pillars, hooks, scripts", "Short-form video and editing", "Repurposing engine", "Calendars, publishing, community", "Analytics and content funnels", "AI-assisted production"] },
 ] },
 { name: "Product", courses: [
-{ code: "DB-17", name: "Idea to MVP", level: "Founder", outcome: "Decides what should (and shouldn't) be built.", modules: ["Problem + customer + market", "Validation sprints", "MVP definition + prototype", "Pricing hypothesis"] },
-{ code: "DB-18", name: "Build, Launch & Grow", level: "Founder", outcome: "Ships a small SaaS with users and metrics.", modules: ["MVP architecture", "Onboarding + analytics", "Launch + pricing + retention", "Infrastructure + cost control"] },
-{ code: "DB-19", name: "Digital Transformation", level: "Consultant", outcome: "Delivers a professional transformation audit.", modules: ["Business + process + tech audits", "Opportunity ranking", "NOW/30/90/12-month roadmap", "ROI in hours, not adjectives"] },
+{ code: "DB-17", name: "From Idea to MVP", level: "Founder",
+  outcome: "Decides what should — and shouldn't — be built.",
+  modules: ["Problem, customer, market, interviews", "Competitors and validation", "Business model and pricing", "MVP definition and prototype", "Roadmap, feedback, analytics, iteration"],
+  project: "Startup validation sprint: problem → prototype → pricing." },
+{ code: "DB-18", name: "Build, Launch & Grow", level: "Founder",
+  outcome: "Ships a small SaaS with users and metrics.",
+  modules: ["MVP architecture and roadmap", "Onboarding and analytics", "Launch, pricing, retention", "Infrastructure, scaling, cost control", "Product metrics"] },
+{ code: "DB-19", name: "Digital Transformation Consulting", level: "Consultant",
+  outcome: "Delivers a professional transformation audit.",
+  modules: ["Business, process and technology audits", "Automation opportunity ranking", "NOW / 30 / 90 / 12-month roadmap", "ROI in hours, risk and change management"],
+  project: "Full transformation report for a fictional company." },
 ] },
 { name: "Professional", courses: [
-{ code: "DB-20", name: "Client Delivery & Freelancing", level: "Professional", outcome: "Survives a real client: brief, budget, deadline, difficult stakeholder.", modules: ["Positioning + portfolio", "Discovery calls", "Proposals + contracts", "Kickoffs + status comms", "Scope creep defense", "QA, handover, support"] },
-{ code: "DB-21", name: "Technology Operations", level: "Professional", outcome: "Runs five clients without chaos.", modules: ["SOPs + client folders", "Support + incidents + backups", "Finance + renewals", "Build your own OS"] },
-{ code: "DB-22", name: "Professional Challenge", level: "Master", outcome: "Earns the Capability Record: live app, incidents survived, defense passed.", modules: ["Client brief → discovery → architecture", "Build under constraints", "10-break incident gauntlet", "Technical + client defense", "Ship + evidence pack"] },
+{ code: "DB-20", name: "Client Delivery & Freelancing", level: "Professional",
+  outcome: "Survives a real client: brief, budget, deadline, difficult stakeholder.",
+  modules: ["Positioning and proof-based portfolio", "Discovery calls and requirements", "Proposals, SOWs, pricing, contracts", "Kickoffs, status comms, difficult conversations", "Scope-creep defense and change control", "QA, UAT, handover, support, invoicing, renewals"],
+  simulation: "Client says 'just add one small thing' — run the change-request drill." },
+{ code: "DB-21", name: "Business Operations & Practice", level: "Professional",
+  outcome: "Runs five clients without chaos.",
+  modules: ["SOPs and documentation", "Project folders and knowledge management", "Time, finance and vendor management", "Support, incidents, backups, disaster recovery", "Security policies and legal awareness", "Team, hiring and quality systems"] },
+{ code: "DB-22", name: "Professional Challenge", level: "Master",
+  outcome: "Earns the Capability Record across 8 defense interviews.",
+  modules: ["72-hour build: discover → architect → build → secure → deploy", "10-break incident gauntlet", "Technical, security, AI, product, client and incident defenses", "Live app, docs, reports and demonstration"],
+  project: "CargoFlow Logistics in 72 hours: discovery to defended demo." },
 ] },
 ];
 
 export const PATHWAYS = [
 { code: "A", name: "Digital Starter", path: "DB-00 → DB-01 → DB-02", out: "Understands technology and builds basic products." },
-{ code: "B", name: "Digital Builder", path: "DB-00 → DB-01 → DB-02 → DB-03 → DB-04 → DB-05 → DB-06 → DB-08", out: "Builds and deploys real software." },
+{ code: "B", name: "Digital Builder", path: "DB-00 → DB-01 → DB-02 → DB-03 → DB-05 → DB-06 → DB-08", out: "Builds and deploys real software." },
 { code: "C", name: "AI Product Builder", path: "DB-00 → DB-01 → DB-02 → DB-03 → DB-04 → DB-06 → DB-07 → DB-08 → DB-12 → DB-17 → DB-18", out: "Builds AI-enabled products." },
 { code: "D", name: "AI Automation Specialist", path: "DB-00 → DB-01 → DB-04 → DB-12 → DB-13 → DB-19", out: "Implements AI/automation inside businesses." },
 { code: "E", name: "Transformation Consultant", path: "DB-01 → DB-12 → DB-13 → DB-15 → DB-16 → DB-19 → DB-20 → DB-21", out: "Diagnoses businesses and delivers transformation." },
-{ code: "F", name: "Professional Builder", path: "DB-00 → DB-22, everything", out: "The flagship: beginner to real-world operator." },
+{ code: "F", name: "Professional Operator", path: "DB-00 → DB-22, everything", out: "Flagship: beginner to real-world operator." },
 ];
 
 export const MISSION_STEPS = [
@@ -69,12 +134,12 @@ export const MISSION_STEPS = [
 ];
 
 export const DIFFICULTY = [
-["L1 · Guided", "Follow these instructions.", "cobalt"],
-["L2 · Assisted", "Tools provided. Find the next step.", "cyan"],
-["L3 · Independent", "Here's the problem. Solve it.", "amber"],
-["L4 · Production", "Solve it under real constraints.", "violet"],
-["L5 · Expert", "Unfamiliar problem. Incomplete information.", "teal"],
-] as const;
+["L1 · Guided", "Follow these instructions."],
+["L2 · Assisted", "Tools provided. Find the next step."],
+["L3 · Independent", "Here's the problem. Solve it."],
+["L4 · Production", "Solve it under real constraints."],
+["L5 · Expert", "Unfamiliar problem. Incomplete information."],
+];
 
 export const UNIVERSE = [
 ["CargoFlow", "Logistics — shipments, assistants, CRM, breaches."],

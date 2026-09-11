@@ -109,7 +109,7 @@ export default function Academy() {
                   {lv.courses.map((c) => (
                     <details key={c.code} className="group overflow-hidden rounded-2xl border border-hair bg-panel">
                       <summary className="flex cursor-pointer list-none items-center gap-4 px-5 py-4 transition-colors hover:bg-white/[0.03] [&::-webkit-details-marker]:hidden">
-                        <span className="font-mono-d rounded-md bg-cobalt/15 px-2.5 py-1 text-xs font-bold text-[#9db1ff]">{c.code}</span>
+                        <span className="font-mono-d rounded-md bg-cobalt/10 px-2.5 py-1 text-xs font-bold text-cobalt">{c.code}</span>
                         <span className="min-w-0 flex-1">
                           <span className="block font-bold text-ink">{c.name}</span>
                           <span className="mt-0.5 block truncate text-[13px] text-ink-soft">{c.outcome}</span>
@@ -122,6 +122,12 @@ export default function Academy() {
                           <li key={m} className="flex gap-2 border-b border-hair/60 py-2 text-sm text-ink-soft last:border-b-0"><span className="text-tealx">—</span>{m}</li>
                         ))}
                       </ul>
+                      {(c.project || c.simulation) && (
+                        <div className="grid gap-3 border-t border-hair bg-panel-deep/50 px-5 py-4 sm:grid-cols-2">
+                          {c.project && <p className="text-[13px] leading-relaxed text-ink-soft"><span className="font-mono-d mr-2 text-[10px] font-bold uppercase tracking-[0.12em] text-amber-deep">Project</span>{c.project}</p>}
+                          {c.simulation && <p className="text-[13px] leading-relaxed text-ink-soft"><span className="font-mono-d mr-2 text-[10px] font-bold uppercase tracking-[0.12em] text-coral">Simulation</span>{c.simulation}</p>}
+                        </div>
+                      )}
                     </details>
                   ))}
                 </div>
@@ -146,12 +152,13 @@ export default function Academy() {
         <div className="space-y-6">
           <div className="rounded-2xl border border-hair bg-panel p-7">
             <h3 className="text-xl font-extrabold text-ink" style={{ fontFamily: "var(--font-sora)" }}>Difficulty, calibrated</h3>
-            <div className="mt-4 space-y-2.5">
-              {DIFFICULTY.map(([t, d]) => (
-                <div key={t} className="flex items-baseline gap-3 text-sm">
-                  <span className="font-mono-d w-24 shrink-0 text-xs font-bold text-cobalt">{t}</span>
-                  <span className="text-ink-soft">{d}</span>
-                </div>
+            <div className="mt-4 overflow-hidden rounded-2xl border border-hair bg-panel">
+              {DIFFICULTY.map(([t, d], i) => (
+                <p key={t} className={`px-5 py-3 text-sm leading-relaxed ${i > 0 ? "border-t border-hair" : ""}`}>
+                  <span className="font-mono-d whitespace-nowrap text-xs font-bold text-cobalt">{t}</span>
+                  <span className="text-ink-faint"> — </span>
+                  <span className="font-semibold text-ink">{d}</span>
+                </p>
               ))}
             </div>
           </div>

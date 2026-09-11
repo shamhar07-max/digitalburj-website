@@ -1,116 +1,52 @@
 import type { Metadata } from "next";
-import { CheckCircle2 } from "lucide-react";
-import { SectionTag } from "@/components/SectionTag";
-import { GradientBackdrop } from "@/components/GradientBackdrop";
+import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
+import { SectionHead } from "@/components/lab";
 import { CTASection } from "@/components/CTASection";
-import { iconMap } from "@/components/icon-map";
-import { pillars, services, type Pillar } from "@/lib/data";
-import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Services",
-  description:
-    "Full-stack product development, fintech & trading platforms, SME automation, AI agents, and growth marketing — everything a UAE SME needs, under one roof.",
+  title: "Capabilities — Transform, Build, Intelligence, Automate, Grow, Operate",
+  description: "Seven capability groups, one operating method. Digital Burj diagnoses, builds, automates and operates — outcomes, not activities.",
 };
+
+const GROUPS: { id: string; n: string; t: string; lede: string; items: string[] }[] = [
+{ id: "transform", n: "01", t: "Transform", lede: "Business diagnosis, process redesign, technology strategy. We find what is actually wrong before proposing anything.", items: ["Digital health check", "Automation audit", "Maturity assessment", "Transformation roadmap"] },
+{ id: "build", n: "02", t: "Build", lede: "Websites, web apps, mobile apps, SaaS, portals and custom software — engineered to survive users.", items: ["Corporate + service websites", "Web applications & dashboards", "Android / iOS / cross-platform", "SaaS & MVPs", "Legacy modernization"] },
+{ id: "intelligence", n: "03", t: "Intelligence", lede: "AI where it creates measurable value. Chatbots to RAG to governed agents — never decoration.", items: ["Website + WhatsApp assistants", "Sales & support agents", "Document intelligence", "Private knowledge (RAG)", "AI governance & evaluation"] },
+{ id: "automate", n: "04", t: "Automate", lede: "Automation first; AI where it improves the workflow. Trigger → validate → execute → verify.", items: ["Workflow automation", "API & webhook integrations", "CRM/ERP automation", "Document + approval flows"] },
+{ id: "grow", n: "05", t: "Grow", lede: "Search, content and lead systems that compound — SEO, AEO, GEO, social, funnels.", items: ["Technical + local SEO", "Answer-engine visibility", "Content systems", "Lead capture → CRM → follow-up"] },
+{ id: "operate", n: "06", t: "Operate", lede: "Maintenance, monitoring, optimization. We don't disappear after launch.", items: ["Managed websites & software", "Managed automation & AI", "Managed CRM/ERP", "Measure → improve → report"] },
+{ id: "business-systems", n: "07", t: "Business systems", lede: "CRM, ERP and HRM mapped around how the business actually works.", items: ["Sales pipelines that match reality", "Inventory, purchasing, finance", "Onboarding, leave, documents"] },
+];
 
 export default function ServicesPage() {
   return (
     <>
-      <section className="relative overflow-hidden pt-16 pb-20 sm:pt-24 sm:pb-24">
-        <GradientBackdrop variant="hero" />
-        <div className="container-db">
-          <Reveal className="flex justify-center">
-            <SectionTag>Services</SectionTag>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <h1 className="mx-auto mt-8 max-w-3xl text-center font-display text-4xl font-semibold leading-tight text-fg sm:text-6xl">
-              Everything an idea needs to become{" "}
-              <span className="text-gradient-gold">a running business.</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={0.16}>
-            <p className="mx-auto mt-6 max-w-2xl text-center text-base text-fg-muted sm:text-lg">
-              We organize what we do into three pillars — Build, Automate, Grow — because
-              that&apos;s the order a real business actually needs them in.
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      {(["Build", "Automate", "Grow"] as Pillar[]).map((pillarName, pIndex) => {
-        const pillar = pillars.find((p) => p.name === pillarName)!;
-        const pillarServices = services.filter((s) => s.pillar === pillarName);
-        return (
-          <section
-            key={pillarName}
-            className={cn(
-              "py-20 sm:py-24",
-              pIndex % 2 === 1 && "border-y border-border bg-bg-soft"
-            )}
-          >
-            <div className="container-db">
-              <Reveal className="mb-14 max-w-2xl">
-                <span className="font-display text-6xl font-bold text-border">
-                  0{pIndex + 1}
-                </span>
-                <h2 className="mt-4 font-display text-3xl font-semibold text-fg sm:text-4xl">
-                  {pillar.name}
-                </h2>
-                <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-gold">
-                  {pillar.tagline}
-                </p>
-                <p className="mt-4 text-base leading-relaxed text-fg-muted">
-                  {pillar.description}
-                </p>
-              </Reveal>
-
-              <div className="grid gap-8 lg:grid-cols-2">
-                {pillarServices.map((service) => {
-                  const Icon = iconMap[service.icon];
-                  return (
-                    <Reveal key={service.slug}>
-                      <div
-                        id={service.slug}
-                        className="card-glass scroll-mt-24 rounded-3xl p-8"
-                      >
-                        <div className="flex items-center gap-4">
-                          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-border-soft bg-surface-2 text-gold">
-                            {Icon && <Icon size={22} />}
-                          </span>
-                          <h3 className="font-display text-xl font-semibold text-fg">
-                            {service.title}
-                          </h3>
-                        </div>
-                        <p className="mt-5 text-sm leading-relaxed text-fg-muted">
-                          {service.description}
-                        </p>
-                        <ul className="mt-6 space-y-3">
-                          {service.bullets.map((b) => (
-                            <li
-                              key={b}
-                              className="flex items-start gap-2.5 text-sm text-fg-muted"
-                            >
-                              <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-cyan" />
-                              {b}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </Reveal>
-                  );
-                })}
-              </div>
+      <PageHero tag="DB-CAP · Capabilities" title={<>Seven groups. One method.</>} sub="Not thirty competing services. Each group below is a doorway into the same operating system: discover → diagnose → design → build → test → launch → improve." chips={["Fixed scope", "Acceptance criteria", "Outcomes, not activities"]} />
+      {GROUPS.map((g) => (
+        <section key={g.id} id={g.id} className="scroll-mt-24 border-b border-hair last:border-b-0">
+          <div className="container-db grid gap-6 py-12 lg:grid-cols-[1fr_1.4fr] lg:items-start">
+            <Reveal>
+              <p className="font-mono-d text-xs font-semibold uppercase tracking-[0.22em] text-cyanx">{g.n}</p>
+              <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-ink sm:text-4xl" style={{ fontFamily: "var(--font-sora)" }}>{g.t}</h2>
+              <p className="mt-3 max-w-md leading-relaxed text-ink-soft">{g.lede}</p>
+            </Reveal>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {g.items.map((item) => (
+                <div key={item} className="rounded-xl border border-hair bg-panel px-4 py-3.5 text-sm font-semibold text-ink-soft transition-colors hover:border-cobalt/50 hover:text-ink">
+                  {item}
+                </div>
+              ))}
             </div>
-          </section>
-        );
-      })}
-
-      <CTASection
-        eyebrow="Not sure where to start?"
-        title="Tell us what's slowing the business down."
-        description="Whether it's a product that needs building or an operation that needs automating, we'll map it to the right service line — free of charge."
-      />
+          </div>
+        </section>
+      ))}
+      <section className="container-db max-w-4xl pb-20">
+        <Reveal>
+          <SectionHead index="07" kicker="Not sure which door?" title={<>Start with the problem, not the category.</>} />
+        </Reveal>
+        <div className="mt-8"><CTASection eyebrow="Discovery" title="Tell us what's wrong. We'll map the rest." description="A short call is enough to route you to Transform, Build, Automate or Grow." /></div>
+      </section>
     </>
   );
 }

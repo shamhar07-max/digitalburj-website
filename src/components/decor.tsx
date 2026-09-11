@@ -45,23 +45,23 @@ export function Sticker({ className = "" }: { className?: string }) {
 export function ConsoleStack() {
   return (
     <div className="relative mx-auto w-full max-w-[420px] pb-10 pr-4 pt-6">
-      <div className="animate-floaty-late absolute right-0 top-0 w-[62%] rounded-2xl border-2 border-ink bg-navy p-4 text-paper shadow-[6px_6px_0_rgba(18,51,42,0.25)]" style={{ "--tilt": "3deg", transform: "rotate(3deg)" } as React.CSSProperties}>
-        <p className="font-mono-d text-[10px] tracking-[0.2em] text-paper/60">FIG.01 — CAPABILITY ORBIT</p>
+      <div className="animate-floaty-late absolute right-0 top-0 w-[62%] rounded-2xl border-2 border-ink bg-white p-4 shadow-[6px_6px_0_rgba(18,51,42,0.18)]" style={{ "--tilt": "3deg", transform: "rotate(3deg)" } as React.CSSProperties}>
+        <p className="font-mono-d text-[10px] tracking-[0.2em] text-ink-faint">FIG.01 — CAPABILITY ORBIT</p>
         <svg viewBox="0 0 200 120" className="mt-2 h-24 w-full" fill="none" aria-hidden>
-          <circle cx="100" cy="60" r="44" stroke="rgba(250,246,238,0.25)" />
+          <circle cx="100" cy="60" r="44" stroke="rgba(23,37,31,0.18)" />
           <ellipse cx="100" cy="60" rx="70" ry="26" stroke="#0E7C6B" strokeWidth="1.4" transform="rotate(-16 100 60)" />
           <ellipse cx="100" cy="60" rx="70" ry="26" stroke="#D9481C" strokeWidth="1.4" transform="rotate(18 100 60)" />
           <circle cx="100" cy="60" r="9" fill="#0B6B4F" stroke="#FAF6EE" strokeWidth="1.5" />
           <circle cx="158" cy="42" r="4" fill="#E8721C" />
           <circle cx="46" cy="80" r="4" fill="#0E7C6B" />
         </svg>
-        <div className="mt-1 flex justify-between font-mono-d text-[10px] text-paper/60"><span>5 TRACKS</span><span className="font-semibold text-tealx">● SYNCED</span></div>
+        <div className="mt-1 flex justify-between font-mono-d text-[10px] text-ink-faint"><span>5 TRACKS</span><span className="font-semibold text-tealx">● SYNCED</span></div>
       </div>
       <div className="animate-floaty relative w-[82%] rounded-2xl border-2 border-ink bg-white shadow-[8px_8px_0_#12332A]" style={{ "--tilt": "-2deg", transform: "rotate(-2deg)" } as React.CSSProperties}>
         <div className="tape absolute -top-3 left-8 h-6 w-20 -rotate-6" aria-hidden />
         <div className="flex items-center justify-between rounded-t-[14px] bg-amberx px-5 py-2.5">
-          <span className="font-mono-d text-[11px] font-bold tracking-[0.18em] text-ink">SPECIMEN · L3 CERTIFIED</span>
-          <BadgeCheck size={17} className="text-ink" />
+          <span className="font-mono-d text-[11px] font-bold tracking-[0.18em] text-[#171204]">SPECIMEN · L3 CERTIFIED</span>
+          <BadgeCheck size={17} className="text-[#171204]" />
         </div>
         <div className="px-5 py-4">
           <p className="font-mono-d text-[11px] text-ink-faint">CREDENTIAL NO.</p>
@@ -79,6 +79,17 @@ export function ConsoleStack() {
       <div className="absolute bottom-0 right-6 rounded-xl border-2 border-ink bg-tealx px-4 py-2.5 text-white shadow-[4px_4px_0_#12332A]" style={{ transform: "rotate(2deg)" }}>
         <p className="font-mono-d text-[10px] tracking-[0.16em] opacity-80">ASSESSMENT QUEUE</p>
         <p className="font-display text-sm font-extrabold">14 graded this week</p>
+      </div>
+      <div className="animate-floaty absolute -bottom-4 left-2 w-[58%] rounded-xl border-2 border-ink bg-white px-4 py-3 shadow-[5px_5px_0_rgba(217,72,28,0.35)]" style={{ "--tilt": "-3deg", transform: "rotate(-3deg)" } as React.CSSProperties}>
+        <div className="flex items-center justify-between gap-2">
+          <p className="font-mono-d text-[10px] tracking-[0.16em] text-ink-faint">REVIEWER SIGN-OFF</p>
+          <span className="font-mono-d rounded-full bg-tealx/15 px-2 py-0.5 text-[10px] font-bold text-tealx">● APPROVED</span>
+        </div>
+        <p className="mt-1.5 text-[13px] font-bold text-ink">“Solid reasoning. Authz correctly placed.”</p>
+        <div className="mt-2 flex items-center justify-between border-t border-dashed border-hair pt-2">
+          <span className="font-mono-d text-[10px] text-ink-faint">R. AHMED · REVIEWER</span>
+          <span className="font-display text-sm font-extrabold text-ink">88<span className="text-ink-faint">/100</span></span>
+        </div>
       </div>
       <Sticker className="absolute -left-2 -top-4" />
     </div>
@@ -112,8 +123,8 @@ export function CredChip() {
   return (
     <div className="overflow-hidden rounded-2xl border border-hair bg-panel">
       <div className="flex items-center justify-between bg-amberx px-5 py-2.5">
-        <span className="font-mono-d text-[11px] font-bold tracking-[0.18em] text-ink">SPECIMEN · L3 CERTIFIED</span>
-        <BadgeCheck size={17} className="text-ink" />
+        <span className="font-mono-d text-[11px] font-bold tracking-[0.18em] text-[#171204]">SPECIMEN · L3 CERTIFIED</span>
+        <BadgeCheck size={17} className="text-[#171204]" />
       </div>
       <div className="px-5 py-4">
         <p className="font-mono-d text-[11px] text-ink-faint">CREDENTIAL NO.</p>

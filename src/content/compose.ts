@@ -216,6 +216,23 @@ export const DOCS: DocPage[] = [
 
 export { GLOSSARY_CATS } from "./bank2";
 
+// Category thumbnails — verified stock photography (Unsplash CDN, lazy-loaded).
+const U = (id: string) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=400&q=60`;
+export const CAT_IMAGE: Record<string, string> = {
+  Web: U("1498050108023-c5249f4df085"),
+  AI: U("1518770660439-4636190af475"),
+  Automation: U("1553877522-43269d4ea984"),
+  SEO: U("1460925895917-afdab827c52f"),
+  "AI Search": U("1550751827-4bd374c3f58b"),
+  Social: U("1556761175-b413da4baf72"),
+  CRM: U("1552664730-d307ca884978"),
+  Systems: U("1434030216411-0b793f4b4173"),
+  Growth: U("1600880292203-757bb62b4baf"),
+  Apps: U("1461749280684-dccba630e2f6"),
+  Startup: U("1521737604893-d14cc237f11d"),
+  Strategy: U("1526374965328-7f61d4dc18c5"),
+};
+
 export const COUNTS = {
   blog: BLOG.length, solutions: SOLUTIONS.length, programs: PROGRAM_PAGES.length,
   terms: TERMS.length, docs: DOCS.length,

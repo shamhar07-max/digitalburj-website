@@ -3,6 +3,9 @@
 import { useMemo, useState } from "react";
 import { BLOG } from "@/content/compose";
 
+// Unique photo per article — deterministic seed, lazy-loaded.
+const imgFor = (slug: string) => `https://picsum.photos/seed/db-${slug}/400/300`;
+
 export function BlogIndex() {
   const [q, setQ] = useState("");
   const [year, setYear] = useState("all");
@@ -36,15 +39,27 @@ export function BlogIndex() {
         </select>
       </div>
       <p className="font-mono-d mt-4 text-xs uppercase tracking-[0.14em] text-ink-faint">{list.length} articles</p>
-      <div className="mt-4 grid gap-3">
+      <div className="mt-4 grid gap-4 sm:grid-cols-2">
         {list.map((p) => (
-          <a key={p.slug} href={`/journal/${p.slug}`} className="group rounded-xl border border-hair bg-panel p-4 transition-all hover:-translate-y-0.5 hover:border-cobalt">
-            <div className="flex flex-wrap items-center gap-2 font-mono-d text-[11px] uppercase tracking-[0.12em] text-ink-faint">
-              <span className="font-semibold text-cobalt">{p.cat}</span>
-              <span>{p.date}</span><span>·</span><span>{p.reading} min</span>
-            </div>
-            <h2 className="mt-1.5 font-bold leading-snug text-ink group-hover:text-cobalt">{p.title}</h2>
-            <p className="mt-1 line-clamp-2 text-sm text-ink-soft">{p.excerpt}</p>
+          <a key={p.slug} href={`/journal/${p.slug}`} className="group flex gap-4 rounded-2xl border border-hair bg-panel p-3 transition-all hover:-translate-y-0.5 hover:border-cobalt hover:shadow-[0_14px_36px_-18px_rgba(11,107,79,0.5)]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={imgFor(p.slug)}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              width={400}
+              height={300}
+              className="h-24 w-24 shrink-0 rounded-xl border border-hair bg-panel-deep object-cover sm:h-28 sm:w-28"
+            />
+            <span className="flex min-w-0 flex-col">
+              <span className="flex flex-wrap items-center gap-x-2 font-mono-d text-[10px] uppercase tracking-[0.12em] text-ink-faint">
+                <span className="font-semibold text-cobalt">{p.cat}</span>
+                <span>{p.date}</span><span>·</span><span>{p.reading} min</span>
+              </span>
+              <span className="mt-1 line-clamp-2 font-bold leading-snug text-ink group-hover:text-cobalt">{p.title}</span>
+              <span className="mt-1 hidden line-clamp-2 text-[13px] leading-snug text-ink-soft sm:block">{p.excerpt}</span>
+            </span>
           </a>
         ))}
       </div>

@@ -13,7 +13,7 @@ const plexserif = IBM_Plex_Serif({ variable: "--font-plexserif", subsets: ["lati
 export const metadata: Metadata = {
   metadataBase: new URL("https://digitalburj.com"),
   title: {
-    default: "DigitalBurj — Skills Today. Opportunities Tomorrow.",
+    default: "DigitalBurj — Intelligence. Engineered.",
     template: "%s — DigitalBurj",
   },
   description:
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#FAF6EE",
+  themeColor: "#05070A",
   width: "device-width",
   initialScale: 1,
 };
