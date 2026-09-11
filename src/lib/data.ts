@@ -1,9 +1,9 @@
 export const navPrimary = [
-  { label: "What We Do", href: "/services" },
-  { label: "How We Work", href: "/projects" },
-  { label: "Work", href: "/work" },
   { label: "Academy", href: "/academy" },
   { label: "Studio", href: "/studio" },
+  { label: "Journal", href: "/journal" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const navSolutions = [

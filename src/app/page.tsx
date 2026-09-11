@@ -28,10 +28,14 @@ export default function Home() {
 
       {/* HERO — broadsheet */}
       <section className="aurora relative overflow-hidden border-b border-hair">
-        <div className="blueprint absolute inset-0" aria-hidden />
-        <div className="container-db relative grid items-center gap-10 py-12 pb-40 sm:py-16 sm:pb-48 lg:grid-cols-[1.15fr_1fr]">
+        <div className="blueprint blueprint-drift absolute inset-0" aria-hidden />
+        <div className="container-db relative grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1.15fr_1fr]">
           <div>
-            <p className="font-mono-d text-xs font-semibold uppercase tracking-[0.24em] text-coral">
+            <p className="font-mono-d flex items-center gap-2 text-[11px] tracking-[0.18em] text-ink-faint">
+              <span className="text-cobalt">db-lab:~$</span> verify capability --live
+              <span className="animate-blink inline-block h-3.5 w-2 bg-cobalt" aria-hidden />
+            </p>
+            <p className="font-mono-d mt-3 text-xs font-semibold uppercase tracking-[0.24em] text-coral">
               A Dubai practice for skills · technology · talent
             </p>
             <h1 className="font-display mt-6 tracking-tight text-ink" style={{ fontSize: "clamp(2.6rem, 6.4vw, 5rem)", lineHeight: 0.98 }}>
@@ -39,12 +43,12 @@ export default function Home() {
               <span className="block">OPPORTUNITIES <span className="font-ed font-normal italic text-gold-deep">tomorrow.</span></span>
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-soft sm:text-lg">
-              Most people don&apos;t lack ambition — they lack proof. We teach practical skills,
+              Most people don&apos;t lack ambition — they lack <span className="marker-amber px-1 font-semibold text-ink">proof</span>. We teach practical skills,
               build real products alongside you, test what you can actually do, and introduce
               capable people to real work. Plain terms, written criteria, stated limits.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Button href="/academy">Start learning</Button>
+              <Button href="/academy" className="cta-glow">Start learning</Button>
               <Button href="/contact" variant="gold">Get something built</Button>
             </div>
             <dl className="mt-9 grid max-w-xl grid-cols-3 divide-x divide-hair border-y border-hair font-mono-d">
