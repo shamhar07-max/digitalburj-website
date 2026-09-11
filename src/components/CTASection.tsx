@@ -1,41 +1,27 @@
 import { Button } from "@/components/Button";
-import { Reveal } from "@/components/Reveal";
 
 export function CTASection({
-  eyebrow = "Let's build",
-  title = "Have an idea worth building?",
-  description = "Tell us what you're trying to build or automate — we'll tell you honestly what it takes to ship it.",
+  eyebrow = "Next step",
+  title = "Have an idea worth testing?",
+  description = "Tell us what you're trying to build or fix — we'll reply within 24 hours with an honest read on scope, cost, and what not to do.",
 }: {
   eyebrow?: string;
   title?: string;
   description?: string;
 }) {
   return (
-    <section className="container-db py-24 sm:py-32">
-      <Reveal>
-        <div className="card-glass relative overflow-hidden rounded-[2.5rem] px-6 py-16 text-center sm:px-16 sm:py-20">
-          <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-indigo/25 blur-[100px]" />
-          <div className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-gold/20 blur-[100px]" />
-
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
-            {eyebrow}
-          </span>
-          <h2 className="mx-auto mt-4 max-w-2xl font-display text-3xl font-semibold text-fg sm:text-5xl">
-            {title}
-          </h2>
-          <p className="mx-auto mt-5 max-w-xl text-base text-fg-muted sm:text-lg">
-            {description}
-          </p>
-          <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button href="/contact" variant="primary" className="px-8 py-3.5 text-base">
-              Start a project
-            </Button>
-            <Button href="/work" variant="secondary" className="px-8 py-3.5 text-base">
-              See our work
-            </Button>
-          </div>
+    <section className="container-db py-16 sm:py-20">
+      <div className="border-2 border-ink bg-panel px-6 py-14 text-center shadow-[8px_8px_0_#D9481C] sm:px-16">
+        <div className="font-mono-d text-xs font-semibold uppercase tracking-[0.24em] text-coral">{eyebrow}</div>
+        <h2 className="font-display mx-auto mt-4 max-w-2xl text-balance text-3xl font-extrabold leading-[1.05] tracking-tight text-ink sm:text-5xl">{title}</h2>
+        <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-ink-soft">{description}</p>
+        <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <Button href="/contact" className="px-8 py-3.5">Start a project</Button>
+          <a href="/projects" className="font-mono-d text-xs font-semibold uppercase tracking-[0.14em] text-ink-soft underline decoration-cobalt decoration-2 underline-offset-8 hover:text-cobalt">
+            Read the method first
+          </a>
         </div>
-      </Reveal>
+      </div>
     </section>
   );
 }

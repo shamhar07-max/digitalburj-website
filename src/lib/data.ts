@@ -1,9 +1,22 @@
-export const nav = [
-  { label: "Services", href: "/services" },
-  { label: "Work", href: "/work" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+export const navPrimary = [
+  { label: "Academy", href: "/academy" },
+  { label: "Studio", href: "/studio" },
+  { label: "Talent", href: "/talent" },
+  { label: "Journal", href: "/journal" },
 ];
+
+export const navMore = [
+  { label: "Business AI", href: "/business-ai" },
+  { label: "Global Careers", href: "/global-careers" },
+  { label: "Method", href: "/projects" },
+  { label: "Skills", href: "/skills" },
+  { label: "Services", href: "/services" },
+  { label: "About", href: "/about" },
+  { label: "Community", href: "/community" },
+];
+
+/** @deprecated Use navPrimary/navMore. */
+export const nav = [...navPrimary, ...navMore, { label: "Contact", href: "/contact" }];
 
 export type Pillar = "Build" | "Automate" | "Grow";
 
@@ -184,152 +197,15 @@ export type CaseStudy = {
   status: "Live Build" | "Platform Build" | "MVP Build" | "In Development";
   region: string;
   summary: string;
-  problem: string;
-  approach: string;
-  stack: string[];
-  highlights: string[];
-  color: string; // tailwind gradient classes
 };
 
-export const caseStudies: CaseStudy[] = [
-  {
-    slug: "loadbyton",
-    name: "Loadbyton",
-    tagline: "UAE road freight & container drayage marketplace",
-    category: "Marketplace · Logistics",
-    status: "Live Build",
-    region: "UAE — Dubai, Abu Dhabi, Sharjah, Fujairah",
-    summary:
-      "A full-stack marketplace connecting shippers who need a container or truck moved with verified carriers across the UAE — with escrow-held payments, live job tracking, and a complete admin back office.",
-    problem:
-      "UAE road freight ran on phone calls and WhatsApp groups — shippers had no visibility into pricing or carrier reliability, and carriers had no verified pipeline of loads.",
-    approach:
-      "We built a two-sided marketplace covering 12 equipment types from container chassis to flatbeds: shippers post jobs, verified carriers bid price and ETA, and the platform holds funds in escrow through pickup, transit, and delivery — releasing payout on confirmation or automatically after 24 hours.",
-    stack: ["Node 22", "Express", "SQLite (WAL)", "React 18", "Vite", "Tailwind CSS"],
-    highlights: [
-      "Escrow state machine: HELD → FUNDED → RELEASED, with dispute freezing",
-      "Carrier verification queue, TOTP 2FA, and full audit-log trail",
-      "Recurring job templates, contract lanes, loyalty tiers & referrals",
-      "Server-rendered SEO pages + prerendered marketing routes for crawlability",
-    ],
-    color: "from-cyan-400 to-indigo-500",
-  },
-  {
-    slug: "veloztrade",
-    name: "VelozTrade",
-    tagline: "Full-stack CFD trading platform for licensed brokers",
-    category: "Fintech · Trading",
-    status: "Platform Build",
-    region: "UAE-based, global markets",
-    summary:
-      "A complete retail trading platform — forex, crypto, stocks, commodities, and indices CFDs — with a real order engine, KYC, on-chain deposits, and a multi-tier partner program, built for operators holding the right licenses.",
-    problem:
-      "Standing up a compliant, licensed CFD or prop-trading brand needs more than a white-label chart — it needs a real ledger, real risk controls, and a back office an ops team can actually run.",
-    approach:
-      "We built the full stack: ~75 tradable instruments across five asset classes with per-class leverage, server-enforced SL/TP and margin-call/stop-out logic, an append-only financial ledger for every balance mutation, and an automated BSC/Polygon USDT deposit scanner alongside manual admin-approved flows.",
-    stack: ["TypeScript", "Drizzle ORM + PostgreSQL", "Express 5 + WebSocket", "React", "shadcn/ui", "WalletConnect"],
-    highlights: [
-      "Immutable, append-only ledger for deposits, PnL, swaps, and commissions",
-      "IB / Sub-IB partner program with tiered rebates and revenue share",
-      "Real-time price streaming with SL/TP, margin call & stop-out engine",
-      "Single-container deployment serving SPA, API, and WebSocket on one port",
-    ],
-    color: "from-amber-400 to-rose-500",
-  },
-  {
-    slug: "upex",
-    name: "UPEX",
-    tagline: "UAE Procurement Exchange",
-    category: "B2B Marketplace · Procurement",
-    status: "MVP Build",
-    region: "United Arab Emirates",
-    summary:
-      "A demand-first procurement platform: buyers post inquiries that get aggregated into consolidated RFQs, verified global suppliers compete on landed cost, and logistics partners bid on the resulting shipments.",
-    problem:
-      "SME buyers in the UAE lack the volume to negotiate like large importers, and suppliers waste cycles chasing one-off inquiries instead of consolidated demand.",
-    approach:
-      "Buyer inquiries are classified and pooled into consolidated RFQs, giving suppliers real volume to quote against. Once a purchase order exists, logistics partners bid on the freight, and escrow-protected payments settle the whole chain from wallet to delivery.",
-    stack: ["Next.js 15 (App Router)", "React 19", "Prisma + PostgreSQL", "TypeScript", "Zod"],
-    highlights: [
-      "Demand pooling that turns fragmented inquiries into leverage",
-      "Role-scoped portals for buyers, suppliers, logistics, and ops",
-      "Wallet-funded escrow with milestone-based release",
-      "AI-assisted classification and quantity extraction on inbound inquiries",
-    ],
-    color: "from-emerald-400 to-teal-500",
-  },
-  {
-    slug: "imamcollective",
-    name: "ImamCollective",
-    tagline: "Islamic lifestyle marketplace & affiliate platform",
-    category: "E-commerce · Affiliate",
-    status: "MVP Build",
-    region: "GCC & global Muslim diaspora",
-    summary:
-      "A curated marketplace for Islamic lifestyle products with a built-in affiliate program — letting a community of creators earn from products they already recommend.",
-    problem:
-      "The Islamic lifestyle category is underserved by modern e-commerce UX and has no easy way for community voices to monetize their recommendations.",
-    approach:
-      "We built a product-and-shop experience alongside a self-serve affiliate system, so the same platform serves buyers, a curated product catalogue, and a network of referrers earning commission — with Stripe handling payments end to end.",
-    stack: ["Next.js 16", "React 19", "Prisma", "Stripe", "NextAuth", "Radix UI", "Zustand"],
-    highlights: [
-      "Curated shop and product-detail experience",
-      "Self-serve affiliate program with attribution",
-      "Stripe-powered checkout and payments",
-      "Component system built on Radix primitives + Tailwind v4",
-    ],
-    color: "from-fuchsia-400 to-purple-500",
-  },
-  {
-    slug: "skillbridge",
-    name: "Skill Bridge",
-    tagline: "Bridging talent and opportunity for the region's workforce",
-    category: "EdTech · Workforce",
-    status: "In Development",
-    region: "United Arab Emirates",
-    summary:
-      "A platform designed to connect job-seekers building in-demand skills with employers who need them — closing the gap between training and real employment outcomes.",
-    problem:
-      "Upskilling programs and hiring pipelines in the region rarely talk to each other, leaving trained talent undiscovered and employers still struggling to fill roles.",
-    approach:
-      "DigitalBurj is currently building Skill Bridge's core matching engine and employer/candidate portals — applying the same marketplace and trust-layer patterns we've shipped on Loadbyton and UPEX to a workforce-development use case.",
-    stack: ["Next.js", "PostgreSQL", "TypeScript"],
-    highlights: [
-      "Currently in active development",
-      "Employer and candidate portal architecture underway",
-      "Built on the same verified-marketplace playbook as our logistics and procurement work",
-    ],
-    color: "from-sky-400 to-blue-600",
-  },
-  {
-    slug: "attestchain",
-    name: "AttestChain",
-    tagline: "AI-powered, WhatsApp-first attestation & apostille platform",
-    category: "AI · GovTech Services",
-    status: "In Development",
-    region: "India, six-city agent network",
-    summary:
-      "A venture digitizing the attestation, apostille, and immigration-document services market — replacing a 2–8 week, multi-department manual process with AI-routed, WhatsApp-tracked service and a guaranteed turnaround time.",
-    problem:
-      "Millions of people need documents attested for overseas work, study, or immigration every year, and today that means multiple physical visits, opaque pricing, and no visibility into where a document actually is.",
-    approach:
-      "DigitalBurj is building AttestChain's AI Route Advisor — which reads document type, issuing authority, and destination to recommend the correct processing route — on top of a WhatsApp-first tracking experience and a verified agent network with chain-of-custody photo evidence at every handoff.",
-    stack: ["AI routing engine", "WhatsApp Business API", "Agent network ops tooling"],
-    highlights: [
-      "AI Route Advisor to prevent wrong-route rejections",
-      "WhatsApp-first tracking — no app download required",
-      "Transparent published pricing, guaranteed TAT",
-      "Tamper-evident, photo-verified chain of custody",
-    ],
-    color: "from-yellow-300 to-amber-600",
-  },
-];
+export const caseStudies: CaseStudy[] = [];
 
 export const stats = [
-  { value: 6, suffix: "+", label: "Ventures built end-to-end" },
-  { value: 9, suffix: "", label: "Service lines under one roof" },
-  { value: 4, suffix: "", label: "Emirates covered on the ground" },
-  { value: 100, suffix: "%", label: "In-house build — no outsourcing chain" },
+  { value: 12, suffix: "", label: "Role programs across 2 schools" },
+  { value: 5, suffix: "", label: "Certification levels, L1–L5" },
+  { value: 5, suffix: "", label: "Practice tracks, one record" },
+  { value: 24, suffix: "h", label: "First-reply commitment" },
 ];
 
 export const process = [

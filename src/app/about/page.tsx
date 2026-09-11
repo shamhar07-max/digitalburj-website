@@ -4,7 +4,6 @@ import { SectionTag } from "@/components/SectionTag";
 import { GradientBackdrop } from "@/components/GradientBackdrop";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { CTASection } from "@/components/CTASection";
-import { caseStudies } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "About",
@@ -92,19 +91,24 @@ export default function AboutPage() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="card-glass rounded-3xl p-8">
-              <h3 className="font-display text-lg font-semibold text-fg">
-                What we&apos;ve proven on ourselves
+            <div className="rounded-2xl border border-hair bg-panel p-8">
+              <h3 className="text-lg font-extrabold tracking-tight text-ink" style={{ fontFamily: "var(--font-sora)" }}>
+                What the practice covers
               </h3>
-              <ul className="mt-6 space-y-5">
-                {caseStudies.map((c) => (
-                  <li key={c.slug} className="flex items-start justify-between gap-4 border-b border-border-soft pb-5 last:border-0 last:pb-0">
+              <ul className="mt-6 space-y-0">
+                {[
+                  ["Marketplaces & escrow logic", "Two-sided matching, verification, holds and releases"],
+                  ["Business systems", "CRM, operations dashboards, messaging pipelines"],
+                  ["Search visibility", "SEO plus answer- and generative-engine coverage"],
+                  ["Workplace programs", "Sales, admin and service tracks with live assessment"],
+                ].map(([t, d]) => (
+                  <li key={t} className="flex items-start justify-between gap-4 border-b border-hair py-4 last:border-0 last:pb-0">
                     <div>
-                      <p className="font-display text-base font-semibold text-fg">{c.name}</p>
-                      <p className="mt-1 text-sm text-fg-muted">{c.tagline}</p>
+                      <p className="text-[15px] font-bold text-ink">{t}</p>
+                      <p className="mt-1 text-sm text-ink-soft">{d}</p>
                     </div>
-                    <span className="shrink-0 rounded-full border border-border bg-surface-2 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-fg-faint">
-                      {c.status}
+                    <span className="shrink-0 rounded-full border border-hair bg-panel-deep px-3 py-1 font-mono-d text-[10px] font-semibold uppercase tracking-wide text-ink-faint">
+                      In scope
                     </span>
                   </li>
                 ))}
@@ -142,6 +146,40 @@ export default function AboutPage() {
               </RevealItem>
             ))}
           </RevealGroup>
+        </div>
+      </section>
+
+      <section className="border-b border-hair">
+        <div className="container-db grid gap-10 py-14 lg:grid-cols-2">
+          <div>
+            <SectionTag>Central career message</SectionTag>
+            <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-ink sm:text-4xl" style={{ fontFamily: "var(--font-sora)" }}>
+              AI made code cheaper. It didn&apos;t make judgment unnecessary.
+            </h2>
+            <p className="mt-4 leading-relaxed text-ink-soft">
+              Anyone can ask AI to build an application. The valuable person is the one who can carry it
+              from understanding to operation. That list — not a certificate — is what we train:
+            </p>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {["understand the business", "research unknown tech", "architect the system", "identify failure modes", "choose infrastructure", "build", "test", "attack", "debug", "secure", "deploy", "operate", "improve"].map((c) => (
+                <span key={c} className="rounded-lg border border-hair bg-panel px-3 py-1.5 font-mono-d text-[11px] font-medium text-ink-soft">{c}</span>
+              ))}
+            </div>
+          </div>
+          <div className="rounded-2xl border border-amberx/40 bg-amberbg p-7">
+            <h3 className="font-bold text-ink">A reality check we print about ourselves</h3>
+            <p className="mt-2 text-sm leading-relaxed text-ink-soft">
+              Practical proof is our strength — and its boundary. We don&apos;t claim what we can&apos;t evidence:
+            </p>
+            <ul className="mt-4 space-y-2 text-sm text-ink-soft">
+              {["10 years of professional engineering", "Senior engineering status or formal architecture certification", "Large-scale production experience at 100,000 users", "Certified cybersecurity or regulated expertise", "Guaranteed scalability, SEO, or business results"].map((x) => (
+                <li key={x} className="flex gap-2"><span className="font-bold text-coral">×</span>{x}</li>
+              ))}
+            </ul>
+            <p className="mt-4 border-t border-hair pt-4 text-sm font-semibold text-ink">
+              What we do claim: AI-assisted builds, tested and operated in the open — and the evidence to show for it.
+            </p>
+          </div>
         </div>
       </section>
 

@@ -1,7 +1,7 @@
 export function SectionTag({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-fg-muted">
-      <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+    <span className="inline-flex items-center gap-2.5 rounded-md border border-hair bg-panel px-3 py-1.5 font-mono-d text-[11px] font-semibold uppercase tracking-[0.2em] text-ink-soft">
+      <span className="inline-block h-1.5 w-1.5 rounded-[2px] bg-cobalt" />
       {children}
     </span>
   );

@@ -1,23 +1,18 @@
 import Link from "next/link";
 
-export function Logo({ className }: { className?: string }) {
+/** Primary lockup: D/B architectural emblem + wordmark. */
+export function Logo({ className, dark = false }: { className?: string; dark?: boolean }) {
   return (
-    <Link href="/" className={className ?? "group flex items-center gap-2.5"}>
-      <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden>
-        <rect width="32" height="32" rx="9" fill="url(#logoGrad)" />
-        <path
-          d="M16 6L18.4 13.2L25.6 13.2L19.8 17.6L22.1 24.8L16 20.4L9.9 24.8L12.2 17.6L6.4 13.2L13.6 13.2L16 6Z"
-          fill="#0a0a12"
-        />
-        <defs>
-          <linearGradient id="logoGrad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#F2C14E" />
-            <stop offset="1" stopColor="#5B6EF5" />
-          </linearGradient>
-        </defs>
-      </svg>
-      <span className="font-display text-lg font-bold tracking-tight text-fg">
-        Digital<span className="text-gradient-gold">Burj</span>
+    <Link href="/" className={className ?? "flex items-center gap-2.5"} aria-label="DigitalBurj home">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/brand/db-icon-neo.svg" alt="DigitalBurj emblem" width={34} height={34} className="rounded-[9px]" />
+      <span className="leading-none">
+        <span className={`font-black-d block text-[19px] tracking-tight ${dark ? "text-paper" : "text-ink"}`}>
+          DIGITAL<span className={dark ? "text-gold" : "text-gold-deep"}>BURJ</span>
+        </span>
+        <span className={`font-mono-d mt-0.5 block text-[8px] tracking-[0.24em] ${dark ? "text-paper/60" : "text-ink-faint"}`}>
+          LEARN · BUILD · WORK · GROW
+        </span>
       </span>
     </Link>
   );
