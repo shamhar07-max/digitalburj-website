@@ -10,7 +10,7 @@ export function SectionHead({
     <div className="max-w-3xl">
       <p className={cn("font-mono-d text-xs font-semibold uppercase tracking-[0.22em]", dark ? "text-white/60" : "text-ink-faint")}>
         <span className={accent}>{index}</span>
-        <span className={cn("mx-3", dark ? "text-white/25" : "text-hair")}>/</span>
+        <span className={cn("mx-3", dark ? "text-white/25" : "text-hair")}>/</span>{" "}
         {kicker}
       </p>
       <h2 className={cn("font-display mt-4 text-balance text-3xl font-extrabold leading-[1.04] tracking-tight sm:text-[2.75rem]", dark ? "text-white" : "text-ink")}>

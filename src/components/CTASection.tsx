@@ -10,7 +10,7 @@ export function CTASection({
   description?: string;
 }) {
   return (
-    <section className="container-db py-16 sm:py-20">
+    <section className="py-12 sm:py-14">
       <div className="border-2 border-ink bg-panel px-6 py-14 text-center shadow-[8px_8px_0_#D9481C] sm:px-16">
         <div className="font-mono-d text-xs font-semibold uppercase tracking-[0.24em] text-coral">{eyebrow}</div>
         <h2 className="font-display mx-auto mt-4 max-w-2xl text-balance text-3xl font-extrabold leading-[1.05] tracking-tight text-ink sm:text-5xl">{title}</h2>
