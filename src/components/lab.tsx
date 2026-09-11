@@ -23,12 +23,12 @@ export function SectionHead({
 
 export function Pill({ children, color = "cobalt" }: { children: React.ReactNode; color?: "cobalt" | "cyan" | "violet" | "amber" | "teal" | "ink" }) {
   const map: Record<string, string> = {
-    cobalt: "border-cobalt/40 bg-cobalt/15 text-[#9db1ff]",
-    cyan: "border-cyanx/40 bg-cyanx/10 text-cyanx",
-    violet: "border-viol/40 bg-viol/15 text-[#c4b0ff]",
-    amber: "border-amberx/40 bg-amberbg text-amberx",
-    teal: "border-tealx/40 bg-tealx/10 text-tealx",
-    ink: "border-hair bg-white/[0.04] text-ink-soft",
+    cobalt: "border-cobalt/40 bg-cobalt/[0.08] text-cobalt",
+    cyan: "border-cyanx/40 bg-cyanx/[0.08] text-[#A33A12]",
+    violet: "border-viol/40 bg-viol/[0.08] text-viol",
+    amber: "border-amberx/50 bg-amberbg text-amber-deep",
+    teal: "border-tealx/40 bg-tealx/[0.08] text-tealx",
+    ink: "border-hair bg-panel-deep text-ink-soft",
   };
   return (
     <span className={cn("inline-flex items-center gap-1.5 rounded-full border px-3 py-1 font-mono-d text-[11px] font-semibold uppercase tracking-[0.12em]", map[color])}>

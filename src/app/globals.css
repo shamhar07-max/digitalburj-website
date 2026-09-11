@@ -1,34 +1,33 @@
 @import "tailwindcss";
 
 :root {
-  /* Digital Burj — DARK PRECISION (tech company, less decoration) */
-  --db-void: #03050c;
-  --db-lab: #05070a;
-  --db-panel: #0a0f22;
-  --db-panel-deep: #060a18;
-  --db-ink: #eef1fb;
-  --db-ink-soft: #a7b2d4;
-  --db-ink-faint: #5f6b8f;
-  --db-hair: rgba(255, 255, 255, 0.1);
-  --db-hair-soft: rgba(255, 255, 255, 0.06);
-  --db-navy: #081b3f;
-  --db-navy-2: #0b2352;
-  --db-cobalt: #4d6bff;
-  --db-cobalt-deep: #2447f7;
-  --db-cyan: #38bdf8;
-  --db-violet: #9a7bff;
-  --db-amber: #ffc42e;
-  --db-amber-deep: #e8c95c;
-  --db-amber-bg: rgba(255, 196, 46, 0.08);
-  --db-teal: #2edaa0;
-  --db-coral: #ff6a4d;
-  --db-gold: #d4af37;
-  --db-gold-deep: #e8c95c;
+  /* Digital Burj — VERDANT CORPORATE (cream · pine · emerald · terracotta) */
+  --db-lab: #faf6ee;
+  --db-panel: #ffffff;
+  --db-panel-deep: #f1ebdd;
+  --db-ink: #17251f;
+  --db-ink-soft: #44554c;
+  --db-ink-faint: #7a887f;
+  --db-hair: #e3dccb;
+  --db-hair-soft: #ede7d6;
+  --db-navy: #12332a;
+  --db-navy-2: #16402f;
+  --db-cobalt: #0b6b4f;
+  --db-cobalt-deep: #08573f;
+  --db-cyan: #d9481c;
+  --db-violet: #0e7c6b;
+  --db-amber: #e8721c;
+  --db-amber-deep: #8a4a06;
+  --db-amber-bg: rgba(232, 114, 28, 0.1);
+  --db-teal: #4c8c2b;
+  --db-coral: #e8502f;
+  --db-gold: #0b6b4f;
+  --db-gold-deep: #8a4a06;
 }
 
 @theme inline {
   --color-lab: var(--db-lab);
-  --color-void: var(--db-void);
+  --color-void: var(--db-navy);
   --color-panel: var(--db-panel);
   --color-panel-deep: var(--db-panel-deep);
   --color-ink: var(--db-ink);
@@ -66,13 +65,13 @@
   --color-violet: var(--db-violet);
   --color-cyan: var(--db-cyan);
   --color-electric: var(--db-cyan);
-  --color-brick: var(--db-coral);
+  --color-brick: var(--db-cyan);
 
   --font-display: var(--font-sora);
-  --font-black: var(--font-black);
+  --font-black: var(--font-unbounded);
   --font-serif2: var(--font-plexserif);
   --font-mono2: var(--font-plexmono);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-plexsans);
 
   --animate-marquee-x: marqueeX 30s linear infinite;
   --animate-floaty: floaty 6s ease-in-out infinite;
@@ -99,8 +98,9 @@
 }
 
 * { border-color: var(--db-hair); }
+*:focus-visible { outline: 2px solid var(--db-cyan); outline-offset: 3px; border-radius: 4px; }
+[id] { scroll-margin-top: 96px; }
 html { scroll-behavior: smooth; }
-[id] { scroll-margin-top: 110px; }
 body {
   background: var(--db-lab);
   color: var(--db-ink);
@@ -119,45 +119,45 @@ body {
   .font-ed { font-family: var(--font-serif2), serif; }
   .font-mono-d { font-family: var(--font-mono2), monospace; }
 
+  /* matte corporate card — flat, crisp border, soft realistic shadow */
   .card-tower, .card-glass {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
-    border: 1px solid var(--db-hair);
-    border-radius: 16px;
+    background: var(--db-panel);
+    border: 1.5px solid var(--db-hair);
+    border-radius: 18px;
+    box-shadow: 0 12px 32px -18px rgba(23, 37, 31, 0.28);
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  }
-  @media (min-width: 641px) {
-    .card-tower, .card-glass { backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
   }
   a.card-tower:hover, a.card-glass:hover, .card-lift:hover {
     transform: translateY(-3px);
-    border-color: rgba(56, 189, 248, 0.45);
-    box-shadow: 0 18px 44px -18px rgba(56, 189, 248, 0.35);
+    border-color: rgba(217, 72, 28, 0.5);
+    box-shadow: 0 18px 44px -18px rgba(217, 72, 28, 0.35);
   }
+  /* highlight edge on KPI boxes */
   .kpi-edge { position: relative; }
   .kpi-edge::before {
     content: ""; position: absolute; top: -1px; left: 20px; right: 20px; height: 3px;
     border-radius: 0 0 4px 4px;
-    background: linear-gradient(90deg, #4d6bff, #38bdf8, #d4af37);
+    background: linear-gradient(90deg, #0b6b4f, #d9481c, #e8721c);
   }
   .kpi-dot { animation: pulseDot 2s ease-in-out infinite; }
+  /* dot-grid instrument texture */
   .blueprint {
-    background-image:
-      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-    background-size: 30px 30px;
+    background-image: radial-gradient(circle, rgba(23, 37, 31, 0.1) 1px, transparent 1.5px);
+    background-size: 26px 26px;
   }
   .blueprint-dark { background-image: none; }
-  /* restrained aurora — environmental light, one layer */
+  /* warm aurora wash, on cream */
   .aurora {
     background:
-      radial-gradient(40% 52% at 12% 6%, rgba(77, 107, 255, 0.2), transparent 70%),
-      radial-gradient(34% 46% at 88% 10%, rgba(56, 189, 248, 0.12), transparent 70%),
-      radial-gradient(42% 58% at 80% 90%, rgba(154, 123, 255, 0.14), transparent 70%);
+      radial-gradient(42% 55% at 12% 8%, rgba(11, 107, 79, 0.12), transparent 70%),
+      radial-gradient(36% 48% at 88% 12%, rgba(217, 72, 28, 0.1), transparent 70%),
+      radial-gradient(44% 60% at 78% 88%, rgba(14, 124, 107, 0.1), transparent 70%),
+      radial-gradient(30% 40% at 18% 90%, rgba(232, 114, 28, 0.1), transparent 70%);
   }
   .btn-shine { position: relative; overflow: hidden; }
   .btn-shine::after {
     content: ""; position: absolute; top: 0; bottom: 0; width: 45%; left: -60%;
-    background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.45), transparent);
     transform: skewX(-18deg);
     transition: left 0.55s ease;
   }
@@ -167,26 +167,18 @@ body {
   }
   .cv-auto { content-visibility: auto; contain-intrinsic-size: auto 700px; }
 
-  .text-gradient-gold {
-    background: linear-gradient(100deg, #f6e27a, #d4af37 55%, #9c7c1e);
-    background-clip: text; -webkit-background-clip: text; color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-  .text-foil-gold {
-    background: linear-gradient(100deg, #38bdf8, #818cf8 55%, #9a7bff);
-    background-clip: text; -webkit-background-clip: text; color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-  .text-glow-electric { text-shadow: 0 0 26px rgba(56, 189, 248, 0.45); }
+  .text-gradient-gold, .text-foil-gold { color: var(--db-gold-deep); background: none; -webkit-text-fill-color: currentColor; }
+  .text-glow-electric { text-shadow: none; }
   .noise-overlay {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
   }
   .grid-fade, .orbit-ring { display: none; }
   .btn-sheen::after, .login-shine::before { display: none; }
   .marker-amber {
-    background-image: linear-gradient(transparent 60%, rgba(56, 189, 248, 0.25) 60%, rgba(56, 189, 248, 0.25) 95%, transparent 95%);
+    background-image: linear-gradient(transparent 60%, rgba(217, 72, 28, 0.28) 60%, rgba(217, 72, 28, 0.28) 95%, transparent 95%);
   }
-  .tape { background: rgba(56, 189, 248, 0.7); }
+  .tape { background: rgba(232, 114, 28, 0.75); }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,6 +1,6 @@
 export const navPrimary = [
-  { label: "What We Do", href: "/#what-we-do" },
-  { label: "How We Work", href: "/#how-we-work" },
+  { label: "What We Do", href: "/services" },
+  { label: "How We Work", href: "/projects" },
   { label: "Work", href: "/#work" },
   { label: "Academy", href: "/academy" },
   { label: "Studio", href: "/studio" },
