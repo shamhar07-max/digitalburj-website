@@ -3,6 +3,9 @@ import { ArrowUpRight, ArrowRight, BadgeCheck } from "lucide-react";
 import { SectionHead, Pill } from "@/components/lab";
 import { Button } from "@/components/Button";
 import { Ticker, Sticker, ConsoleStack } from "@/components/decor";
+import { Constellation } from "@/components/Constellation";
+import { TiltStage, Magnetic } from "@/components/Stage";
+import { FlowDraw } from "@/components/FlowDraw";
 import { Reveal } from "@/components/Reveal";
 import { Faq } from "@/components/Faq";
 import { CTASection } from "@/components/CTASection";
@@ -29,6 +32,8 @@ export default function Home() {
       {/* HERO — broadsheet */}
       <section className="aurora relative overflow-hidden border-b border-hair">
         <div className="blueprint absolute inset-0" aria-hidden />
+        <Constellation className="absolute inset-0 h-full w-full opacity-70" density={70} />
+        <div className="grain absolute inset-0" aria-hidden />
         <div className="container-db relative grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1.15fr_1fr]">
           <div>
             <h1 className="font-display mt-2 tracking-tight text-ink" style={{ fontSize: "clamp(2.6rem, 6.4vw, 5rem)", lineHeight: 0.98 }}>
@@ -41,8 +46,8 @@ export default function Home() {
               capable people to real work. Plain terms, written criteria, stated limits.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Button href="/academy" className="cta-glow">Start learning</Button>
-              <Button href="/contact" variant="gold">Get something built</Button>
+              <Magnetic><Button href="/academy" className="cta-glow">Start learning</Button></Magnetic>
+              <Magnetic><Button href="/contact" variant="gold">Get something built</Button></Magnetic>
             </div>
             <dl className="mt-9 grid max-w-xl grid-cols-3 divide-x divide-hair border-y border-hair font-mono-d">
               {[["12", "Role programs"], ["L1–L5", "Cert levels"], ["24h", "First reply"]].map(([v, k]) => (
@@ -53,7 +58,9 @@ export default function Home() {
               ))}
             </dl>
           </div>
-          <ConsoleStack />
+          <TiltStage className="relative">
+            <ConsoleStack />
+          </TiltStage>
         </div>
       </section>
 
@@ -169,13 +176,16 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="rounded-2xl border-2 border-ink bg-panel p-7 font-mono-d text-[12px] leading-[2] text-ink-soft shadow-[6px_6px_0_#12332A]">
-            <p className="text-[10px] tracking-[0.2em] text-ink-faint">SIMPLIFIED FLOW</p>
-            <p className="mt-3">POST_LOAD <span className="text-ink-faint">→</span> VERIFY_CARRIER</p>
-            <p>BID <span className="text-ink-faint">→</span> AWARD <span className="text-ink-faint">→</span> <span className="font-bold text-amber-deep">ESCROW_HOLD</span></p>
-            <p>PICKUP <span className="text-ink-faint">→</span> TRANSIT <span className="text-ink-faint">→</span> POD_UPLOAD</p>
-            <p>CONFIRM <span className="text-ink-faint">→</span> <span className="font-semibold text-tealx">PAYOUT_RELEASE</span> <span className="text-ink-faint">/</span> DISPUTE_FREEZE</p>
-            <p className="mt-4 text-[10px] tracking-[0.2em] text-ink-faint">EVERY STEP AUDITED · EVERY ROLE GATED</p>
+          <div className="rounded-2xl border-2 border-ink bg-panel p-7 shadow-[6px_6px_0_#12332A]">
+            <p className="font-mono-d text-[10px] tracking-[0.2em] text-ink-faint">SIMPLIFIED FLOW — draws itself</p>
+            <FlowDraw />
+            <div className="mt-2 font-mono-d text-[12px] leading-[2] text-ink-soft">
+              <p>POST_LOAD <span className="text-ink-faint">→</span> VERIFY_CARRIER</p>
+              <p>BID <span className="text-ink-faint">→</span> AWARD <span className="text-ink-faint">→</span> <span className="font-bold text-amber-deep">ESCROW_HOLD</span></p>
+              <p>PICKUP <span className="text-ink-faint">→</span> TRANSIT <span className="text-ink-faint">→</span> POD_UPLOAD</p>
+              <p>CONFIRM <span className="text-ink-faint">→</span> <span className="font-semibold text-tealx">PAYOUT_RELEASE</span> <span className="text-ink-faint">/</span> DISPUTE_FREEZE</p>
+            </div>
+            <p className="font-mono-d mt-4 text-[10px] tracking-[0.2em] text-ink-faint">EVERY STEP AUDITED · EVERY ROLE GATED</p>
           </div>
         </div>
       </section>

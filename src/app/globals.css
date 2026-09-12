@@ -185,9 +185,9 @@ body {
 
   .text-gradient-gold, .text-foil-gold { color: var(--db-gold-deep); background: none; -webkit-text-fill-color: currentColor; }
   .text-glow-electric { text-shadow: none; }
-  .noise-overlay {
+  .noise-overlay, .grain {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
-    mix-blend-mode: overlay;
+    mix-blend-mode: multiply;
   }
   .grid-fade, .orbit-ring { display: none; }
   .btn-sheen::after, .login-shine::before { display: none; }
