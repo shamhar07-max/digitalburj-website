@@ -21,7 +21,12 @@ export function Globe3D({ className = "" }: { className?: string }) {
     const H = mount.clientHeight || 400;
     const mobile = W < 640;
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    let renderer: THREE.WebGLRenderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, failIfMajorPerformanceCaveat: true });
+    } catch {
+      return; // no WebGL — hero stays a clean static composition
+    }
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     renderer.setSize(W, H);
     mount.appendChild(renderer.domElement);

@@ -17,6 +17,10 @@ const interests = [
   "Something else",
 ];
 
+const inputCls =
+  "w-full rounded-xl border border-hair bg-panel-deep px-4 py-3 text-sm text-ink outline-none transition-colors placeholder:text-ink-faint focus:border-cobalt";
+const labelCls = "mb-2 block text-sm font-bold text-ink";
+
 export function ContactForm() {
   const [sent, setSent] = useState(false);
 
@@ -49,21 +53,21 @@ export function ContactForm() {
 
   if (sent) {
     return (
-      <div className="card-glass flex flex-col items-center gap-4 rounded-3xl p-10 text-center">
-        <CheckCircle2 size={40} className="text-gold" />
-        <h3 className="font-display text-xl font-semibold text-fg">
+      <div className="card-tower flex flex-col items-center gap-4 p-10 text-center">
+        <CheckCircle2 size={40} className="text-tealx" />
+        <h3 className="font-display text-xl font-extrabold text-ink">
           Your email client should be opening now
         </h3>
-        <p className="max-w-sm text-sm text-fg-muted">
+        <p className="max-w-sm text-sm text-ink-soft">
           If nothing opened, email us directly at{" "}
-          <a href="mailto:hello@digitalburj.com" className="text-gold hover:underline">
+          <a href="mailto:hello@digitalburj.com" className="font-semibold text-cobalt hover:underline">
             hello@digitalburj.com
           </a>
           .
         </p>
         <button
           onClick={() => setSent(false)}
-          className="text-sm font-semibold text-fg-muted hover:text-fg"
+          className="text-sm font-semibold text-ink-soft hover:text-ink"
         >
           Send another message
         </button>
@@ -72,24 +76,34 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="card-glass space-y-6 rounded-3xl p-7 sm:p-9">
+    <form onSubmit={handleSubmit} className="card-tower space-y-6 p-7 sm:p-9">
       <div className="grid gap-6 sm:grid-cols-2">
-        <Field label="Full name" name="name" required placeholder="Ahmed Khan" />
-        <Field label="Email" name="email" type="email" required placeholder="you@company.com" />
+        <div>
+          <label className={labelCls} htmlFor="name">
+            Full name <span aria-hidden>*</span>
+          </label>
+          <input id="name" name="name" type="text" required placeholder="Ahmed Khan" autoComplete="name" className={inputCls} />
+        </div>
+        <div>
+          <label className={labelCls} htmlFor="email">
+            Email <span aria-hidden>*</span>
+          </label>
+          <input id="email" name="email" type="email" required placeholder="you@company.com" autoComplete="email" className={inputCls} />
+        </div>
       </div>
 
-      <Field label="Company (optional)" name="company" placeholder="Your company" />
+      <div>
+        <label className={labelCls} htmlFor="company">
+          Company (optional)
+        </label>
+        <input id="company" name="company" type="text" placeholder="Your company" autoComplete="organization" className={inputCls} />
+      </div>
 
       <div>
-        <label className="mb-2 block text-sm font-medium text-fg">
+        <label className={labelCls} htmlFor="interest">
           What are you looking to build?
         </label>
-        <select
-          name="interest"
-          required
-          defaultValue=""
-          className="w-full rounded-xl border border-border bg-surface-2 px-4 py-3 text-sm text-fg outline-none transition-colors focus:border-gold/60"
-        >
+        <select id="interest" name="interest" required defaultValue="" className={inputCls}>
           <option value="" disabled>
             Select one
           </option>
@@ -101,8 +115,8 @@ export function ContactForm() {
         </select>
       </div>
 
-      <div>
-        <label className="mb-2 block text-sm font-medium text-fg">Rough budget</label>
+      <fieldset>
+        <legend className={labelCls}>Rough budget</legend>
         <div className="flex flex-wrap gap-2">
           {budgets.map((b, i) => (
             <label key={b} className="cursor-pointer">
@@ -113,67 +127,39 @@ export function ContactForm() {
                 defaultChecked={i === 0}
                 className="peer sr-only"
               />
-              <span className="inline-block rounded-full border border-border bg-surface-2 px-4 py-2 text-xs font-medium text-fg-muted transition-colors peer-checked:border-gold/60 peer-checked:bg-gold/10 peer-checked:text-gold">
+              <span className="inline-block rounded-full border border-hair bg-panel-deep px-4 py-2 text-xs font-semibold text-ink-soft transition-colors peer-checked:border-cobalt peer-checked:bg-cobalt/10 peer-checked:text-cobalt peer-focus-visible:outline-2 peer-focus-visible:outline-cobalt">
                 {b}
               </span>
             </label>
           ))}
         </div>
-      </div>
+      </fieldset>
 
       <div>
-        <label className="mb-2 block text-sm font-medium text-fg">
+        <label className={labelCls} htmlFor="message">
           Tell us about the project
         </label>
         <textarea
+          id="message"
           name="message"
           rows={5}
           required
-          placeholder="What are you trying to build or automate?"
-          className="w-full resize-none rounded-xl border border-border bg-surface-2 px-4 py-3 text-sm text-fg outline-none transition-colors placeholder:text-fg-faint focus:border-gold/60"
+          minLength={20}
+          placeholder="What are you trying to build or automate? (20+ characters)"
+          className="w-full resize-none rounded-xl border border-hair bg-panel-deep px-4 py-3 text-sm text-ink outline-none transition-colors placeholder:text-ink-faint focus:border-cobalt"
         />
       </div>
 
       <button
         type="submit"
-        className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-gold to-gold-deep px-6 py-3.5 text-sm font-semibold text-[#14100a] transition-transform hover:-translate-y-0.5 sm:w-auto"
+        className="btn-shine group inline-flex w-full items-center justify-center gap-2 rounded-lg border-2 border-ink bg-cobalt px-6 py-3.5 text-sm font-bold text-white shadow-[4px_4px_0_#12332A] transition-all duration-200 hover:-translate-y-0.5 sm:w-auto"
       >
         Send message
         <ArrowUpRight
           size={16}
-          className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
         />
       </button>
     </form>
-  );
-}
-
-function Field({
-  label,
-  name,
-  type = "text",
-  required,
-  placeholder,
-}: {
-  label: string;
-  name: string;
-  type?: string;
-  required?: boolean;
-  placeholder?: string;
-}) {
-  return (
-    <div>
-      <label className="mb-2 block text-sm font-medium text-fg" htmlFor={name}>
-        {label}
-      </label>
-      <input
-        id={name}
-        name={name}
-        type={type}
-        required={required}
-        placeholder={placeholder}
-        className="w-full rounded-xl border border-border bg-surface-2 px-4 py-3 text-sm text-fg outline-none transition-colors placeholder:text-fg-faint focus:border-gold/60"
-      />
-    </div>
   );
 }

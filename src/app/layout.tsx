@@ -33,12 +33,13 @@ export const metadata: Metadata = {
     siteName: "DigitalBurj",
     type: "website",
     locale: "en_AE",
-    images: [{ url: "/brand/db-lockup-neo.svg", width: 980, height: 300, alt: "DigitalBurj" }],
+    images: [{ url: "/brand/og-cover.png", width: 1200, height: 369, alt: "DigitalBurj — Intelligence. Engineered." }],
   },
   twitter: {
     card: "summary_large_image",
     title: "DigitalBurj — Intelligence Engineered",
     description: "Academy, Studio, Business AI, Talent and Global Careers.",
+    images: ["/brand/og-cover.png"],
   },
   robots: { index: true, follow: true },
 };
@@ -62,12 +63,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${grotesk.variable} ${groteskBlack.variable} ${jbmono.variable} ${plexserif.variable}`}>
       <body className="flex min-h-full flex-col bg-lab text-ink">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[300] focus:rounded-lg focus:bg-cobalt focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-white">
+          Skip to content
+        </a>
         <Intro />
         <Navbar />
         <link rel="preconnect" href="https://picsum.photos" />
         <link rel="dns-prefetch" href="https://picsum.photos" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_JSONLD) }} />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">{children}</main>
         <Footer />
       </body>
     </html>
