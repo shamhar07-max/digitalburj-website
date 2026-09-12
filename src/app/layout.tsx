@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk, JetBrains_Mono, IBM_Plex_Serif } from "next/font/
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { Intro } from "@/components/Intro";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
 const grotesk = Space_Grotesk({ variable: "--font-sora", subsets: ["latin"], weight: ["500", "600", "700"], display: "swap" });
@@ -61,10 +62,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${grotesk.variable} ${groteskBlack.variable} ${jbmono.variable} ${plexserif.variable}`}>
       <body className="flex min-h-full flex-col bg-lab text-ink">
+        <Intro />
+        <Navbar />
         <link rel="preconnect" href="https://picsum.photos" />
         <link rel="dns-prefetch" href="https://picsum.photos" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_JSONLD) }} />
-        <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
       </body>
