@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ArrowUpRight, ArrowRight, BadgeCheck } from "lucide-react";
 import { SectionHead, Pill } from "@/components/lab";
 import { Button } from "@/components/Button";
-import { Ticker, Sticker, ConsoleStack } from "@/components/decor";
+import { Ticker, Sticker, ConsoleStack, HeroMotion, MaskLine } from "@/components/decor";
 import { Constellation } from "@/components/Constellation";
 import { TiltStage, Magnetic } from "@/components/Stage";
 import { Diorama } from "@/components/Diorama";
@@ -40,19 +40,26 @@ export default function Home() {
             <Constellation className="h-full w-full opacity-70" density={70} />
           </div>
           <div data-depth="10">
+            <HeroMotion delay={0.05}>
             <h1 className="font-display mt-2 tracking-tight text-ink" style={{ fontSize: "clamp(2.6rem, 6.4vw, 5rem)", lineHeight: 0.98 }}>
-              SKILLS TODAY.
-              <span className="block">OPPORTUNITIES <span className="font-ed font-normal italic text-gold-deep">tomorrow.</span></span>
+              <MaskLine>SKILLS TODAY.</MaskLine>
+              <MaskLine delay={0.12}>OPPORTUNITIES <span className="font-ed font-normal italic text-gold-deep">tomorrow.</span></MaskLine>
             </h1>
+            </HeroMotion>
+            <HeroMotion delay={0.25}>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-soft sm:text-lg">
               Most people don&apos;t lack ambition — they lack <span className="marker-amber px-1 font-semibold text-ink">proof</span>. We teach practical skills,
               build real products alongside you, test what you can actually do, and introduce
               capable people to real work. Plain terms, written criteria, stated limits.
             </p>
+            </HeroMotion>
+            <HeroMotion delay={0.33}>
             <div className="mt-8 flex flex-wrap gap-4">
               <Magnetic><Button href="/academy" className="cta-glow">Start learning</Button></Magnetic>
               <Magnetic><Button href="/contact" variant="gold">Get something built</Button></Magnetic>
             </div>
+            </HeroMotion>
+            <HeroMotion delay={0.41}>
             <dl className="mt-9 grid max-w-xl grid-cols-3 divide-x divide-hair border-y border-hair font-mono-d">
               {[["12", "Role programs"], ["L1–L5", "Cert levels"], ["24h", "First reply"]].map(([v, k]) => (
                 <div key={k} className="px-4 py-3.5 first:pl-0">
@@ -61,6 +68,7 @@ export default function Home() {
                 </div>
               ))}
             </dl>
+            </HeroMotion>
           </div>
           <div data-depth="28">
           <TiltStage className="relative">

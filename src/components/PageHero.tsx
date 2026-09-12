@@ -1,4 +1,5 @@
 import { SectionTag } from "@/components/SectionTag";
+import { MaskLine } from "@/components/decor";
 
 export function PageHero({ tag, title, sub, editorial, chips }: { tag: string; title: React.ReactNode; sub: string; editorial?: string; chips?: string[] }) {
   return (
@@ -13,7 +14,7 @@ export function PageHero({ tag, title, sub, editorial, chips }: { tag: string; t
           <span className="h-1.5 w-8 rounded-full bg-tealx" />
         </div>
         <SectionTag>{tag}</SectionTag>
-        <h1 className="font-display mt-6 max-w-4xl text-balance text-4xl font-extrabold leading-[1.02] tracking-tight text-ink sm:text-6xl">{title}</h1>
+        <h1 className="font-display mt-6 max-w-4xl text-balance text-4xl font-extrabold leading-[1.02] tracking-tight text-ink sm:text-6xl"><MaskLine>{title}</MaskLine></h1>
         <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink-soft sm:text-lg">{sub}</p>
         {editorial && <p className="font-ed mt-5 text-xl italic text-gold-deep sm:text-2xl">{editorial}</p>}
         {chips && (
