@@ -5,7 +5,15 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Sticker } from "@/components/decor";
 
 const FLAG = "db-intro-seen-v1";
-const DURATION = 3400;
+const DURATION = 5200;
+
+const BEATS: [number, string][] = [
+  [150, "01 · THE MARK"],
+  [1100, "02 · THE NAME"],
+  [2000, "03 · THE PROMISE"],
+  [2700, "04 · THE PROOF"],
+  [3400, "05 · THE DOOR"],
+];
 
 const rise = (delay: number) => ({
   initial: { opacity: 0, y: 26 },
@@ -13,9 +21,28 @@ const rise = (delay: number) => ({
   transition: { delay, duration: 0.55, ease: [0.22, 1, 0.36, 1] as const },
 });
 
+function Word({ text, delay, className = "" }: { text: string; delay: number; className?: string }) {
+  return (
+    <span className={`inline-flex overflow-hidden pb-1 ${className}`} aria-label={text}>
+      {text.split("").map((ch, i) => (
+        <motion.span
+          key={i}
+          className="inline-block"
+          initial={{ y: "110%", opacity: 0 }}
+          animate={{ y: "0%", opacity: 1 }}
+          transition={{ delay: delay + i * 0.04, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {ch === " " ? " " : ch}
+        </motion.span>
+      ))}
+    </span>
+  );
+}
+
 export function Intro() {
   const reduce = useReducedMotion();
   const [state, setState] = useState<"checking" | "show" | "hide">("checking");
+  const [beat, setBeat] = useState(0);
 
   useEffect(() => {
     if (reduce) { setState("hide"); return; }
@@ -29,8 +56,10 @@ export function Intro() {
     if (state !== "show") return;
     document.documentElement.style.overflow = "hidden";
     const t = setTimeout(finish, DURATION);
+    const timers = BEATS.map(([ms,], i) => setTimeout(() => setBeat(i), ms));
     return () => {
       clearTimeout(t);
+      timers.forEach(clearTimeout);
       document.documentElement.style.overflow = "";
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -78,37 +107,45 @@ export function Intro() {
           <motion.h1
             className="font-display mt-7 tracking-tight text-ink"
             style={{ fontSize: "clamp(2rem, 6vw, 3.6rem)", lineHeight: 1 }}
-            {...rise(0.9)}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.0, duration: 0.3 }}
           >
-            SKILLS TODAY.
+            <Word text="SKILLS" delay={1.05} />
+            <Word text="TODAY." delay={1.3} />
             <span className="block">
-              OPPORTUNITIES{" "}
-              <span className="font-ed font-normal italic text-gold-deep">tomorrow.</span>
+              <Word text="OPPORTUNITIES" delay={1.6} />
+            </span>
+            <span className="font-ed block font-normal italic text-gold-deep">
+              <Word text="tomorrow." delay={1.95} />
             </span>
           </motion.h1>
 
           <motion.p
             className="mt-5 max-w-xl text-base leading-relaxed text-ink-soft"
-            {...rise(1.15)}
+            {...rise(2.55)}
           >
             Most people don&apos;t lack ambition — they lack proof. Learn it, build it,
             prove it — then carry the evidence into real work.
           </motion.p>
 
-          <motion.div className="mt-7 flex flex-wrap items-center justify-center gap-2" {...rise(1.35)}>
-            {["ACADEMY", "STUDIO", "TALENT", "JOBS", "JOURNAL"].map((s) => (
-              <span
+          <motion.div className="mt-7 flex flex-wrap items-center justify-center gap-2" {...rise(3.05)}>
+            {["ACADEMY", "STUDIO", "TALENT", "JOBS", "JOURNAL"].map((s, i) => (
+              <motion.span
                 key={s}
                 className="rounded-md border border-hair bg-white px-3 py-1.5 font-mono-d text-[11px] font-bold tracking-[0.16em] text-ink-soft shadow-[2px_2px_0_rgba(18,51,42,0.15)]"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 3.1 + i * 0.14, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
               >
                 {s}
-              </span>
+              </motion.span>
             ))}
           </motion.div>
 
           <motion.div
             className="mt-8 flex flex-wrap justify-center gap-4"
-            {...rise(1.55)}
+            {...rise(3.7)}
           >
             <a
               href="/academy"
@@ -126,9 +163,32 @@ export function Intro() {
             </a>
           </motion.div>
 
-          <motion.div className="absolute right-6 top-[12vh] hidden sm:block" {...rise(1.2)}>
+          <motion.div className="absolute right-6 top-[12vh] hidden sm:block" {...rise(3.3)}>
             <Sticker />
           </motion.div>
+
+          <div className="absolute bottom-[9vh] left-6 sm:left-10" aria-hidden>
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={beat}
+                className="font-mono-d text-[11px] font-bold tracking-[0.24em] text-coral"
+                initial={{ opacity: 0, x: -8 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 8 }}
+                transition={{ duration: 0.3 }}
+              >
+                {BEATS[beat]?.[1] ?? ""}
+              </motion.p>
+            </AnimatePresence>
+            <div className="mt-2 h-[2px] w-40 overflow-hidden rounded bg-ink/10">
+              <motion.div
+                className="h-full bg-coral"
+                initial={{ width: "0%" }}
+                animate={{ width: `${((beat + 1) / BEATS.length) * 100}%` }}
+                transition={{ duration: 0.4 }}
+              />
+            </div>
+          </div>
 
           <button
             onClick={finish}
