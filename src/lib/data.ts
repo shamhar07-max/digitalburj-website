@@ -7,12 +7,13 @@ export const navPrimary = [
 ];
 
 export const navSolutions = [
-  { label: "Transform", href: "/services#transform" },
-  { label: "Build", href: "/services#build" },
-  { label: "Intelligence", href: "/services#intelligence" },
-  { label: "Automate", href: "/services#automate" },
-  { label: "Grow", href: "/services#grow" },
-  { label: "Operate", href: "/services#operate" },
+  { label: "Transform", href: "/services/transform" },
+  { label: "Build", href: "/services/build" },
+  { label: "Intelligence", href: "/services/intelligence" },
+  { label: "Automate", href: "/services/automate" },
+  { label: "Grow", href: "/services/grow" },
+  { label: "Operate", href: "/services/operate" },
+  { label: "Business systems", href: "/services/business-systems" },
 ];
 
 export const navEcosystem = [

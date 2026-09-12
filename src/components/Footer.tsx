@@ -1,7 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 
 const COLS = [
-  { h: "Solutions", links: [["Transform", "/services#transform"], ["Build", "/services#build"], ["Intelligence", "/services#intelligence"], ["Automate", "/services#automate"], ["Grow", "/services#grow"], ["Operate", "/services#operate"]] },
+  { h: "Solutions", links: [["Transform", "/services/transform"], ["Build", "/services/build"], ["Intelligence", "/services/intelligence"], ["Automate", "/services/automate"], ["Grow", "/services/grow"], ["Operate", "/services/operate"]] },
   { h: "Ecosystem", links: [["Academy", "/academy"], ["Studio", "/studio"], ["Business", "/business-ai"], ["Talent", "/talent"], ["Jobs", "/jobs"]] },
   { h: "Company", links: [["About", "/about"], ["Work", "/#work"], ["Journal", "/journal"], ["Contact", "/contact"]] },
   { h: "Legal", links: [["Privacy", "/legal"], ["Terms", "/legal"], ["Cookies", "/legal"]] },
