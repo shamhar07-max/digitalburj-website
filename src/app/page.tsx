@@ -6,6 +6,7 @@ import { Ticker, Sticker, ConsoleStack } from "@/components/decor";
 import { Constellation } from "@/components/Constellation";
 import { TiltStage, Magnetic } from "@/components/Stage";
 import { Diorama } from "@/components/Diorama";
+import { ChapterRail, NextChapter } from "@/components/Journey";
 import { Reveal } from "@/components/Reveal";
 import { Faq } from "@/components/Faq";
 import { CTASection } from "@/components/CTASection";
@@ -29,8 +30,9 @@ export default function Home() {
     <>
       <Ticker items={["Academy", "Studio", "Business AI", "Talent", "Jobs & Global", "Journal", "Learn — Build — Work — Grow"]} />
 
-      {/* HERO — evidence diorama */}
-      <section className="aurora relative overflow-hidden border-b border-hair">
+      {/* PROLOGUE */}
+      <ChapterRail />
+      <section id="prologue" className="aurora relative overflow-hidden border-b border-hair scroll-mt-24">
         <div className="blueprint absolute inset-0" aria-hidden />
         <div className="grain pointer-events-none absolute inset-0" aria-hidden />
         <Diorama className="container-db relative grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1.15fr_1fr]">
@@ -68,8 +70,8 @@ export default function Home() {
         </Diorama>
       </section>
 
-      {/* INDEX */}
-      <section className="container-db py-14 sm:py-20">
+      {/* ACT I — DOORS */}
+      <section id="doors" className="container-db scroll-mt-24 py-14 sm:py-20">
         <Reveal>
           <SectionHead index="01" kicker="Index — what we do" title={<>Five doors. One record of proof.</>} lede="Every track feeds the same evidence wallet: what you learned, what you built, what was verified." />
         </Reveal>
@@ -87,6 +89,7 @@ export default function Home() {
             </a>
           ))}
         </div>
+        <NextChapter href="#levels" label="Certification" />
       </section>
 
       {/* ECOSYSTEM */}
@@ -112,8 +115,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CERT BAND */}
-      <section className="border-b-2 border-ink bg-amberbg/70">
+      {/* ACT II — LEVELS */}
+      <section id="levels" className="scroll-mt-24 border-b-2 border-ink bg-amberbg/70">
         <div className="container-db grid items-center gap-10 py-14 lg:grid-cols-2">
           <div>
             <SectionHead index="02" kicker="Certification" accent="text-amber-deep" title={<>A certificate that lists what was tested.</>} lede="Five levels with published criteria. Experience records only for supervised work actually completed — dates, tasks, supervisor on file." />
@@ -136,6 +139,7 @@ export default function Home() {
               </div>
             </div>
           </div>
+          <NextChapter href="#work" label="The proof" />
         </div>
       </section>
 
@@ -220,6 +224,12 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <a href="/contact" className="btn-shine inline-flex items-center gap-2 rounded-lg border-2 border-ink bg-cobalt px-6 py-3 text-sm font-bold text-white shadow-[4px_4px_0_#12332A] transition-all duration-200 hover:-translate-y-0.5">
+              Put us to the test <span aria-hidden>→</span>
+            </a>
+            <NextChapter href="#finale" label="Answers" />
+          </div>
         </div>
       </section>
 
@@ -238,7 +248,7 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="container-db max-w-4xl py-14 sm:py-20">
+      <section id="finale" className="container-db max-w-4xl scroll-mt-24 py-14 sm:py-20">
         <Reveal>
           <SectionHead index="05" kicker="Straight answers" title={<>Asked often, answered plainly.</>} />
         </Reveal>
