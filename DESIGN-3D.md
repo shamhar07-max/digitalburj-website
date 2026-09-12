@@ -9,7 +9,7 @@ A five-plane paper diorama, not a 3D scene graph. No WebGL anywhere.
 | Plane | Content | Depth | Behavior |
 |---|---|---|---|
 | P0 Backdrop | dot-grid + warm wash + grain | fixed | static |
-| P1 Atmosphere | constellation canvas (≤70 nodes) | drift ±7px | rAF, pauses offscreen |
+| P1 Atmosphere | Three.js evidence globe (particle sphere + 2 orbit rings + 4 beacons), dynamic import, SSR-off | rAF, pauses offscreen |
 | P2 Halo | orbit ring + glow orbs | ±12px | follows cursor slowly |
 | P3 Subject | evidence stack (ticket/orbit/chip) | tilt ≤8° | pointer tilt, desktop only |
 | P4 Seal | rotating stamp | +18px lift | floats above subject |
@@ -42,12 +42,12 @@ the stage and eases back on leave. Touch devices: no camera motion at all.
 Backdrop 0 · atmosphere 20 · halo 45 · subject 60–90 (stacked children) ·
 seal 120 · light overlay (2D, pointer-events none).
 
-## 6. Particles
+## 6. Particles & camera motion
 
-One canvas per viewport max (hero only). Node count = min(70, area/16000).
-Lines under 110px, ink at ≤14% alpha. Twinkle by sine. Full stop when
-offscreen, hidden tab, or reduced-motion. Mobile: same system, fewer nodes
-by area rule — no separate code path.
+Globe: ~950 fibonacci-sphere points (500 mobile), brand palette, additive
+discipline (normal blending, ≤90% opacity). Auto-rotate 0.12 rad/s; cursor
+tilt lerped; GSAP ScrollTrigger scrubs +0.9π across the hero pass. Reduced
+motion renders one static frame; touch gets no camera motion.
 
 ## 7. Movement budget
 
@@ -68,8 +68,8 @@ by area rule — no separate code path.
 
 ## 9. Performance contract
 
-- Zero new dependencies (framer-motion already present, used sparingly).
-- Zero images for 3D (SVG + CSS + one canvas).
-- Fonts unchanged (5 families, self-hosted, display=swap).
-- Static export: diorama renders a composed static frame with JS disabled.
-- Failure mode: any JS error leaves a clean static hero (progressive enhancement).
+- Three.js + GSAP load lazily, client-only, after first paint (dynamic import).
+- Zero images for 3D (geometry + points only).
+- Fonts unchanged (self-hosted, display=swap).
+- Static export: globe slot renders empty until hydrated; content never waits on it.
+- Failure mode: WebGL missing or JS error leaves a clean static hero (progressive enhancement).
