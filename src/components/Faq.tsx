@@ -8,7 +8,13 @@ const FAQS = [
 
 export function Faq() {
   return (
-    <div className="overflow-hidden rounded-2xl border-2 border-ink bg-panel">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: FAQS.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+      }) }} />
+      <div className="overflow-hidden rounded-2xl border-2 border-ink bg-panel">
       {FAQS.map((f, i) => (
         <details key={i} className="group border-b-2 border-ink/10 last:border-b-0" open={i === 0}>
           <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 transition-colors hover:bg-panel-deep/60 [&::-webkit-details-marker]:hidden">
@@ -21,6 +27,7 @@ export function Faq() {
           <p className="border-t-2 border-dashed border-hair bg-lab px-6 py-5 text-sm leading-relaxed text-ink-soft sm:pl-[4.5rem]">{f.a}</p>
         </details>
       ))}
-    </div>
+      </div>
+    </>
   );
 }

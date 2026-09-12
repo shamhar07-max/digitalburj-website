@@ -26,9 +26,47 @@ const STEP_INTRO = ["Here's how we'd approach it, in order:", "The sequence that
 const MISTAKE_INTRO = ["Now the expensive part — the mistakes:", "Where the money usually burns:", "The patterns that cost real dirhams:"];
 const WEEK_INTRO = ["What you can do this week:", "If you do nothing else, do these three things:", "A starting list for the next seven days:"];
 
+export { GLOSSARY_CATS } from "./bank2";
+
+// Trending 2026 keyword bank per category — woven into excerpts, answers and
+// metadata for SEO/AEO/GEO/AIO coverage. Curated, not stuffed.
+export const CAT_KEYWORDS: Record<string, string[]> = {
+  Web: ["business website cost UAE", "landing page conversion", "ecommerce website Dubai", "website maintenance plan", "mobile-first design"],
+  AI: ["AI agents for small business", "WhatsApp AI automation", "AI customer support", "AI content workflow", "AI implementation roadmap"],
+  Automation: ["workflow automation", "lead follow-up system", "payment reminders automation", "HR automation", "business dashboard"],
+  SEO: ["local SEO Dubai", "Google Business Profile", "technical SEO audit", "SEO pricing UAE", "SEO mistakes"],
+  "AI Search": ["answer engine optimization", "AEO strategy", "generative engine optimization", "GEO", "AI Overviews visibility", "ChatGPT citations"],
+  Social: ["social media management Dubai", "Instagram for business", "short video marketing", "paid social ROI"],
+  CRM: ["CRM implementation", "sales pipeline", "CRM adoption", "WhatsApp CRM integration"],
+  Systems: ["ERP for SME", "HRM software", "inventory control", "stock shrinkage"],
+  Growth: ["lead generation Dubai", "B2B outreach", "conversion rate optimisation", "referral program"],
+  Apps: ["MVP app development", "app development cost", "cross-platform apps", "app launch strategy"],
+  Startup: ["MVP scoping", "startup validation", "startup tech stack", "launch checklist"],
+  Strategy: ["digital transformation", "AI roadmap SME", "operating model"],
+};
+
+// Category thumbnails — verified stock photography (Unsplash CDN, lazy-loaded).
+const U = (id: string) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=400&q=60`;
+export const CAT_IMAGE: Record<string, string> = {
+  Web: U("1498050108023-c5249f4df085"),
+  AI: U("1518770660439-4636190af475"),
+  Automation: U("1553877522-43269d4ea984"),
+  SEO: U("1460925895917-afdab827c52f"),
+  "AI Search": U("1550751827-4bd374c3f58b"),
+  Social: U("1556761175-b413da4baf72"),
+  CRM: U("1552664730-d307ca884978"),
+  Systems: U("1434030216411-0b793f4b4173"),
+  Growth: U("1600880292203-757bb62b4baf"),
+  Apps: U("1461749280684-dccba630e2f6"),
+  Startup: U("1521737604893-d14cc237f11d"),
+  Strategy: U("1526374965328-7f61d4dc18c5"),
+};
+
+
 export type BlogPost = {
   slug: string; title: string; cat: string; date: string; updated: string;
-  excerpt: string; reading: number; intro: string[]; why: string[];
+  excerpt: string; reading: number; answer: string; keywords: string[];
+  intro: string[]; why: string[];
   steps: string[]; mistakes: string[]; week: string[];
   faq: [string, string][]; related: { slug: string; title: string }[];
 };
@@ -95,9 +133,12 @@ function buildPost(ti: number, ai: number, total: number): BlogPost {
     [`When should we hire help instead of DIY?`, `When the task repeats weekly, mistakes cost real money, or you've postponed it twice. That's the honest threshold — not enthusiasm, frequency times consequence.`],
   ];
   const body = [...intro, ...why, ...steps, ...mistakes, ...week].join(" ");
+  const kws = CAT_KEYWORDS[t.cat] ?? [];
   return {
     slug, title, cat: t.cat, date: dateFor(ti * ANGLES.length + ai, total), updated: "2026-09-11",
     excerpt: lead, reading: Math.max(4, Math.round(body.split(" ").length / 200)),
+    answer: `${lead} For UAE small businesses, the practical rule: ${week[1] ?? ""} Digital Burj documents the full method — approach, mistakes and weekly moves — below.`.slice(0, 420),
+    keywords: [t.title.toLowerCase(), ...kws.slice(0, 4)],
     intro, why, steps, mistakes, week, faq, related: [],
   };
 }
@@ -213,25 +254,6 @@ export const DOCS: DocPage[] = [
     ]),
   })),
 ];
-
-export { GLOSSARY_CATS } from "./bank2";
-
-// Category thumbnails — verified stock photography (Unsplash CDN, lazy-loaded).
-const U = (id: string) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=400&q=60`;
-export const CAT_IMAGE: Record<string, string> = {
-  Web: U("1498050108023-c5249f4df085"),
-  AI: U("1518770660439-4636190af475"),
-  Automation: U("1553877522-43269d4ea984"),
-  SEO: U("1460925895917-afdab827c52f"),
-  "AI Search": U("1550751827-4bd374c3f58b"),
-  Social: U("1556761175-b413da4baf72"),
-  CRM: U("1552664730-d307ca884978"),
-  Systems: U("1434030216411-0b793f4b4173"),
-  Growth: U("1600880292203-757bb62b4baf"),
-  Apps: U("1461749280684-dccba630e2f6"),
-  Startup: U("1521737604893-d14cc237f11d"),
-  Strategy: U("1526374965328-7f61d4dc18c5"),
-};
 
 export const COUNTS = {
   blog: BLOG.length, solutions: SOLUTIONS.length, programs: PROGRAM_PAGES.length,

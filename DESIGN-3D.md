@@ -9,7 +9,7 @@ A five-plane paper diorama, not a 3D scene graph. No WebGL anywhere.
 | Plane | Content | Depth | Behavior |
 |---|---|---|---|
 | P0 Backdrop | dot-grid + warm wash + grain | fixed | static |
-| P1 Atmosphere | Three.js evidence globe (particle sphere + 2 orbit rings + 4 beacons), dynamic import, SSR-off | rAF, pauses offscreen |
+| P1 Atmosphere | Shared SVG orbit motif (`OrbitLines`) — rings, nodes, center seal | static, one language everywhere |
 | P2 Halo | orbit ring + glow orbs | ±12px | follows cursor slowly |
 | P3 Subject | evidence stack (ticket/orbit/chip) | tilt ≤8° | pointer tilt, desktop only |
 | P4 Seal | rotating stamp | +18px lift | floats above subject |
@@ -44,10 +44,10 @@ seal 120 · light overlay (2D, pointer-events none).
 
 ## 6. Particles & camera motion
 
-Globe: ~950 fibonacci-sphere points (500 mobile), brand palette, additive
-discipline (normal blending, ≤90% opacity). Auto-rotate 0.12 rad/s; cursor
-tilt lerped; GSAP ScrollTrigger scrubs +0.9π across the hero pass. Reduced
-motion renders one static frame; touch gets no camera motion.
+Retired WebGL variant in favor of a shared SVG orbit system: zero runtime
+cost, identical motif on home hero and every subpage hero, no hydration or
+GPU risk on low-end devices. Depth comes from layered paper planes, tilt,
+parallax and light — never from a scene graph on a content site.
 
 ## 7. Movement budget
 
@@ -68,8 +68,8 @@ motion renders one static frame; touch gets no camera motion.
 
 ## 9. Performance contract
 
-- Three.js + GSAP load lazily, client-only, after first paint (dynamic import).
-- Zero images for 3D (geometry + points only).
+- Zero 3D libraries (framer-motion already present, used sparingly).
+- Zero images for depth (SVG + CSS only).
 - Fonts unchanged (self-hosted, display=swap).
-- Static export: globe slot renders empty until hydrated; content never waits on it.
-- Failure mode: WebGL missing or JS error leaves a clean static hero (progressive enhancement).
+- Static export: orbit motif renders inline; content never waits on JS.
+- Failure mode: any JS error leaves a clean static hero (progressive enhancement).

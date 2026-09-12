@@ -5,7 +5,7 @@ import { Button } from "@/components/Button";
 import { Ticker, Sticker, ConsoleStack, HeroMotion, MaskLine } from "@/components/decor";
 import { TiltStage, Magnetic } from "@/components/Stage";
 import { Diorama } from "@/components/Diorama";
-import { GlobeLazy } from "@/components/GlobeLazy";
+import { OrbitLines } from "@/components/OrbitLines";
 import { ChapterRail, NextChapter } from "@/components/Journey";
 import { Reveal } from "@/components/Reveal";
 import { Faq } from "@/components/Faq";
@@ -37,7 +37,7 @@ export default function Home() {
         <div className="grain pointer-events-none absolute inset-0" aria-hidden />
         <Diorama className="container-db relative grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1.15fr_1fr]">
           <div className="absolute inset-0" data-depth="14" aria-hidden>
-            <GlobeLazy className="h-full w-full opacity-90" />
+            <OrbitLines className="h-full w-full text-ink" />
           </div>
           <div data-depth="10">
             <HeroMotion delay={0.05}>

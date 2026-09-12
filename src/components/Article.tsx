@@ -12,6 +12,13 @@ export function DocShell({
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: crumb.map(([name, item], i) => ({
+          "@type": "ListItem", position: i + 1, name, item: `https://digitalburj.com${item}`,
+        })),
+      }) }} />
       <section className="border-b border-hair bg-panel-deep/50">
         <div className="container-db max-w-4xl py-10">
           <nav className="font-mono-d flex flex-wrap gap-2 text-[11px] uppercase tracking-[0.14em] text-ink-faint" aria-label="Breadcrumb">

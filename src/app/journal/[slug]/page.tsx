@@ -13,6 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: p.title,
     description: p.excerpt,
+    keywords: p.keywords,
     openGraph: { title: p.title, description: p.excerpt, type: "article", publishedTime: p.date, modifiedTime: p.updated },
   };
 }
@@ -32,11 +33,26 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       reading={p.reading}
       related={p.related.map((r) => ({ ...r, base: "/journal" }))}
       jsonld={{
-        "@context": "https://schema.org", "@type": "BlogPosting",
-        headline: p.title, description: p.excerpt, datePublished: p.date, dateModified: p.updated,
-        author: { "@type": "Organization", name: "DigitalBurj", url: "https://digitalburj.com" },
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            headline: p.title, description: p.excerpt, datePublished: p.date, dateModified: p.updated,
+            keywords: p.keywords.join(", "),
+            speakableSpecification: { "@type": "SpeakableSpecification", cssSelector: ["#short-answer"] },
+            author: { "@type": "Organization", name: "DigitalBurj", url: "https://digitalburj.com" },
+          },
+          {
+            "@type": "FAQPage",
+            mainEntity: p.faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+          },
+        ],
       }}
     >
+      <div id="short-answer" className="rounded-2xl border-2 border-ink bg-amberbg p-5 text-[16px] font-semibold leading-relaxed text-ink">
+        <span className="font-mono-d mb-2 block text-[11px] font-bold uppercase tracking-[0.16em] text-amber-deep">Short answer</span>
+        {p.answer}
+      </div>
       {p.intro.map((t, i) => <Para key={`i${i}`}>{t}</Para>)}
       {p.why.map((t, i) => <Para key={`w${i}`}>{t}</Para>)}
       <h2 className="pt-2 text-2xl font-extrabold tracking-tight text-ink" style={{ fontFamily: "var(--font-sora)" }}>The working method</h2>

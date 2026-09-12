@@ -20,9 +20,11 @@ export const metadata: Metadata = {
   description:
     "DigitalBurj is a technology company, AI laboratory and transformation studio. Academy courses, startup builds, SME systems, verified talent certification and global career readiness.",
   keywords: [
-    "DigitalBurj", "AI agency Dubai", "startup MVP studio",
-    "SME automation UAE", "CRM ERP implementation", "SEO GEO AEO",
-    "sales training", "admin assistant course", "talent certification",
+    "DigitalBurj", "AI agents small business", "WhatsApp automation UAE",
+    "answer engine optimization", "AEO", "generative engine optimization", "GEO",
+    "AI Overviews visibility", "local SEO Dubai", "CRM implementation",
+    "startup MVP studio", "business automation", "RAG knowledge base",
+    "sales training Dubai", "admin assistant course", "talent certification",
   ],
   authors: [{ name: "DigitalBurj" }],
   icons: { icon: "/brand/db-icon-neo.svg", apple: "/brand/db-icon-neo.svg" },

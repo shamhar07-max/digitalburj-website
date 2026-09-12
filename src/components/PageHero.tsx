@@ -1,10 +1,12 @@
 import { SectionTag } from "@/components/SectionTag";
 import { MaskLine } from "@/components/decor";
+import { OrbitLines } from "@/components/OrbitLines";
 
 export function PageHero({ tag, title, sub, editorial, chips }: { tag: string; title: React.ReactNode; sub: string; editorial?: string; chips?: string[] }) {
   return (
     <section className="aurora relative overflow-hidden border-b border-hair">
       <div className="blueprint absolute inset-0" aria-hidden />
+      <OrbitLines className="pointer-events-none absolute -right-16 top-1/2 hidden h-[130%] w-[46rem] max-w-none -translate-y-1/2 text-ink opacity-60 lg:block" />
       <div className="container-db relative pb-12 pt-12 sm:pt-16">
         <div className="mb-6 flex gap-1.5" aria-hidden>
           <span className="h-1.5 w-14 rounded-full bg-cobalt" />
