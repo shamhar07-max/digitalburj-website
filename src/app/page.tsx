@@ -5,7 +5,7 @@ import { Button } from "@/components/Button";
 import { Ticker, Sticker, ConsoleStack } from "@/components/decor";
 import { Constellation } from "@/components/Constellation";
 import { TiltStage, Magnetic } from "@/components/Stage";
-import { FlowDraw } from "@/components/FlowDraw";
+import { Diorama } from "@/components/Diorama";
 import { Reveal } from "@/components/Reveal";
 import { Faq } from "@/components/Faq";
 import { CTASection } from "@/components/CTASection";
@@ -29,13 +29,15 @@ export default function Home() {
     <>
       <Ticker items={["Academy", "Studio", "Business AI", "Talent", "Jobs & Global", "Journal", "Learn — Build — Work — Grow"]} />
 
-      {/* HERO — broadsheet */}
+      {/* HERO — evidence diorama */}
       <section className="aurora relative overflow-hidden border-b border-hair">
         <div className="blueprint absolute inset-0" aria-hidden />
-        <Constellation className="absolute inset-0 h-full w-full opacity-70" density={70} />
-        <div className="grain absolute inset-0" aria-hidden />
-        <div className="container-db relative grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1.15fr_1fr]">
-          <div>
+        <div className="grain pointer-events-none absolute inset-0" aria-hidden />
+        <Diorama className="container-db relative grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1.15fr_1fr]">
+          <div className="absolute inset-0" data-depth="14" aria-hidden>
+            <Constellation className="h-full w-full opacity-70" density={70} />
+          </div>
+          <div data-depth="10">
             <h1 className="font-display mt-2 tracking-tight text-ink" style={{ fontSize: "clamp(2.6rem, 6.4vw, 5rem)", lineHeight: 0.98 }}>
               SKILLS TODAY.
               <span className="block">OPPORTUNITIES <span className="font-ed font-normal italic text-gold-deep">tomorrow.</span></span>
@@ -58,10 +60,12 @@ export default function Home() {
               ))}
             </dl>
           </div>
+          <div data-depth="28">
           <TiltStage className="relative">
             <ConsoleStack />
           </TiltStage>
-        </div>
+          </div>
+        </Diorama>
       </section>
 
       {/* INDEX */}
@@ -177,8 +181,7 @@ export default function Home() {
             </div>
           </div>
           <div className="rounded-2xl border-2 border-ink bg-panel p-7 shadow-[6px_6px_0_#12332A]">
-            <p className="font-mono-d text-[10px] tracking-[0.2em] text-ink-faint">SIMPLIFIED FLOW — draws itself</p>
-            <FlowDraw />
+            <p className="font-mono-d text-[10px] tracking-[0.2em] text-ink-faint">SIMPLIFIED FLOW</p>
             <div className="mt-2 font-mono-d text-[12px] leading-[2] text-ink-soft">
               <p>POST_LOAD <span className="text-ink-faint">→</span> VERIFY_CARRIER</p>
               <p>BID <span className="text-ink-faint">→</span> AWARD <span className="text-ink-faint">→</span> <span className="font-bold text-amber-deep">ESCROW_HOLD</span></p>

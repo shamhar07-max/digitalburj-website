@@ -60,9 +60,10 @@ twinkle by sine — rAF paused offscreen, DPR-capped at 2.
 ## 7. Signature moments (exactly four)
 
 1. First-visit title sequence (logo wipe → chapters → doors).
-2. Hero console: tilting evidence stack under a drifting constellation.
-3. Proof flow drawing itself once, terminal-style.
-4. Rotating EVIDENCE FIRST stamp + perforated specimen ticket.
+2. Hero evidence diorama: layered parallax + cursor light + tilting console
+   (see DESIGN-3D.md) under a drifting constellation.
+3. Rotating EVIDENCE FIRST stamp + perforated specimen ticket.
+4. Ticker band + magnetic primary CTAs.
 
 ## 8. Composition rules
 
