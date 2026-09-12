@@ -215,6 +215,38 @@ export default function Academy() {
           <p className="mt-5 text-sm text-ink-soft">Full engineering spec — state machines, RBAC matrix, sandbox rules, 10/10 checklist — lives in our build docs. First slice first: registration → lesson → mission → submission → grading → review → evidence.</p>
         </div>
       </section>
+      <section className="border-y border-hair bg-panel-deep/50">
+        <div className="container-db py-12">
+          <Reveal>
+            <SectionHead index="08" kicker="Beyond courses" title={<>Academy is the engine, not the destination.</>} lede="Learn → Build → Verify → Work → Grow. One Digital Burj ID carries you from first lesson to paid work — capability, not certificates, is the product." />
+          </Reveal>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            <div className="rounded-2xl border border-hair bg-panel p-6">
+              <p className="font-mono-d text-xs font-bold uppercase tracking-[0.16em] text-cobalt">Persistent company</p>
+              <h3 className="mt-2 text-lg font-extrabold text-ink" style={{ fontFamily: "var(--font-sora)" }}>Your NOVA grows with you</h3>
+              <p className="mt-2 text-sm leading-relaxed text-ink-soft">Name one business on day one. Every course grows it — website, database, CRM, automation, AI, payments. Graduation means a working digital business, not 30 tutorial toys.</p>
+            </div>
+            <div className="rounded-2xl border border-hair bg-panel p-6">
+              <p className="font-mono-d text-xs font-bold uppercase tracking-[0.16em] text-cobalt">Two languages, one standard</p>
+              <h3 className="mt-2 text-lg font-extrabold text-ink" style={{ fontFamily: "var(--font-sora)" }}>Understand locally. Execute in English.</h3>
+              <p className="mt-2 text-sm leading-relaxed text-ink-soft">Concepts in the language you think in; terminology, docs and client work in English. The ratio shifts as you advance — the profession doesn&apos;t translate.</p>
+            </div>
+            <div className="rounded-2xl border border-hair bg-panel p-6">
+              <p className="font-mono-d text-xs font-bold uppercase tracking-[0.16em] text-cobalt">Failure passport</p>
+              <h3 className="mt-2 text-lg font-extrabold text-ink" style={{ fontFamily: "var(--font-sora)" }}>Recovery is a credential</h3>
+              <p className="mt-2 text-sm leading-relaxed text-ink-soft">Every recovered failure — what broke, why, what changed — becomes verified evidence. Employers read recoveries, not just wins.</p>
+            </div>
+            <div className="rounded-2xl border border-amberx/40 bg-amberbg p-6">
+              <p className="font-mono-d text-xs font-bold uppercase tracking-[0.16em] text-amber-deep">Capability record · specimen</p>
+              <h3 className="mt-2 text-lg font-extrabold text-ink" style={{ fontFamily: "var(--font-sora)" }}>DB-019284 · Professional Builder</h3>
+              <p className="mt-2 font-mono-d text-xs leading-relaxed text-ink-soft">6 verified projects · 43 missions · 7 incident simulations · 3 client simulations · 1 challenge — verified by Digital Burj Academy.</p>
+              <div className="mt-3">
+                <Button href="/talent">How verification works</Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="container-db max-w-4xl pb-20">
         <Reveal>
           <div className="rounded-2xl border border-amberx/40 bg-amberbg p-7 text-sm leading-relaxed text-ink-soft">
