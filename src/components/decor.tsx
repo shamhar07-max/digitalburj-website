@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion, useInView, useReducedMotion, animate } from "framer-motion";
+import { useState } from "react";
 import { BadgeCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -42,21 +41,28 @@ export function Sticker({ className = "" }: { className?: string }) {
   );
 }
 
-/** Hero console stack: specimen ticket + orbit console + checklist, taped and tilted. */
+/** Hero console stack: specimen ticket + system status + sign-off, taped and tilted. */
 export function ConsoleStack() {
   return (
     <div className="relative mx-auto w-full max-w-[420px] pb-10 pr-4 pt-6">
       <div className="animate-floaty-late absolute right-0 top-0 w-[62%] rounded-2xl border-2 border-ink bg-white p-4 shadow-[6px_6px_0_rgba(18,51,42,0.18)]" style={{ "--tilt": "3deg", transform: "rotate(3deg)" } as React.CSSProperties}>
-        <p className="font-mono-d text-[10px] tracking-[0.2em] text-ink-faint">FIG.01 — CAPABILITY ORBIT</p>
-        <svg viewBox="0 0 200 120" className="mt-2 h-24 w-full" fill="none" aria-hidden>
-          <circle cx="100" cy="60" r="44" stroke="rgba(23,37,31,0.18)" />
-          <ellipse cx="100" cy="60" rx="70" ry="26" stroke="#0E7C6B" strokeWidth="1.4" transform="rotate(-16 100 60)" />
-          <ellipse cx="100" cy="60" rx="70" ry="26" stroke="#D9481C" strokeWidth="1.4" transform="rotate(18 100 60)" />
-          <circle cx="100" cy="60" r="9" fill="#0B6B4F" stroke="#FAF6EE" strokeWidth="1.5" />
-          <circle cx="158" cy="42" r="4" fill="#E8721C" />
-          <circle cx="46" cy="80" r="4" fill="#0E7C6B" />
-        </svg>
-        <div className="mt-1 flex justify-between font-mono-d text-[10px] text-ink-faint"><span>5 TRACKS</span><span className="font-semibold text-tealx">● SYNCED</span></div>
+        <p className="font-mono-d text-[10px] tracking-[0.2em] text-ink-faint">FIG.01 — LIVE SYSTEM</p>
+        <div className="mt-2 space-y-1.5">
+          {[
+            ["ACADEMY", "12 programs live", "bg-tealx"],
+            ["STUDIO", "3 builds in motion", "bg-amberx"],
+            ["TALENT", "L1–L5 verifying", "bg-cobalt"],
+          ].map(([t, d, dot]) => (
+            <div key={t as string} className="flex items-center justify-between gap-2 rounded-lg border border-hair bg-lab px-2.5 py-1.5">
+              <span className="font-mono-d text-[10px] font-bold tracking-[0.12em] text-ink">{t}</span>
+              <span className="flex items-center gap-1.5 text-[10px] text-ink-soft">
+                <span className={`kpi-dot inline-block h-1.5 w-1.5 rounded-full ${dot}`} />
+                {d}
+              </span>
+            </div>
+          ))}
+        </div>
+        <div className="mt-2 flex justify-between font-mono-d text-[10px] text-ink-faint"><span>5 TRACKS</span><span className="font-semibold text-tealx">● SYNCED</span></div>
       </div>
       <div className="animate-floaty relative w-[82%] rounded-2xl border-2 border-ink bg-white shadow-[8px_8px_0_#12332A]" style={{ "--tilt": "-2deg", transform: "rotate(-2deg)" } as React.CSSProperties}>
         <div className="tape absolute -top-3 left-8 h-6 w-20 -rotate-6" aria-hidden />
@@ -139,54 +145,31 @@ export function CredChip() {
   );
 }
 
-/** Static passthrough — all motion is hover/ambient CSS. */
+/** Mount entrance — pure CSS, paints with first frame, zero JS cost. */
 export function HeroMotion({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
-  const reduce = useReducedMotion();
-  if (reduce) return <>{children}</>;
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 22 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <div className="hero-in" style={{ animationDelay: `${delay}s` }}>
       {children}
-    </motion.div>
+    </div>
   );
 }
 
-/** Mask-line reveal for display titles. */
+/** Mask-line reveal for display titles — CSS only. */
 export function MaskLine({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
-  const reduce = useReducedMotion();
-  if (reduce) return <div className={className}>{children}</div>;
   return (
     <span className={cn("block overflow-hidden pb-[0.09em] -mb-[0.09em]", className)}>
-      <motion.span
-        className="block will-change-transform"
-        initial={{ y: "110%" }}
-        animate={{ y: "0%" }}
-        transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
-      >
+      <span className="mask-line-inner block" style={{ animationDelay: `${delay}s` }}>
         {children}
-      </motion.span>
+      </span>
     </span>
   );
 }
 
-/** Solid counter — final number rendered, tabular. */
+/** Solid counter — final number rendered, tabular. Zero JS. */
 export function Counter({ value, suffix = "", className = "" }: { value: number; suffix?: string; className?: string }) {
-  const reduce = useReducedMotion();
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
-  const [n, setN] = useState(0);
-  useEffect(() => {
-    if (!inView) return;
-    if (reduce) { setN(value); return; }
-    const c = animate(0, value, { duration: 1.4, ease: [0.22, 1, 0.36, 1], onUpdate: (v) => setN(Math.round(v)) });
-    return () => c.stop();
-  }, [inView, value, reduce]);
   return (
-    <span ref={ref} className={cn("tabular-nums", className)}>
-      {n}
+    <span className={cn("tabular-nums", className)}>
+      {value}
       <span className="text-foil-gold">{suffix}</span>
     </span>
   );

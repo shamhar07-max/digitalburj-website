@@ -5,7 +5,6 @@ import { Button } from "@/components/Button";
 import { Ticker, Sticker, ConsoleStack, HeroMotion, MaskLine } from "@/components/decor";
 import { TiltStage, Magnetic } from "@/components/Stage";
 import { Diorama } from "@/components/Diorama";
-import { OrbitLines } from "@/components/OrbitLines";
 import { ChapterRail, NextChapter } from "@/components/Journey";
 import { Reveal } from "@/components/Reveal";
 import { Faq } from "@/components/Faq";
@@ -36,8 +35,14 @@ export default function Home() {
         <div className="blueprint absolute inset-0" aria-hidden />
         <div className="grain pointer-events-none absolute inset-0" aria-hidden />
         <Diorama className="container-db relative grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1.15fr_1fr]">
-          <div className="absolute inset-0" data-depth="14" aria-hidden>
-            <OrbitLines className="h-full w-full text-ink" />
+          <div className="absolute inset-0 flex items-stretch justify-end overflow-hidden" aria-hidden>
+            <div className="mr-[-40px] hidden w-[38%] flex-col justify-center gap-2 border-l-2 border-dashed border-hair pl-6 font-mono-d text-[10px] leading-[2.2] tracking-[0.14em] text-ink-faint lg:flex">
+              <span>SYS.DB-2026 // NOMINAL</span>
+              <span>TRACKS ............ 05/05</span>
+              <span>PROGRAMS ......... 12 LIVE</span>
+              <span>CERT ............. L1–L5</span>
+              <span>REPLY ............ ≤24H</span>
+            </div>
           </div>
           <div data-depth="10">
             <HeroMotion delay={0.05}>

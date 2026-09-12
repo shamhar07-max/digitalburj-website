@@ -96,6 +96,16 @@
   0%, 100% { opacity: 1; }
   50% { opacity: 0.55; }
 }
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes maskUp {
+  from { transform: translateY(104%); }
+  to { transform: translateY(0); }
+}
+.hero-in { animation: heroIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.mask-line-inner { animation: maskUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
 @keyframes blinkCaret {
   0%, 45% { opacity: 1; }
   50%, 95% { opacity: 0; }

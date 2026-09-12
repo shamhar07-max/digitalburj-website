@@ -3,7 +3,6 @@ import { Inter, Space_Grotesk, JetBrains_Mono, IBM_Plex_Serif } from "next/font/
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { Intro } from "@/components/Intro";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
 const grotesk = Space_Grotesk({ variable: "--font-sora", subsets: ["latin"], weight: ["500", "600", "700"], display: "swap" });
@@ -68,7 +67,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[300] focus:rounded-lg focus:bg-cobalt focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-white">
           Skip to content
         </a>
-        <Intro />
         <Navbar />
         <link rel="preconnect" href="https://picsum.photos" />
         <link rel="dns-prefetch" href="https://picsum.photos" />
