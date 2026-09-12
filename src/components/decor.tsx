@@ -159,10 +159,10 @@ export function MaskLine({ children, delay = 0, className = "" }: { children: Re
   const reduce = useReducedMotion();
   if (reduce) return <div className={className}>{children}</div>;
   return (
-    <span className={cn("block overflow-hidden", className)}>
+    <span className={cn("block overflow-hidden pb-[0.09em] -mb-[0.09em]", className)}>
       <motion.span
-        className="block"
-        initial={{ y: "104%" }}
+        className="block will-change-transform"
+        initial={{ y: "110%" }}
         animate={{ y: "0%" }}
         transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
       >
