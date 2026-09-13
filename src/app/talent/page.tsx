@@ -3,6 +3,7 @@ import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/Button";
 import { CTASection } from "@/components/CTASection";
+import { AcademyLink } from "@/components/AcademyBridge";
 
 export const metadata: Metadata = {
   title: "Talent — Prove What You Can Do",
@@ -43,7 +44,10 @@ export default function Talent() {
             Policy in plain words: training completion and competency certification are different documents. We never sell experience letters, licences, visa eligibility, or job guarantees. Wording used: <em>eligible for consideration for Digital Burj projects based on performance and availability.</em>
           </div>
         </Reveal>
-        <div className="mt-8 flex justify-center"> <Button href="/academy">Earn it in the Academy</Button></div>
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <Button href="/academy">Earn it in the Academy</Button>
+          <AcademyLink path="/talent" className="inline-flex items-center rounded-xl border-2 border-ink px-6 py-3 text-sm font-bold uppercase tracking-[0.06em] text-ink">Open the live directory →</AcademyLink>
+        </div>
         <div className="mt-10"><CTASection /></div>
       </section>
     </>

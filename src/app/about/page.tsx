@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Target, ShieldCheck, Rocket, Users } from "lucide-react";
+import { PageHero } from "@/components/PageHero";
 import { SectionTag } from "@/components/SectionTag";
-import { GradientBackdrop } from "@/components/GradientBackdrop";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { CTASection } from "@/components/CTASection";
 
@@ -41,28 +41,9 @@ const values = [
 export default function AboutPage() {
   return (
     <>
-      <section className="relative overflow-hidden pt-16 pb-20 sm:pt-24 sm:pb-24">
-        <GradientBackdrop variant="hero" />
-        <div className="container-db">
-          <Reveal className="flex justify-center">
-            <SectionTag>About DigitalBurj</SectionTag>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <h1 className="mx-auto mt-8 max-w-3xl text-center font-display text-4xl font-semibold leading-tight text-fg sm:text-6xl">
-              We don&apos;t just build software.{" "}
-              <span className="text-gradient-gold">We build ventures.</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={0.16}>
-            <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed text-fg-muted sm:text-lg">
-              DigitalBurj started as the studio behind a portfolio of our own products —
-              a freight marketplace, a trading platform, a procurement exchange. That&apos;s
-              the standard we bring to every client build: the same rigor we&apos;d want if it
-              were our own money on the line.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <PageHero tag="About DigitalBurj" title={<>We don&apos;t just build software. <span className="text-foil-gold">We build ventures.</span></>}
+        sub="DigitalBurj started as the studio behind a portfolio of our own products — a freight marketplace, a trading platform, a procurement exchange. That's the standard we bring to every client build: the same rigor we'd want if it were our own money on the line."
+        chips={["Operators, not just builders", "Real products", "Evidence over claims"]} />
 
       <section className="py-20 sm:py-24">
         <div className="container-db grid gap-16 lg:grid-cols-2 lg:items-start">

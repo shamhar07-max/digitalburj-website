@@ -96,6 +96,8 @@ function Drop({ label, items, active }: { label: string; items: Item[]; active: 
 
 const TOP_LINKS = [
   { label: "Work", href: "/work" },
+  { label: "Industries", href: "/industries" },
+  { label: "Process", href: "/process" },
   { label: "Journal", href: "/journal" },
   { label: "About", href: "/about" },
 ];

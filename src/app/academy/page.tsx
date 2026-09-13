@@ -4,6 +4,7 @@ import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/Button";
 import { ProgramFinder } from "@/components/ProgramFinder";
 import { CTASection } from "@/components/CTASection";
+import { AcademyLink } from "@/components/AcademyBridge";
 import { SectionHead } from "@/components/lab";
 import { PROGRAMS } from "@/content/bank2";
 import { LEVELS, PATHWAYS, MISSION_STEPS, DIFFICULTY, UNIVERSE, LOOP } from "@/content/academy";
@@ -246,6 +247,33 @@ export default function Academy() {
             </div>
           </div>
         </div>
+      </section>
+      <section className="container-db max-w-4xl pb-6">
+        <Reveal>
+          <div className="rounded-3xl border-2 border-ink bg-panel p-8 shadow-[6px_6px_0_#12332A]">
+            <p className="font-mono-d text-[11px] tracking-[0.22em] text-ink-faint">THE LIVE PLATFORM · ONE LOGIN</p>
+            <h2 className="font-display mt-3 text-2xl font-extrabold text-ink">Don&apos;t read about it. Enter it.</h2>
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-ink-soft">The Academy isn&apos;t a brochure — it&apos;s a working system. Register once and your identity carries across courses, missions, evidence, talent and jobs.</p>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              <AcademyLink path="/courses" className="group rounded-2xl border border-hair bg-paper p-4 transition-all hover:-translate-y-0.5 hover:border-cobalt">
+                <p className="font-bold text-ink group-hover:text-cobalt">Browse courses →</p>
+                <p className="mt-1 text-xs text-ink-soft">23 programs, leveled paths, plain-language briefs.</p>
+              </AcademyLink>
+              <AcademyLink path="/missions" className="group rounded-2xl border border-hair bg-paper p-4 transition-all hover:-translate-y-0.5 hover:border-cobalt">
+                <p className="font-bold text-ink group-hover:text-cobalt">Try a mission →</p>
+                <p className="mt-1 text-xs text-ink-soft">Real client situations. Build, break, defend, ship.</p>
+              </AcademyLink>
+              <AcademyLink path="/talent" className="group rounded-2xl border border-hair bg-paper p-4 transition-all hover:-translate-y-0.5 hover:border-cobalt">
+                <p className="font-bold text-ink group-hover:text-cobalt">Talent directory →</p>
+                <p className="mt-1 text-xs text-ink-soft">Verified builders with evidence you can inspect.</p>
+              </AcademyLink>
+              <AcademyLink path="/jobs" className="group rounded-2xl border border-hair bg-paper p-4 transition-all hover:-translate-y-0.5 hover:border-cobalt">
+                <p className="font-bold text-ink group-hover:text-cobalt">Jobs board →</p>
+                <p className="mt-1 text-xs text-ink-soft">Real postings. Evidence decides shortlists.</p>
+              </AcademyLink>
+            </div>
+          </div>
+        </Reveal>
       </section>
       <section className="container-db max-w-4xl pb-20">
         <Reveal>

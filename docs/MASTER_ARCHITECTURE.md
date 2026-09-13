@@ -1,5 +1,9 @@
 # Digital Burj — Master Architecture (from the live codebase)
 
+> 2026-09-12 reconciliation: ecosystem master spec adopted with 4 amendments
+> (Matrix-over-Mattermost, Academy-mapped-not-greenfield, 8 living docs, revenue gates).
+> Full audit/gaps/roadmap/ADRs: `docs/digital-burj/01–08`. This file remains the URL+repo map.
+
 Principle: evolve, don't rebuild. `www` is the headquarters; subdomains become
 real products only when the application underneath deserves them.
 

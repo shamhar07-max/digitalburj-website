@@ -9,6 +9,7 @@ import { ChapterRail, NextChapter } from "@/components/Journey";
 import { Reveal } from "@/components/Reveal";
 import { Faq } from "@/components/Faq";
 import { CTASection } from "@/components/CTASection";
+import { AcademyLink } from "@/components/AcademyBridge";
 import { SERVICES } from "@/content/bank2";
 
 export const metadata: Metadata = {
@@ -105,26 +106,37 @@ export default function Home() {
         <NextChapter href="#levels" label="Certification" />
       </section>
 
-      {/* ECOSYSTEM */}
+      {/* ECOSYSTEM — live doors into the platform */}
       <section className="border-y-2 border-ink bg-panel-deep/60">
         <div className="container-db py-10">
-          <p className="font-mono-d text-center text-[11px] tracking-[0.22em] text-ink-faint">ONE ECOSYSTEM · ONE LOGIN · ONE EVIDENCE WALLET</p>
+          <p className="font-mono-d text-center text-[11px] tracking-[0.22em] text-ink-faint">ONE ECOSYSTEM · ENTER THROUGH ANY DOOR</p>
           <div className="mt-5 grid gap-2 sm:grid-cols-3 lg:grid-cols-6">
-            {[
-              ["digitalburj.com", "Umbrella"],
-              ["academy", "Learning"],
-              ["studio", "Product builds"],
-              ["business", "SME systems"],
-              ["talent", "Verification"],
-              ["jobs", "Opportunities"],
-            ].map(([d, r]) => (
-              <div key={d} className="kpi-edge rounded-xl border border-hair bg-panel px-3 py-3 text-center">
-                <p className="font-mono-d text-[11px] font-bold leading-snug text-ink">{d}</p>
-                <p className="mt-1 text-xs text-ink-soft">{r}</p>
-              </div>
-            ))}
+            <AcademyLink path="/courses" className="kpi-edge group rounded-xl border border-hair bg-panel px-3 py-3 text-center transition-all hover:-translate-y-0.5 hover:border-cobalt">
+              <p className="font-mono-d text-[11px] font-bold leading-snug text-ink group-hover:text-cobalt">Learn →</p>
+              <p className="mt-1 text-xs text-ink-soft">Courses & missions</p>
+            </AcademyLink>
+            <AcademyLink path="/talent" className="kpi-edge group rounded-xl border border-hair bg-panel px-3 py-3 text-center transition-all hover:-translate-y-0.5 hover:border-cobalt">
+              <p className="font-mono-d text-[11px] font-bold leading-snug text-ink group-hover:text-cobalt">Prove →</p>
+              <p className="mt-1 text-xs text-ink-soft">Verified talent</p>
+            </AcademyLink>
+            <AcademyLink path="/jobs" className="kpi-edge group rounded-xl border border-hair bg-panel px-3 py-3 text-center transition-all hover:-translate-y-0.5 hover:border-cobalt">
+              <p className="font-mono-d text-[11px] font-bold leading-snug text-ink group-hover:text-cobalt">Earn →</p>
+              <p className="mt-1 text-xs text-ink-soft">Live jobs board</p>
+            </AcademyLink>
+            <a href="/studio" className="kpi-edge group rounded-xl border border-hair bg-panel px-3 py-3 text-center transition-all hover:-translate-y-0.5 hover:border-cobalt">
+              <p className="font-mono-d text-[11px] font-bold leading-snug text-ink group-hover:text-cobalt">Build →</p>
+              <p className="mt-1 text-xs text-ink-soft">Studio intake</p>
+            </a>
+            <AcademyLink path="/projects" className="kpi-edge group rounded-xl border border-hair bg-panel px-3 py-3 text-center transition-all hover:-translate-y-0.5 hover:border-cobalt">
+              <p className="font-mono-d text-[11px] font-bold leading-snug text-ink group-hover:text-cobalt">Run →</p>
+              <p className="mt-1 text-xs text-ink-soft">Client portal</p>
+            </AcademyLink>
+            <a href="/journal" className="kpi-edge group rounded-xl border border-hair bg-panel px-3 py-3 text-center transition-all hover:-translate-y-0.5 hover:border-cobalt">
+              <p className="font-mono-d text-[11px] font-bold leading-snug text-ink group-hover:text-cobalt">Read →</p>
+              <p className="mt-1 text-xs text-ink-soft">500 field guides</p>
+            </a>
           </div>
-          <p className="mt-4 text-center text-sm text-ink-soft">Learn → Build → Work → Grow → Go Global. Start with the smallest version real users can touch.</p>
+          <p className="mt-4 text-center text-sm text-ink-soft">Learn → Build → Work → Grow → Go Global. One login across courses, missions and evidence — <AcademyLink path="/register" className="font-bold text-cobalt hover:underline">create it here</AcademyLink>.</p>
         </div>
       </section>
 

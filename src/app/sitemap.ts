@@ -3,7 +3,7 @@ import { BLOG } from "@/content/compose";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://digitalburj.com";
-  const staticPages = ["/", "/academy", "/studio", "/business-ai", "/talent", "/global-careers", "/projects", "/jobs", "/skills", "/community", "/about", "/contact", "/services", "/journal"];
+  const staticPages = ["/", "/academy", "/studio", "/business-ai", "/talent", "/global-careers", "/projects", "/jobs", "/skills", "/community", "/about", "/contact", "/services", "/journal", "/work", "/legal", "/industries", "/process"];
   const dyn = BLOG.map((p) => `/journal/${p.slug}`);
   return [...staticPages, ...dyn].map((p) => ({
     url: base + p,

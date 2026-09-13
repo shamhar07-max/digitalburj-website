@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { CTASection } from "@/components/CTASection";
+import { AcademyLink } from "@/components/AcademyBridge";
 
 export const metadata: Metadata = {
   title: "Jobs — Real Work, Earned",
@@ -20,7 +21,12 @@ export default function Jobs() {
           <div className="card-tower rounded-3xl p-8"><h2 className="font-display text-xl font-bold text-ink">External Jobs + Global</h2><p className="mt-2 text-sm text-fg-muted">Employer roles with evidence packs attached. Global readiness grads get interview prep, not visa promises. <a className="text-amberx underline" href="/global-careers">Read the Global track →</a></p></div>
         </Reveal>
       </section>
-      <section className="container-db max-w-4xl pb-20"><CTASection /></section>
+      <section className="container-db max-w-4xl pb-20">
+        <div className="mb-8 flex justify-center">
+          <AcademyLink path="/jobs" className="inline-flex items-center rounded-xl bg-ink px-6 py-3 text-sm font-bold uppercase tracking-[0.06em] text-paper">Open the live jobs board →</AcademyLink>
+        </div>
+        <CTASection />
+      </section>
     </>
   );
 }

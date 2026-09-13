@@ -3,6 +3,7 @@ import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/Button";
 import { CTASection } from "@/components/CTASection";
+import { StudioIntakeForm } from "@/components/AcademyBridge";
 
 export const metadata: Metadata = {
   title: "Studio — Start Without Burning Money on Code",
@@ -42,6 +43,7 @@ export default function Studio() {
         </Reveal>
       </section>
       <section className="container-db max-w-4xl pb-20">
+        <StudioIntakeForm />
         <Reveal>
           <div className="rounded-3xl border border-hair p-7 text-sm leading-relaxed text-fg-muted">
             Plain limits, stated upfront: early builds run at validation scale; payment rails need licensed providers; WhatsApp and maps approvals are external; scope changes are change orders. Engagement: validation sprint (fixed, credited if we continue) → MVP fixed quote 30/40/30 with handover → care plan. Selective revenue-share only with a paid base and written terms.
