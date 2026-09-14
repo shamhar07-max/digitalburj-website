@@ -10,13 +10,13 @@ const COLS = [
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="relative border-t border-hair bg-[#050810]/95">
+    <footer className="relative border-t border-hair bg-[#0c0b09]/95">
       <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cobalt/60 to-transparent" />
       <div className="container-db py-14">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-md">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/brand/db-lockup-inverse.svg" alt="DigitalBurj" width={400} height={120} className="h-auto w-full max-w-[320px]" loading="lazy" style={{ filter: "drop-shadow(0 0 18px rgba(77,232,255,0.25))" }} />
+            <img src="/brand/db-lockup-inverse.svg" alt="DigitalBurj" width={400} height={120} className="h-auto w-full max-w-[320px]" loading="lazy" style={{ filter: "drop-shadow(0 0 16px rgba(255,107,61,0.2))" }} />
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-soft">
               A technology company in Dubai. We teach the skills, build the software, and verify
               the people who do the work.

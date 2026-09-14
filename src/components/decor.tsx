@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView, animate } from "motion/react";
 import { cn } from "@/lib/utils";
 
-/** Tabs — program finder pattern. Glass rail, live tab glows cyan. */
+/** Tabs — program finder pattern. Glass rail, live tab burns ember. */
 export function Tabs<T extends string>({ tabs, active, onChange }: { tabs: { id: T; label: string }[]; active: T; onChange: (t: T) => void }) {
   return (
     <div className="inline-flex flex-wrap gap-1 rounded-xl border border-hair bg-panel-deep/85 p-1 backdrop-blur-sm" role="tablist">
@@ -17,7 +17,7 @@ export function Tabs<T extends string>({ tabs, active, onChange }: { tabs: { id:
           className={cn(
             "rounded-lg px-4 py-2 text-sm font-bold transition-all duration-200",
             active === t.id
-              ? "bg-cobalt text-[#050810] glow-cy"
+              ? "bg-cobalt text-[#1a1510]"
               : "text-ink-soft hover:text-ink hover:bg-hair/20"
           )}
         >
@@ -28,7 +28,7 @@ export function Tabs<T extends string>({ tabs, active, onChange }: { tabs: { id:
   );
 }
 
-/** Mount entrance — pure CSS hero ramp with film blur. */
+/** Mount entrance — pure CSS rise ramp, no blur. */
 export function HeroMotion({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   return (
     <div className="hero-in" style={{ animationDelay: `${delay}s` }}>
@@ -69,8 +69,8 @@ function CountUp({ to }: { to: number }) {
   const [n, setN] = useState(0);
   useEffect(() => {
     const controls = animate(0, to, {
-      duration: 1.4,
-      ease: [0.22, 1, 0.36, 1],
+      duration: 1.3,
+      ease: [0.16, 1, 0.3, 1],
       onUpdate: (v) => setN(Math.round(v)),
     });
     return () => controls.stop();
@@ -78,68 +78,19 @@ function CountUp({ to }: { to: number }) {
   return <>{n}</>;
 }
 
-/** Glowing horizon orb — the Dubai skyline's energy bead. */
+/** Solar rig — slow ember bead on a dashed orbit, no glow orbs. */
 export function OrbitHero({ className = "" }: { className?: string }) {
   return (
     <div className={cn("pointer-events-none select-none", className)} aria-hidden>
       <div className="relative mx-auto h-full w-full">
-        <div
-          className="absolute inset-0 rounded-full opacity-70"
-          style={{
-            background:
-              "radial-gradient(circle at 35% 30%, rgba(77,232,255,0.5), transparent 42%), radial-gradient(circle at 65% 70%, rgba(255,200,87,0.42), transparent 45%), radial-gradient(circle at 50% 50%, rgba(10,18,38,0.9), transparent 70%)",
-            filter: "blur(14px)",
-          }}
-        />
-        <div
-          className="absolute inset-[16%] rounded-full border border-hair"
-          style={{ boxShadow: "0 0 30px rgba(77,232,255,0.35), inset 0 0 26px rgba(255,200,87,0.14)" }}
-        />
-        <div className="absolute inset-[42%] rounded-full bg-cobalt/60 blur-md" style={{ animation: "pulseRing 3.2s ease-out infinite" }} />
+        <div className="absolute inset-0 rounded-full bg-horizon opacity-60" />
+        <div className="absolute inset-[14%] rounded-full border border-hair/70" />
+        <div className="absolute inset-[26%] rounded-full border border-hair-soft" />
+        <div className="absolute inset-[40%] rounded-full bg-cobalt/10" />
+        <div className="animate-bead absolute inset-[26%] rounded-full">
+          <span className="absolute left-1/2 top-0 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cobalt shadow-[0_0_12px_rgba(255,107,61,0.55)]" />
+        </div>
       </div>
     </div>
-  );
-}
-
-/** Cinematic ticker — duplicated for a seamless loop. */
-export function Marquee({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  const items = children ? <>{children}</> : null;
-  return (
-    <div className={cn("marquee-mask overflow-hidden", className)}>
-      <div className="marquee-track">
-        <div className="flex shrink-0 items-center">{items}</div>
-        <div className="flex shrink-0 items-center" aria-hidden>{items}</div>
-      </div>
-    </div>
-  );
-}
-
-/** 3D hover tilt for glass panels — mild cinematic parallax. */
-export function TiltCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [tf, setTf] = useState("perspective(900px) rotateX(0deg) rotateY(0deg)");
-
-  function onMove(e: React.MouseEvent) {
-    const el = ref.current;
-    if (!el) return;
-    const r = el.getBoundingClientRect();
-    const px = (e.clientX - r.left) / r.width - 0.5;
-    const py = (e.clientY - r.top) / r.height - 0.5;
-    setTf(`perspective(900px) rotateX(${(-py * 4).toFixed(2)}deg) rotateY(${(px * 5).toFixed(2)}deg) translateY(-2px)`);
-  }
-  function onLeave() {
-    setTf("perspective(900px) rotateX(0deg) rotateY(0deg)");
-  }
-
-  return (
-    <motion.div
-      ref={ref}
-      onMouseMove={onMove}
-      onMouseLeave={onLeave}
-      className={className}
-      style={{ transform: tf, transition: "transform 0.25s cubic-bezier(0.22,1,0.36,1)" }}
-    >
-      {children}
-    </motion.div>
   );
 }

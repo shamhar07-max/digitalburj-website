@@ -13,14 +13,14 @@ type ButtonProps = {
 /** Cinematic buttons — neon signal fills, glass rails, gold currency. */
 export function Button({ href, children, variant = "primary", className, showArrow = true }: ButtonProps) {
   const base =
-    "btn-shine group relative inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-bold transition-all duration-200 hover:-translate-y-0.5 whitespace-nowrap active:translate-y-0";
+    "group relative inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-bold transition-all duration-200 hover:-translate-y-0.5 whitespace-nowrap active:translate-y-0";
   const variants = {
     primary:
-      "bg-cobalt text-[#050810] hover:glow-cy hover:bg-cobalt-deep",
+      "bg-cobalt text-[#1a1510] hover:bg-cobalt-deep hover:shadow-[0_0_22px_-8px_rgba(255,107,61,0.55)]",
     dark:
       "border border-hair bg-panel/80 text-ink backdrop-blur-sm hover:border-cobalt/60 hover:bg-panel",
     gold:
-      "bg-gold text-[#050810] hover:glow-gold hover:bg-amber-deep",
+      "bg-gold text-[#1a1510] hover:bg-amber-deep hover:shadow-[0_0_22px_-8px_rgba(233,180,76,0.5)]",
     paper:
       "border border-hair bg-panel/70 text-ink backdrop-blur-sm hover:border-cobalt/70",
     outline:

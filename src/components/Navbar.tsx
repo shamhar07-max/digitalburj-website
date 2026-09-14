@@ -142,8 +142,8 @@ export function Navbar() {
         className={cn(
           "sticky top-0 z-50 transition-all duration-300",
           scrolled
-            ? "border-b border-hair bg-[#050810]/80 shadow-[0_12px_40px_-18px_rgba(0,0,0,0.9)] backdrop-blur-xl"
-            : "border-b border-transparent bg-[#050810]/40"
+            ? "border-b border-hair bg-[#0c0b09]/85 shadow-[0_12px_40px_-18px_rgba(0,0,0,0.9)] backdrop-blur-xl"
+            : "border-b border-transparent bg-[#0c0b09]/40"
         )}
       >
         <div className="container-db flex h-[64px] items-center justify-between gap-4">
@@ -153,7 +153,7 @@ export function Navbar() {
             {TOP_LINKS.map((item) => (
               <a key={item.href} href={item.href} className={linkCls(pathname === item.href)}>
                 {pathname === item.href && (
-                  <span className="absolute inset-x-1 -bottom-[3px] h-[2px] rounded-full bg-cobalt shadow-[0_0_12px_rgba(77,232,255,0.7)]" />
+                  <span className="absolute inset-x-1 -bottom-[3px] h-[2px] rounded-full bg-cobalt shadow-[0_0_12px_rgba(255,107,61,0.55)]" />
                 )}
                 {item.label}
               </a>
@@ -163,7 +163,7 @@ export function Navbar() {
           <div className="hidden items-center gap-4 lg:flex">
             <a
               href="/contact"
-              className="btn-shine inline-flex items-center gap-1.5 rounded-lg bg-cobalt px-5 py-2.5 text-[13px] font-bold text-white transition-all hover:bg-cobalt-deep hover:glow-cy"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-cobalt px-5 py-2.5 text-[13px] font-bold text-white transition-all hover:bg-cobalt-deep hover:shadow-[0_0_22px_-8px_rgba(255,107,61,0.55)]"
             >
               Start a project <ArrowUpRight size={15} />
             </a>
@@ -178,7 +178,7 @@ export function Navbar() {
           </button>
         </div>
         {open && (
-          <div className="max-h-[70vh] overflow-y-auto border-t border-hair bg-[#050810]/92 backdrop-blur-xl lg:hidden">
+          <div className="max-h-[70vh] overflow-y-auto border-t border-hair bg-[#0c0b09]/92 backdrop-blur-xl lg:hidden">
             <nav className="container-db flex flex-col py-3" aria-label="Mobile">
               {TOP_LINKS.map((item) => (
                 <a key={item.href} href={item.href} onClick={() => setOpen(false)}

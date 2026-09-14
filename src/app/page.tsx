@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 import { SectionHead } from "@/components/lab";
 import { Button } from "@/components/Button";
-import { HeroMotion, MaskLine, OrbitHero, Counter, Marquee } from "@/components/decor";
+import { HeroMotion, MaskLine, OrbitHero, Counter } from "@/components/decor";
 import { ChapterRail, NextChapter } from "@/components/Journey";
 import { Reveal } from "@/components/Reveal";
 import { Faq } from "@/components/Faq";
@@ -23,7 +23,7 @@ const INDEX = [
   { n: "05", name: "Jobs & Global", desc: "Supervised client work and employer roles. Readiness, no visa promises.", href: "/jobs" },
 ];
 
-const TICKER = ["Academy", "Studio", "Business AI", "Talent", "Jobs & Global", "Certification", "Verified work", "Journal"];
+const TICKER = ["Academy", "Studio", "Business AI", "Talent", "Jobs & Global"];
 
 export default function Home() {
   return (
@@ -34,11 +34,11 @@ export default function Home() {
       <section id="top" className="relative overflow-hidden border-b border-hair">
         <div aria-hidden className="bg-horizon pointer-events-none absolute inset-0" />
         <div aria-hidden className="blueprint absolute inset-0" />
-        <div aria-hidden className="bg-cy-glow pointer-events-none absolute inset-0 opacity-80" />
+        <div aria-hidden className="bg-glare pointer-events-none absolute inset-0 opacity-70" />
         <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cobalt/70 to-transparent" />
         <div className="container-db relative flex items-center justify-between gap-4 border-b border-hair/80 py-2.5 font-mono-d text-[11px] uppercase tracking-[0.2em] text-ink-faint">
           <span className="flex items-center gap-2">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-cobalt" style={{ boxShadow: "0 0 8px rgba(77,232,255,0.8)" }} />
+            <span className="badge-live inline-block h-1.5 w-1.5 rounded-full bg-cobalt" style={{ boxShadow: "0 0 8px rgba(255,107,61,0.5)" }} />
             DigitalBurj // Dubai, UAE
           </span>
           <span className="hidden sm:inline">Est. 2019 · Teach — Build — Verify</span>
@@ -104,10 +104,10 @@ export default function Home() {
                 <p className="font-mono-d text-[11px] font-semibold uppercase tracking-[0.16em] text-cobalt">// Course terminal</p>
                 <h2 className="font-display mt-3 text-xl font-extrabold text-ink">What a course ends with</h2>
                 <ul className="mt-4 space-y-3.5 text-[15px] leading-relaxed text-ink-soft">
-                  <li className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cobalt" style={{ boxShadow: "0 0 8px rgba(77,232,255,0.8)" }} />A project you built and can explain, not a quiz you passed.</li>
-                  <li className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cobalt" style={{ boxShadow: "0 0 8px rgba(77,232,255,0.8)" }} />A task file and supervisor sign-off on record.</li>
-                  <li className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cobalt" style={{ boxShadow: "0 0 8px rgba(77,232,255,0.8)" }} />A credential that lists the exact capabilities tested.</li>
-                  <li className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cobalt" style={{ boxShadow: "0 0 8px rgba(77,232,255,0.8)" }} />One login across courses, missions, evidence and projects.</li>
+                  <li className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cobalt" style={{ boxShadow: "0 0 8px rgba(255,107,61,0.45)" }} />A project you built and can explain, not a quiz you passed.</li>
+                  <li className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cobalt" style={{ boxShadow: "0 0 8px rgba(255,107,61,0.45)" }} />A task file and supervisor sign-off on record.</li>
+                  <li className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cobalt" style={{ boxShadow: "0 0 8px rgba(255,107,61,0.45)" }} />A credential that lists the exact capabilities tested.</li>
+                  <li className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cobalt" style={{ boxShadow: "0 0 8px rgba(255,107,61,0.45)" }} />One login across courses, missions, evidence and projects.</li>
                 </ul>
                 <AcademyLink path="/register" className="mt-6 inline-block font-bold text-cobalt transition-colors hover:text-ink hover:underline">Create your account — it takes two minutes</AcademyLink>
               </div>
@@ -116,17 +116,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TICKER */}
-      <div aria-hidden className="marquee-mask overflow-hidden border-b border-hair bg-[#050810]/70 py-3">
-        <div className="marquee-track">
-          {[0, 1].map((dup) => (
-            <div key={dup} className="flex shrink-0 items-center">
-              {TICKER.map((t) => (
-                <span key={dup + t} className="flex items-center gap-5 px-5 font-mono-d text-[12px] font-semibold uppercase tracking-[0.22em] text-ink-faint">
-                  {t} <span className="text-cobalt/70">▪</span>
-                </span>
-              ))}
-            </div>
+      {/* PRACTICES STRIP */}
+      <div aria-hidden className="border-b border-hair bg-panel-deep/40">
+        <div className="container-db flex flex-wrap items-center gap-x-6 gap-y-1.5 py-3.5">
+          {TICKER.map((t, i) => (
+            <span key={t} className="flex items-center gap-6 font-mono-d text-[12px] font-semibold uppercase tracking-[0.22em] text-ink-faint">
+              {t}
+              {i < TICKER.length - 1 && <span className="text-cobalt/60">/</span>}
+            </span>
           ))}
         </div>
       </div>
@@ -146,7 +143,7 @@ export default function Home() {
                 </span>
                 <span className="mt-1 block max-w-xl text-sm text-ink-soft">{r.desc}</span>
               </span>
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-hair transition-all group-hover:border-cobalt group-hover:glow-cy">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-hair transition-all group-hover:border-cobalt/70">
                 <ArrowRight size={20} className="text-ink transition-colors group-hover:text-cobalt" />
               </span>
             </a>
@@ -311,7 +308,7 @@ export default function Home() {
             ))}
           </div>
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <a href="/contact" className="btn-shine inline-flex items-center gap-2 rounded-lg bg-cobalt px-6 py-3 text-sm font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:glow-cy">
+            <a href="/contact" className="inline-flex items-center gap-2 rounded-lg bg-cobalt px-6 py-3 text-sm font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_22px_-8px_rgba(255,107,61,0.55)]">
               Tell us the system you need built <span aria-hidden>→</span>
             </a>
             <NextChapter href="#faq" label="Answers" />
@@ -325,7 +322,7 @@ export default function Home() {
         <div className="container-db py-12">
           <div className="mx-auto max-w-3xl text-center">
             <p className="font-mono-d text-[12px] font-semibold uppercase tracking-[0.16em] text-gold">What we will and won&apos;t claim</p>
-            <p className="mt-4 text-2xl leading-snug text-ink sm:text-3xl [text-shadow:0_0_34px_rgba(255,200,87,0.18)]">
+            <p className="mt-4 text-2xl leading-snug text-ink sm:text-3xl [text-shadow:0_0_34px_rgba(233,180,76,0.18)]">
               Most ideas don&apos;t die from a lack of code. They die from building the wrong thing
               at full price. We build fast, we write everything down, and we tell you when an idea
               shouldn&apos;t be built at all.
