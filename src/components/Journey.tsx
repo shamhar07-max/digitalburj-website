@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 const CHAPTERS = [
-  { id: "prologue", label: "Prologue" },
-  { id: "doors", label: "Doors" },
-  { id: "levels", label: "Levels" },
-  { id: "work", label: "Work" },
-  { id: "finale", label: "Finale" },
+  { id: "top", label: "Overview" },
+  { id: "doors", label: "Practices" },
+  { id: "levels", label: "Certification" },
+  { id: "work", label: "Proof" },
+  { id: "faq", label: "Answers" },
 ];
 
 /** Chapter rail — orientation dots for the premiere walk. Desktop only. */
@@ -42,7 +42,7 @@ export function ChapterRail() {
           className="group flex items-center justify-end gap-2"
         >
           <span className={cn(
-            "font-mono-d text-[10px] tracking-[0.14em] uppercase opacity-0 transition-opacity group-hover:opacity-100",
+            "text-[11px] font-semibold opacity-0 transition-opacity group-hover:opacity-100",
             active === c.id ? "text-ink opacity-100" : "text-ink-faint"
           )}>
             {c.label}
@@ -63,9 +63,9 @@ export function NextChapter({ href, label }: { href: string; label: string }) {
     <div className="mt-10 flex justify-center">
       <a
         href={href}
-        className="group inline-flex items-center gap-2 rounded-full border border-hair bg-panel px-5 py-2.5 font-mono-d text-xs font-bold uppercase tracking-[0.14em] text-ink-soft transition-all hover:-translate-y-0.5 hover:border-ink hover:text-ink"
+        className="group inline-flex items-center gap-2 rounded-full border border-hair bg-panel px-5 py-2.5 text-xs font-bold text-ink-soft transition-all hover:-translate-y-0.5 hover:border-ink hover:text-ink"
       >
-        Next · {label}
+        Next — {label}
         <span className="transition-transform duration-200 group-hover:translate-y-0.5">↓</span>
       </a>
     </div>

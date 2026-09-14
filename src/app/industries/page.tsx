@@ -44,9 +44,9 @@ const sectors = [
 export default function IndustriesPage() {
   return (
     <>
-      <PageHero tag="Industries" title={<>Sectors we&apos;ve operated in, <span className="text-foil-gold">not just sold into.</span></>}
-        sub="Every sector below connects to something real — a product we run, a platform we operate, or a documented method. No logo walls, no borrowed credibility."
-        chips={["Real products", "No logo walls", "Proof linked"]} />
+      <PageHero tag="Industries" title={<>Sectors we operate in, with recorded proof.</>}
+        sub="Each sector below connects to something real — a product we run, a platform we operate, or a documented method. No logo walls, no borrowed credibility."
+        chips={["Products we run", "Documented method", "Proof linked"]} />
 
       <section className="container-db py-12">
         <RevealGroup className="grid gap-6 md:grid-cols-2">
@@ -61,7 +61,7 @@ export default function IndustriesPage() {
                 ))}
               </ul>
               <p className="mt-4 border-t border-ink/10 pt-4 text-sm font-semibold text-ink">{s.proof}</p>
-              <a href={s.href} className="mt-2 inline-block text-sm font-bold uppercase tracking-[0.08em] text-cobalt underline-offset-4 hover:underline">
+              <a href={s.href} className="mt-2 inline-block text-sm font-bold text-cobalt underline-offset-4 hover:underline">
                 See the proof →
               </a>
               </div>

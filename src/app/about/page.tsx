@@ -41,9 +41,9 @@ const values = [
 export default function AboutPage() {
   return (
     <>
-      <PageHero tag="About DigitalBurj" title={<>We don&apos;t just build software. <span className="text-foil-gold">We build ventures.</span></>}
-        sub="DigitalBurj started as the studio behind a portfolio of our own products — a freight marketplace, a trading platform, a procurement exchange. That's the standard we bring to every client build: the same rigor we'd want if it were our own money on the line."
-        chips={["Operators, not just builders", "Real products", "Evidence over claims"]} />
+      <PageHero tag="About DigitalBurj" title={<>A build partner that runs its own software too.</>}
+        sub="DigitalBurj started as the company behind a portfolio of in-house products — a freight marketplace, a trading platform, a procurement exchange. That's the standard we bring to every client build: the same rigor we'd want if it were our money on the line."
+        chips={["In-house team", "Own products in operation", "Evidence on record"]} />
 
       <section className="py-20 sm:py-24">
         <div className="container-db grid gap-16 lg:grid-cols-2 lg:items-start">
@@ -88,7 +88,7 @@ export default function AboutPage() {
                       <p className="text-[15px] font-bold text-ink">{t}</p>
                       <p className="mt-1 text-sm text-ink-soft">{d}</p>
                     </div>
-                    <span className="shrink-0 rounded-full border border-hair bg-panel-deep px-3 py-1 font-mono-d text-[10px] font-semibold uppercase tracking-wide text-ink-faint">
+                    <span className="shrink-0 rounded-full border border-hair bg-panel-deep px-3 py-1 text-[10px] font-bold uppercase text-ink-faint">
                       In scope
                     </span>
                   </li>
@@ -143,7 +143,7 @@ export default function AboutPage() {
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
               {["understand the business", "research unknown tech", "architect the system", "identify failure modes", "choose infrastructure", "build", "test", "attack", "debug", "secure", "deploy", "operate", "improve"].map((c) => (
-                <span key={c} className="rounded-lg border border-hair bg-panel px-3 py-1.5 font-mono-d text-[11px] font-medium text-ink-soft">{c}</span>
+                <span key={c} className="rounded-lg border border-hair bg-panel px-3 py-1.5 text-[11px] font-medium text-ink-soft">{c}</span>
               ))}
             </div>
           </div>

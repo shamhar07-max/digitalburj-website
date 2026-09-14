@@ -38,10 +38,10 @@ export function BlogIndex() {
           {years.map((y) => <option key={y} value={y}>{y}</option>)}
         </select>
       </div>
-      <p className="font-mono-d mt-4 text-xs uppercase tracking-[0.14em] text-ink-faint">{list.length} articles</p>
+      <p className="mt-4 text-xs text-ink-faint">{list.length} articles</p>
       <div className="mt-4 grid gap-4 sm:grid-cols-2">
         {list.map((p) => (
-          <a key={p.slug} href={`/journal/${p.slug}`} className="group flex gap-4 rounded-2xl border border-hair bg-panel p-3 transition-all hover:-translate-y-0.5 hover:border-cobalt hover:shadow-[0_14px_36px_-18px_rgba(11,107,79,0.5)]">
+          <a key={p.slug} href={`/journal/${p.slug}`} className="group flex gap-4 rounded-2xl border border-hair bg-panel p-3 transition-all hover:-translate-y-0.5 hover:border-cobalt hover:shadow-[0_14px_36px_-18px_rgba(27,77,143,0.35)]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={imgFor(p.slug)}
@@ -53,7 +53,7 @@ export function BlogIndex() {
               className="h-24 w-24 shrink-0 rounded-xl border border-hair bg-panel-deep object-cover sm:h-28 sm:w-28"
             />
             <span className="flex min-w-0 flex-col">
-              <span className="flex flex-wrap items-center gap-x-2 font-mono-d text-[10px] uppercase tracking-[0.12em] text-ink-faint">
+              <span className="flex flex-wrap items-center gap-x-2 text-[11px] text-ink-faint">
                 <span className="font-semibold text-cobalt">{p.cat}</span>
                 <span>{p.date}</span><span>·</span><span>{p.reading} min</span>
               </span>

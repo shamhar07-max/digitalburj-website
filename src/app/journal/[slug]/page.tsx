@@ -50,7 +50,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       }}
     >
       <div id="short-answer" className="rounded-2xl border-2 border-ink bg-amberbg p-5 text-[16px] font-semibold leading-relaxed text-ink">
-        <span className="font-mono-d mb-2 block text-[11px] font-bold uppercase tracking-[0.16em] text-amber-deep">Short answer</span>
+        <span className="mb-2 block text-[11px] font-bold uppercase text-amber-deep">Short answer</span>
         {p.answer}
       </div>
       {p.intro.map((t, i) => <Para key={`i${i}`}>{t}</Para>)}

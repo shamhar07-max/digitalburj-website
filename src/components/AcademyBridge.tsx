@@ -75,7 +75,7 @@ export function StudioIntakeForm() {
             <option value="50k+">Budget: AED 50k+</option>
           </select>
         </div>
-        <button disabled={busy} className="w-fit rounded-xl bg-ink px-6 py-3 text-sm font-bold uppercase tracking-[0.06em] text-paper disabled:opacity-50">
+        <button disabled={busy} className="w-fit rounded-xl bg-ink px-6 py-3 text-sm font-bold text-paper disabled:opacity-50">
           {busy ? "Sending…" : "Submit for review"}
         </button>
         {msg && <p role="status" className="text-sm font-semibold text-ink">{msg}</p>}

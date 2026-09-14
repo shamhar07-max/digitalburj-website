@@ -57,8 +57,8 @@ function Drop({ label, items, active }: { label: string; items: Item[]; active: 
     >
       <button
         className={cn(
-          "flex items-center gap-1 rounded-md px-1 py-2 text-[13px] font-bold uppercase tracking-[0.08em] transition-colors focus-visible:outline-2 focus-visible:outline-cobalt",
-          active ? "text-ink underline decoration-gold decoration-2 underline-offset-4" : "text-ink-soft hover:text-ink"
+          "flex items-center gap-1 rounded-md px-1 py-2 text-[13px] font-bold transition-colors focus-visible:outline-2 focus-visible:outline-cobalt",
+          active ? "text-ink underline decoration-cobalt decoration-2 underline-offset-4" : "text-ink-soft hover:text-ink"
         )}
         aria-haspopup="true"
         aria-expanded={open}
@@ -71,7 +71,7 @@ function Drop({ label, items, active }: { label: string; items: Item[]; active: 
         "absolute left-0 top-full w-64 translate-y-1 pt-2 transition-all duration-200",
         open ? "visible translate-y-0 opacity-100" : "invisible opacity-0"
       )}>
-        <div className="overflow-hidden rounded-xl border-2 border-ink bg-panel shadow-[5px_5px_0_rgba(18,51,42,0.2)]" role="menu">
+        <div className="overflow-hidden rounded-xl border border-hair bg-panel shadow-[0_12px_28px_-16px_rgba(33,29,21,0.28)]" role="menu">
           {items.map((item, i) => (
             <a
               key={item.href + item.label}
@@ -111,12 +111,11 @@ export function Navbar() {
   return (
     <>
       <div className="bg-panel-deep text-ink-soft">
-        <div className="container-db flex items-center justify-between py-1.5 font-mono-d text-[11px] tracking-[0.14em]">
-          <span>DUBAI — U.A.E.</span>
-          <a href="mailto:hello@digitalburj.com" className="hidden transition-colors hover:text-ink sm:inline">
+        <div className="container-db flex items-center justify-between py-1.5 text-xs font-medium">
+          <span>DigitalBurj · Dubai, UAE</span>
+          <a href="mailto:hello@digitalburj.com" className="transition-colors hover:text-ink">
             hello@digitalburj.com
           </a>
-          <span className="sm:hidden">DB LAB</span>
         </div>
       </div>
       <header className="sticky top-0 z-50 border-b-2 border-ink bg-paper">
@@ -126,8 +125,8 @@ export function Navbar() {
             <Drop label="Solutions" items={navSolutions} active={solActive} />
             {TOP_LINKS.map((item) => (
               <a key={item.href} href={item.href}
-                className={cn("rounded-md px-1 py-2 text-[13px] font-bold uppercase tracking-[0.08em] transition-colors hover:text-ink hover:underline hover:decoration-gold hover:decoration-2 hover:underline-offset-4",
-                  pathname === item.href ? "text-ink underline decoration-gold decoration-2 underline-offset-4" : "text-ink-soft")}>
+                className={cn("rounded-md px-1 py-2 text-[13px] font-bold transition-colors hover:text-ink hover:underline hover:decoration-cobalt hover:decoration-2 hover:underline-offset-4",
+                  pathname === item.href ? "text-ink underline decoration-cobalt decoration-2 underline-offset-4" : "text-ink-soft")}>
                 {item.label}
               </a>
             ))}
@@ -136,7 +135,7 @@ export function Navbar() {
           <div className="hidden items-center gap-4 lg:flex">
             <a
               href="/contact"
-              className="btn-shine inline-flex items-center gap-1.5 rounded-lg border-2 border-ink bg-cobalt px-5 py-2.5 text-[13px] font-bold uppercase tracking-[0.06em] text-[#05201f] shadow-[4px_4px_0_#FF6BD6] transition-transform hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_#FF6BD6]"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-cobalt px-5 py-2.5 text-[13px] font-bold text-white transition-colors hover:bg-cobalt-deep"
             >
               Start a project <ArrowUpRight size={15} />
             </a>
@@ -153,21 +152,20 @@ export function Navbar() {
         {open && (
           <div className="max-h-[70vh] overflow-y-auto border-t-2 border-ink bg-paper lg:hidden">
             <nav className="container-db flex flex-col py-3" aria-label="Mobile">
-              <p className="font-mono-d px-2 pb-1 pt-2 text-[10px] uppercase tracking-[0.2em] text-ink-faint">Menu</p>
               {TOP_LINKS.map((item) => (
                 <a key={item.href} href={item.href} onClick={() => setOpen(false)}
-                  className="rounded-lg px-2 py-3 text-base font-bold uppercase tracking-[0.06em] text-ink-soft hover:bg-panel-deep hover:text-ink">
+                  className="rounded-lg px-2 py-3 text-base font-bold text-ink-soft hover:bg-panel-deep hover:text-ink">
                   {item.label}
                 </a>
               ))}
-              <p className="font-mono-d px-2 pb-1 pt-4 text-[10px] uppercase tracking-[0.2em] text-ink-faint">Solutions</p>
+              <p className="px-2 pb-1 pt-4 text-[13px] font-semibold text-ink-faint">Solutions</p>
               {navSolutions.map((item) => (
                 <a key={item.label} href={item.href} onClick={() => setOpen(false)}
                   className="rounded-lg px-2 py-2.5 text-[15px] font-semibold text-ink-soft hover:bg-panel-deep hover:text-ink">
                   {item.label}
                 </a>
               ))}
-              <p className="font-mono-d px-2 pb-1 pt-4 text-[10px] uppercase tracking-[0.2em] text-ink-faint">Ecosystem</p>
+              <p className="px-2 pb-1 pt-4 text-[13px] font-semibold text-ink-faint">Ecosystem</p>
               {navEcosystem.map((item) => (
                 <a key={item.href + item.label} href={item.href} onClick={() => setOpen(false)}
                   className="rounded-lg px-2 py-2.5 text-[15px] font-semibold text-ink-soft hover:bg-panel-deep hover:text-ink">
@@ -178,7 +176,7 @@ export function Navbar() {
                 className="rounded-lg px-2 py-2.5 text-[15px] font-semibold text-ink-soft hover:bg-panel-deep hover:text-ink">
                 About
               </a>
-              <a href="/contact" className="my-4 rounded-lg bg-cobalt px-5 py-3 text-center text-sm font-bold uppercase tracking-[0.06em] text-[#05201f]">Start a project</a>
+              <a href="/contact" className="my-4 rounded-lg bg-cobalt px-5 py-3 text-center text-sm font-bold text-white">Start a project</a>
             </nav>
           </div>
         )}

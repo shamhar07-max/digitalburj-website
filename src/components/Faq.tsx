@@ -19,7 +19,7 @@ export function Faq() {
         <details key={i} className="group border-b-2 border-ink/10 last:border-b-0" open={i === 0}>
           <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 transition-colors hover:bg-panel-deep/60 [&::-webkit-details-marker]:hidden">
             <span className="flex items-baseline gap-4">
-              <span className="font-mono-d rounded-md bg-cobalt/10 px-2 py-0.5 text-xs font-semibold text-cobalt">F.{i + 1}</span>
+              <span className="rounded-md bg-cobalt/10 px-2 py-0.5 text-xs font-bold text-cobalt">{i + 1}</span>
               <span className="text-[15px] font-bold text-ink">{f.q}</span>
             </span>
             <span className="font-display flex h-7 w-7 shrink-0 items-center justify-center rounded-md border-2 border-ink text-lg font-bold leading-none text-cyanx transition-transform duration-200 group-open:rotate-45">+</span>

@@ -11,9 +11,9 @@ export default function Blog() {
   return (
     <>
       <PageHero
-        tag="DB-JOURNAL · Knowledge library"
-        title={<>Five hundred guides. Zero fluff.</>}
-        sub="Every guide follows the same honest shape: why it matters, a working method, what goes wrong, and three moves for this week. Written for owners, not algorithms."
+        tag="Journal · Knowledge library"
+        title={<>Practical guides, dated and kept honest.</>}
+        sub="Every guide follows the same shape: why it matters, a working method, what goes wrong, and three moves for this week. Written for owners, not algorithms."
         chips={["2019 → 2026", "500 articles", "Searchable", "Updated Sep 2026"]}
       />
       <section className="container-db max-w-4xl py-10"><BlogIndex />

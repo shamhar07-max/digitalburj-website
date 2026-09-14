@@ -8,9 +8,9 @@ export function SectionHead({
 }: { index: string; kicker: string; title: React.ReactNode; lede?: string; dark?: boolean; accent?: string }) {
   return (
     <div className="max-w-3xl">
-      <p className={cn("font-mono-d text-xs font-semibold uppercase tracking-[0.22em]", dark ? "text-white/60" : "text-ink-faint")}>
+      <p className={cn("text-[13px] font-bold", dark ? "text-white/70" : "text-ink-faint")}>
         <span className={accent}>{index}</span>
-        <span className={cn("mx-3", dark ? "text-white/25" : "text-hair")}>/</span>{" "}
+        <span className={cn("mx-2", dark ? "text-white/30" : "text-hair")}>/</span>
         {kicker}
       </p>
       <h2 className={cn("font-display mt-4 text-balance text-3xl font-extrabold leading-[1.04] tracking-tight sm:text-[2.75rem]", dark ? "text-white" : "text-ink")}>
@@ -24,25 +24,25 @@ export function SectionHead({
 export function Pill({ children, color = "cobalt" }: { children: React.ReactNode; color?: "cobalt" | "cyan" | "violet" | "amber" | "teal" | "ink" }) {
   const map: Record<string, string> = {
     cobalt: "border-cobalt/40 bg-cobalt/[0.08] text-cobalt",
-    cyan: "border-cyanx/40 bg-cyanx/[0.08] text-[#8d82bf]",
+    cyan: "border-cyanx/40 bg-cyanx/[0.08] text-cyanx",
     violet: "border-viol/40 bg-viol/[0.08] text-viol",
     amber: "border-amberx/50 bg-amberbg text-amber-deep",
     teal: "border-tealx/40 bg-tealx/[0.08] text-tealx",
     ink: "border-hair bg-panel-deep text-ink-soft",
   };
   return (
-    <span className={cn("inline-flex items-center gap-1.5 rounded-full border px-3 py-1 font-mono-d text-[11px] font-semibold uppercase tracking-[0.12em]", map[color])}>
+    <span className={cn("inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold", map[color])}>
       <span className="inline-block h-1.5 w-1.5 rounded-full bg-current" />
       {children}
     </span>
   );
 }
 
-/** Spec row: mono label left, value right — the lab table pattern. */
+/** Spec row: label left, value right. */
 export function SpecRow({ k, v, dark = false }: { k: string; v: React.ReactNode; dark?: boolean }) {
   return (
     <div className={cn("flex items-baseline justify-between gap-6 border-b py-3 last:border-b-0", dark ? "border-white/15" : "border-hair")}>
-      <dt className={cn("shrink-0 font-mono-d text-xs uppercase tracking-[0.14em]", dark ? "text-white/50" : "text-ink-faint")}>{k}</dt>
+      <dt className={cn("shrink-0 text-sm", dark ? "text-white/50" : "text-ink-faint")}>{k}</dt>
       <dd className={cn("text-right text-sm font-semibold", dark ? "text-white" : "text-ink")}>{v}</dd>
     </div>
   );

@@ -19,12 +19,12 @@ const PACKS = [
 export default function BusinessAI() {
   return (
     <>
-      <PageHero tag="business.digitalburj.com" title={<>Your business, <span className="text-foil-gold">running without you</span> in every loop.</>} sub="We start where money leaks — missed calls, slow follow-ups, manual paperwork — and replace it with systems your team will actually use." />
+      <PageHero tag="Business AI" title={<>Systems that stop money leaking out of your day.</>} sub="We start where revenue actually goes missing — missed calls, slow follow-ups, manual paperwork — and replace it with systems your team will actually use." />
       <section className="container-db grid gap-6 py-12 md:grid-cols-2">
         {PACKS.map(([t, d], i) => (
           <Reveal key={t} delay={i * 0.06}>
             <div className="card-tower h-full rounded-3xl p-8">
-              <div className="text-xs font-bold uppercase tracking-[0.2em] text-cyanx">Pack 0{i + 1}</div>
+              <div className="text-xs font-bold text-ink-faint">Pack {i + 1}</div>
               <h2 className="font-display mt-2 text-2xl font-bold text-ink">{t}</h2>
               <p className="mt-3 text-sm leading-relaxed text-fg-muted sm:text-base">{d}</p>
             </div>

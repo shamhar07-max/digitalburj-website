@@ -26,12 +26,12 @@ function Grid({ items }: { items: Program[] }) {
   return (
     <div className="grid gap-4 sm:grid-cols-2">
       {items.map((p) => (
-        <div key={p.name} className="group rounded-2xl border border-hair bg-panel p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-cobalt/50 hover:shadow-[0_14px_36px_-14px_rgba(11,107,79,0.6)]">
+        <div key={p.name} className="group rounded-2xl border border-hair bg-panel p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-cobalt/50 hover:shadow-[0_14px_36px_-14px_rgba(27,77,143,0.35)]">
           <div className="flex items-start justify-between gap-3">
             <h3 className="font-bold text-ink">{p.name}</h3>
             <Pill color={p.color}>{p.level}</Pill>
           </div>
-          <div className="font-mono-d mt-4 flex gap-4 border-t border-hair pt-3 text-[11px] uppercase tracking-[0.12em] text-ink-faint">
+          <div className="mt-4 flex gap-4 border-t border-hair pt-3 text-[11px] text-ink-faint">
             <span>{p.weeks}</span><span className="text-hair">|</span><span>{p.format}</span>
           </div>
         </div>
@@ -50,7 +50,7 @@ export function ProgramFinder() {
         onChange={setTab}
       />
       <div className="mt-6">{tab === "digital" ? <Grid items={DIGITAL} /> : <Grid items={WORKPLACE} />}</div>
-      <p className="font-mono-d mt-5 text-xs leading-relaxed text-ink-faint">
+      <p className="mt-5 text-xs leading-relaxed text-ink-faint">
         Every program ends in assessed work + evidence. Level, duration and format are fixed in the cohort agreement — no hidden modules.
       </p>
     </div>

@@ -11,13 +11,13 @@ export function CTASection({
 }) {
   return (
     <section className="py-12 sm:py-14">
-      <div className="border-2 border-ink bg-panel px-6 py-14 text-center shadow-[8px_8px_0_#FF6BD6] sm:px-16">
-        <div className="font-mono-d text-xs font-semibold uppercase tracking-[0.24em] text-coral">{eyebrow}</div>
+      <div className="rounded-xl border-2 border-ink bg-panel px-6 py-14 text-center sm:px-16">
+        <div className="text-[13px] font-bold text-ink-faint">{eyebrow}</div>
         <h2 className="font-display mx-auto mt-4 max-w-2xl text-balance text-3xl font-extrabold leading-[1.05] tracking-tight text-ink sm:text-5xl">{title}</h2>
         <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-ink-soft">{description}</p>
         <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Button href="/contact" className="px-8 py-3.5">Start a project</Button>
-          <a href="/projects" className="font-mono-d text-xs font-semibold uppercase tracking-[0.14em] text-ink-soft underline decoration-cobalt decoration-2 underline-offset-8 hover:text-cobalt">
+          <a href="/projects" className="text-sm font-semibold text-ink-soft underline decoration-cobalt decoration-2 underline-offset-8 hover:text-cobalt">
             Read the method first
           </a>
         </div>

@@ -26,7 +26,7 @@ export default async function CapabilityPage({ params }: { params: Promise<{ slu
 
   return (
     <>
-      <PageHero tag={`DB-CAP · ${c.n}`} title={<>{c.t}.</>} sub={c.lede} chips={["Fixed scope", "Acceptance criteria", "Outcomes, not activities"]} />
+      <PageHero tag="Services" title={<>{c.t}.</>} sub={c.lede} chips={["Fixed scope", "Acceptance criteria", "Measured outcomes"]} />
       <section className="container-db py-12">
         <Reveal>
           <SectionHead index="01" kicker="What's included" title={<>Stated work. Nothing vague.</>} />

@@ -21,7 +21,7 @@ export function DocShell({
       }) }} />
       <section className="border-b border-hair bg-panel-deep/50">
         <div className="container-db max-w-4xl py-10">
-          <nav className="font-mono-d flex flex-wrap gap-2 text-[11px] uppercase tracking-[0.14em] text-ink-faint" aria-label="Breadcrumb">
+          <nav className="flex flex-wrap gap-2 text-xs text-ink-faint" aria-label="Breadcrumb">
             {crumb.map(([label, href], i) => (
               <span key={href} className="flex items-center gap-2">
                 {i > 0 && <span className="text-hair">/</span>}
@@ -35,9 +35,9 @@ export function DocShell({
           <h1 className="mt-5 text-balance text-3xl font-extrabold leading-[1.06] tracking-tight text-ink sm:text-[2.75rem]" style={{ fontFamily: "var(--font-sora)" }}>
             {title}
           </h1>
-          <p className="mt-4 text-base leading-relaxed text-ink-soft" style={{ borderLeft: "4px solid #FF6BD6", paddingLeft: "1rem" }}>{excerpt}</p>
+          <p className="mt-4 text-base leading-relaxed text-ink-soft" style={{ borderLeft: "4px solid var(--db-cobalt)", paddingLeft: "1rem" }}>{excerpt}</p>
           {(date || reading) && (
-            <p className="font-mono-d mt-5 text-xs uppercase tracking-[0.14em] text-ink-faint">
+            <p className="mt-5 text-xs text-ink-faint">
               {date && <>Published {date}</>}{date && updated && " · "}{updated && <>Updated {updated}</>}{reading && ` · ${reading} min read`}
             </p>
           )}
@@ -47,7 +47,7 @@ export function DocShell({
         <div className="space-y-5 text-[17px] leading-[1.75] text-ink-soft">{children}</div>
         {related && related.length > 0 && (
           <div className="mt-12">
-            <h2 className="font-mono-d text-xs font-bold uppercase tracking-[0.2em] text-ink-faint">Keep reading</h2>
+            <h2 className="text-sm font-bold text-ink-faint">Keep reading</h2>
             <div className="mt-4 grid gap-3">
               {related.map((r) => (
                 <a key={r.slug} href={`${r.base}/${r.slug}`} className="group rounded-xl border border-hair bg-panel p-4 transition-all hover:-translate-y-0.5 hover:border-cobalt">
@@ -57,7 +57,7 @@ export function DocShell({
             </div>
           </div>
         )}
-        <div className="mt-12 rounded-2xl border-2 border-ink bg-panel p-7 text-center shadow-[6px_6px_0_#FF6BD6]">
+        <div className="mt-12 rounded-xl border-2 border-ink bg-panel p-7 text-center">
           <p className="font-display text-xl font-extrabold text-ink">Want this handled for your business?</p>
           <p className="mt-2 text-sm text-ink-soft">Fixed scope, written quote, reply within 24 hours.</p>
           <div className="mt-5"><Button href="/contact">Talk to us</Button></div>

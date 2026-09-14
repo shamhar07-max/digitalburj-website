@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function Studio() {
   return (
     <>
-      <PageHero tag="studio.digitalburj.com" title={<>Start your startup <span className="text-foil-gold">without burning money</span> on code you might throw away.</>} sub="You've seen two extremes: agencies quoting amounts that freeze you, and videos saying everything is free in a weekend. Both skip the real work — deciding what not to build, then carrying a small version to real users." editorial="Validate first. Build smart. Scale when users prove it." />
+      <PageHero tag="studio.digitalburj.com" title={<>An MVP you can hand to real users, without overpaying.</>} sub="We run a fixed-scope validation and MVP flow: a week to check the demand, then a small working version in three to six weeks. The part that matters — deciding what not to build — happens before any code." editorial="Validate first. Build small. Scale on evidence." />
       <section className="container-db grid gap-6 py-12 lg:grid-cols-2">
         <Reveal>
           <div className="card-tower h-full rounded-3xl p-8">

@@ -15,18 +15,18 @@ const TECH = ["Marketplace engine", "Escrow ledger", "Carrier verification", "Bi
 export default function Work() {
   return (
     <>
-      <PageHero tag="DB-WORK · Case study" title={<>Built by Digital Burj: Loadbyton.</>} sub="A logistics technology platform for real commercial transport — engineered from idea to production through an AI-assisted workflow with human review at every money-moving step." chips={["Marketplace + escrow", "Verification-gated", "Audit-trailed"]} />
+      <PageHero tag="Case study" title={<>Built by Digital Burj: Loadbyton.</>} sub="A logistics technology platform for real commercial transport — engineered from idea to production through an AI-assisted workflow with human review at every money-moving step." chips={["Marketplace + escrow", "Verification-gated", "Audit-trailed"]} />
       <section className="container-db grid gap-6 py-12 lg:grid-cols-2">
         <Reveal>
           <div className="card-tower h-full p-7">
-            <p className="font-mono-d text-xs font-bold uppercase tracking-[0.2em] text-coral">The problem</p>
+            <p className="text-sm font-bold uppercase text-coral">The problem</p>
             <h2 className="font-display mt-2 text-2xl font-extrabold text-ink">Freight runs on phone calls.</h2>
             <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
               Shippers post loads into WhatsApp groups. Carriers compete on rumor.
               Prices, reliability and payment terms live in chat history — undiscoverable,
               unverifiable, and gone when phones change.
             </p>
-            <p className="font-mono-d mt-4 text-xs font-bold uppercase tracking-[0.2em] text-ink-faint">The business</p>
+            <p className="mt-4 text-sm font-bold uppercase text-ink-faint">The business</p>
             <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
               A two-sided marketplace charging a transparent take rate — which only works
               if both sides trust pricing, payment and dispute handling.
@@ -35,14 +35,14 @@ export default function Work() {
         </Reveal>
         <Reveal delay={0.06}>
           <div className="card-tower h-full p-7">
-            <p className="font-mono-d text-xs font-bold uppercase tracking-[0.2em] text-cobalt">The challenge</p>
+            <p className="text-sm font-bold uppercase text-cobalt">The challenge</p>
             <h2 className="font-display mt-2 text-2xl font-extrabold text-ink">Money must not move wrong.</h2>
             <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
               Escrow release, payout timing, unverified carriers bidding, disputed deliveries —
               every one of these is a way for funds or trust to leak. The system had to make
               whole classes of failure structurally impossible, not merely unlikely.
             </p>
-            <p className="font-mono-d mt-4 text-xs font-bold uppercase tracking-[0.2em] text-ink-faint">The approach</p>
+            <p className="mt-4 text-sm font-bold uppercase text-ink-faint">The approach</p>
             <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
               Validate the smallest tradable loop first (post → bid → award → escrow → deliver →
               payout), then harden money paths with ledger accounting, atomic state claims and
@@ -71,13 +71,13 @@ export default function Work() {
             </div>
             <div className="space-y-4">
               <div className="rounded-2xl border-2 border-ink bg-panel p-6 font-mono-d text-[12px] leading-[2]">
-                <p className="text-[10px] tracking-[0.2em] text-ink-faint">SIMPLIFIED FLOW</p>
+                <p className="text-[11px] text-ink-faint">Simplified flow</p>
                 <p className="mt-2">POST_LOAD → VERIFY_CARRIER</p>
                 <p>BID → AWARD → <span className="font-bold text-amber-deep">ESCROW_HOLD</span></p>
                 <p>POD_UPLOAD → CONFIRM → <span className="font-bold text-tealx">PAYOUT_RELEASE</span></p>
               </div>
               <div className="rounded-2xl border border-hair bg-panel p-6 text-sm leading-relaxed text-ink-soft">
-                <p className="font-mono-d text-[11px] font-bold uppercase tracking-[0.16em] text-ink-faint">Complexity handled</p>
+                <p className="text-xs font-bold uppercase text-ink-faint">Complexity handled</p>
                 <p className="mt-2">52-table schema · 200+ endpoints · 30+ automated tests covering concurrency, idempotency and authorization · dual deploy targets · documented disaster-recovery drills.</p>
               </div>
             </div>

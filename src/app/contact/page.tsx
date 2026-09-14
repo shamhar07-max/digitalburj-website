@@ -39,9 +39,9 @@ export default function ContactPage() {
           <SectionTag>Contact</SectionTag>
         </Reveal>
         <Reveal delay={0.08}>
-          <h1 className="mx-auto mt-8 max-w-2xl text-center font-display text-4xl font-semibold leading-tight text-fg sm:text-6xl">
-            Let&apos;s build the{" "}
-            <span className="text-gradient-gold">next thing.</span>
+          <h1 className="mx-auto mt-8 max-w-2xl text-center font-display text-4xl font-extrabold leading-tight text-ink sm:text-6xl">
+            Tell us what you&apos;re{" "}
+            <span className="text-cobalt">building.</span>
           </h1>
         </Reveal>
         <Reveal delay={0.16}>

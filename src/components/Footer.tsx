@@ -15,19 +15,19 @@ export function Footer() {
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-md">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/brand/db-lockup-aurora.svg" alt="DigitalBurj — Learn, Build, Work, Grow, Go Global" width={400} height={120} className="h-auto w-full max-w-[340px]" loading="lazy" />
-            <p className="font-mono-d mt-4 text-xs font-semibold uppercase tracking-[0.22em] text-coral">Intelligence. Engineered.</p>
-            <p className="mt-3 max-w-sm text-sm leading-relaxed text-ink-soft">
-              A technology company that understands business problems and builds the technology to solve them.
+            <img src="/brand/db-lockup.svg" alt="DigitalBurj" width={400} height={120} className="h-auto w-full max-w-[320px]" loading="lazy" />
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-soft">
+              A technology company in Dubai. We teach the skills, build the software, and verify
+              the people who do the work.
             </p>
-            <a href="mailto:hello@digitalburj.com" className="font-mono-d mt-4 inline-block text-sm font-semibold text-cobalt hover:underline">
+            <a href="mailto:hello@digitalburj.com" className="mt-4 inline-block text-sm font-semibold text-cobalt hover:underline">
               hello@digitalburj.com
             </a>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
             {COLS.map((c) => (
               <div key={c.h}>
-                <h4 className="font-mono-d mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-ink-faint">{c.h}</h4>
+                <h4 className="mb-4 text-sm font-bold text-ink">{c.h}</h4>
                 <ul className="flex flex-col gap-2.5">
                   {c.links.map(([label, href]) => (
                     <li key={href + label}>
@@ -39,10 +39,10 @@ export function Footer() {
             ))}
           </div>
         </div>
-        <div className="mt-10 flex flex-col items-start justify-between gap-3 border-t border-hair pt-6 font-mono-d text-xs text-ink-faint sm:flex-row sm:items-center">
-          <span>© {year} DIGITALBURJ · DUBAI, U.A.E.</span>
+        <div className="mt-10 flex flex-col items-start justify-between gap-3 border-t border-hair pt-6 text-sm text-ink-faint sm:flex-row sm:items-center">
+          <span>© {year} DigitalBurj · Dubai, UAE</span>
           <a href="/contact" className="inline-flex items-center gap-1 font-semibold text-cobalt hover:underline">
-            BOOK AN INTRO CALL <ArrowUpRight size={14} />
+            Book an intro call <ArrowUpRight size={14} />
           </a>
         </div>
       </div>

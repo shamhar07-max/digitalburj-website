@@ -75,7 +75,7 @@ export default function Academy() {
           <div className="mt-8 flex flex-wrap gap-2">
             {LOOP.map((s, i) => (
               <span key={s} className="flex items-center gap-2">
-                <span className="rounded-lg border border-hair bg-panel px-3 py-2 font-mono-d text-[11px] font-bold uppercase tracking-[0.1em] text-ink">{s}</span>
+                <span className="rounded-lg border border-hair bg-panel px-3 py-2 text-xs font-bold text-ink">{s}</span>
                 {i < LOOP.length - 1 && <span className="text-cyanx">→</span>}
               </span>
             ))}
@@ -87,12 +87,12 @@ export default function Academy() {
           <SectionHead index="05" kicker="Pathways, not courses" title={<>Pick a destination. The route is mapped.</>} lede="Six tracks from complete beginner to professional operator. Every step lists its code, so progress is unambiguous." />
         </Reveal>
         <div className="mt-8 overflow-hidden rounded-2xl border border-hair bg-panel">
-          <div className="hidden grid-cols-[88px_1fr_1.2fr_1fr] gap-4 border-b-2 border-ink bg-panel-deep/60 px-5 py-3 font-mono-d text-[11px] font-bold uppercase tracking-[0.14em] text-ink-faint sm:grid" aria-hidden>
+          <div className="hidden grid-cols-[88px_1fr_1.2fr_1fr] gap-4 border-b-2 border-ink bg-panel-deep/60 px-5 py-3 text-[11px] font-bold text-ink-faint sm:grid" aria-hidden>
             <span>Track</span><span>Destination</span><span>Route</span><span>Outcome</span>
           </div>
           {PATHWAYS.map((p) => (
             <div key={p.code} className="grid gap-1.5 border-b border-hair px-5 py-4 last:border-b-0 sm:grid-cols-[88px_1fr_1.2fr_1fr] sm:items-baseline sm:gap-4">
-              <span className="font-mono-d text-xs font-bold text-cobalt">TRACK {p.code}</span>
+              <span className="font-mono-d text-xs font-bold text-cobalt">{p.code}</span>
               <span className="font-bold text-ink">{p.name}</span>
               <span className="font-mono-d text-[11px] leading-relaxed text-ink-faint">{p.path}</span>
               <span className="text-sm text-ink-soft">{p.out}</span>
@@ -108,7 +108,7 @@ export default function Academy() {
           <div className="mt-8 space-y-8">
             {LEVELS.map((lv) => (
               <div key={lv.name}>
-                <h3 className="font-mono-d text-xs font-bold uppercase tracking-[0.2em] text-ink-faint">{lv.name} · {lv.courses.length} courses</h3>
+                <h3 className="text-xs font-bold uppercase text-ink-faint">{lv.name} · {lv.courses.length} courses</h3>
                 <div className="mt-3 space-y-3">
                   {lv.courses.map((c) => (
                     <details key={c.code} className="group overflow-hidden rounded-2xl border border-hair bg-panel">
@@ -118,7 +118,7 @@ export default function Academy() {
                           <span className="block font-bold text-ink">{c.name}</span>
                           <span className="mt-0.5 block line-clamp-2 text-[13px] leading-snug text-ink-soft">{c.outcome}</span>
                         </span>
-                        <span className="font-mono-d hidden rounded-full border border-hair px-2.5 py-1 text-[10px] uppercase tracking-[0.1em] text-ink-faint sm:inline">{c.level}</span>
+                        <span className="hidden rounded-full border border-hair px-2.5 py-1 text-[10px] font-bold uppercase text-ink-faint sm:inline">{c.level}</span>
                         <span className="text-xl font-bold leading-none text-cyanx transition-transform group-open:rotate-45">+</span>
                       </summary>
                       <ul className="grid gap-x-8 border-t border-dashed border-hair px-5 py-4 sm:grid-cols-2">
@@ -128,8 +128,8 @@ export default function Academy() {
                       </ul>
                       {(c.project || c.simulation) && (
                         <div className="grid gap-3 border-t border-hair bg-panel-deep/50 px-5 py-4 sm:grid-cols-2">
-                          {c.project && <p className="text-[13px] leading-relaxed text-ink-soft"><span className="font-mono-d mr-2 text-[10px] font-bold uppercase tracking-[0.12em] text-amber-deep">Project</span>{c.project}</p>}
-                          {c.simulation && <p className="text-[13px] leading-relaxed text-ink-soft"><span className="font-mono-d mr-2 text-[10px] font-bold uppercase tracking-[0.12em] text-coral">Simulation</span>{c.simulation}</p>}
+                          {c.project && <p className="text-[13px] leading-relaxed text-ink-soft"><span className="mr-2 text-[10px] font-bold uppercase text-amber-deep">Project</span>{c.project}</p>}
+                          {c.simulation && <p className="text-[13px] leading-relaxed text-ink-soft"><span className="mr-2 text-[10px] font-bold uppercase text-coral">Simulation</span>{c.simulation}</p>}
                         </div>
                       )}
                     </details>
@@ -191,7 +191,7 @@ export default function Academy() {
               ["Capability", "Verified record"],
             ].map(([t, d], i) => (
               <div key={t} className="kpi-edge rounded-2xl border border-hair bg-panel p-5">
-                <p className="font-mono-d text-xs font-bold text-cobalt">E.{i + 1}</p>
+                <p className="font-mono-d text-xs font-bold text-cobalt">0{i + 1}</p>
                 <h3 className="mt-1.5 font-bold text-ink">{t}</h3>
                 <p className="mt-1.5 text-[13px] leading-relaxed text-ink-soft">{d}</p>
               </div>
@@ -207,7 +207,7 @@ export default function Academy() {
               ["Network", "Professional Challenge, Talent + Jobs integration."],
             ].map(([t, d], i) => (
               <div key={t} className="flex flex-col gap-1 border-b border-hair px-5 py-4 last:border-b-0 sm:flex-row sm:items-baseline sm:gap-4">
-                <span className="font-mono-d shrink-0 text-xs font-bold text-amberx">P.{i + 1}</span>
+                <span className="font-mono-d shrink-0 text-xs font-bold text-amberx">0{i + 1}</span>
                 <span className="font-bold text-ink">{t}</span>
                 <span className="text-sm text-ink-soft">{d}</span>
               </div>
@@ -223,24 +223,24 @@ export default function Academy() {
           </Reveal>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             <div className="rounded-2xl border border-hair bg-panel p-6">
-              <p className="font-mono-d text-xs font-bold uppercase tracking-[0.16em] text-cobalt">Persistent company</p>
+              <p className="text-xs font-bold uppercase text-cobalt">Persistent company</p>
               <h3 className="mt-2 text-lg font-extrabold text-ink" style={{ fontFamily: "var(--font-sora)" }}>Your NOVA grows with you</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-soft">Name one business on day one. Every course grows it — website, database, CRM, automation, AI, payments. Graduation means a working digital business, not 30 tutorial toys.</p>
             </div>
             <div className="rounded-2xl border border-hair bg-panel p-6">
-              <p className="font-mono-d text-xs font-bold uppercase tracking-[0.16em] text-cobalt">Two languages, one standard</p>
+              <p className="text-xs font-bold uppercase text-cobalt">Two languages, one standard</p>
               <h3 className="mt-2 text-lg font-extrabold text-ink" style={{ fontFamily: "var(--font-sora)" }}>Understand locally. Execute in English.</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-soft">Concepts in the language you think in; terminology, docs and client work in English. The ratio shifts as you advance — the profession doesn&apos;t translate.</p>
             </div>
             <div className="rounded-2xl border border-hair bg-panel p-6">
-              <p className="font-mono-d text-xs font-bold uppercase tracking-[0.16em] text-cobalt">Failure passport</p>
+              <p className="text-xs font-bold uppercase text-cobalt">Failure passport</p>
               <h3 className="mt-2 text-lg font-extrabold text-ink" style={{ fontFamily: "var(--font-sora)" }}>Recovery is a credential</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-soft">Every recovered failure — what broke, why, what changed — becomes verified evidence. Employers read recoveries, not just wins.</p>
             </div>
             <div className="rounded-2xl border border-amberx/40 bg-amberbg p-6">
-              <p className="font-mono-d text-xs font-bold uppercase tracking-[0.16em] text-amber-deep">Capability record · specimen</p>
+              <p className="text-xs font-bold uppercase text-amber-deep">Capability record — specimen</p>
               <h3 className="mt-2 text-lg font-extrabold text-ink" style={{ fontFamily: "var(--font-sora)" }}>DB-019284 · Professional Builder</h3>
-              <p className="mt-2 font-mono-d text-xs leading-relaxed text-ink-soft">6 verified projects · 43 missions · 7 incident simulations · 3 client simulations · 1 challenge — verified by Digital Burj Academy.</p>
+              <p className="mt-2 text-xs font-semibold leading-relaxed text-ink-soft">6 verified projects · 43 missions · 7 incident simulations · 3 client simulations · 1 challenge — verified by Digital Burj Academy.</p>
               <div className="mt-3">
                 <Button href="/talent">How verification works</Button>
               </div>
@@ -250,8 +250,8 @@ export default function Academy() {
       </section>
       <section className="container-db max-w-4xl pb-6">
         <Reveal>
-          <div className="rounded-3xl border-2 border-ink bg-panel p-8 shadow-[6px_6px_0_#18B8D6]">
-            <p className="font-mono-d text-[11px] tracking-[0.22em] text-ink-faint">THE LIVE PLATFORM · ONE LOGIN</p>
+          <div className="rounded-3xl border-2 border-ink bg-panel p-8">
+            <p className="text-xs font-bold uppercase text-ink-faint">The live platform — one login</p>
             <h2 className="font-display mt-3 text-2xl font-extrabold text-ink">Don&apos;t read about it. Enter it.</h2>
             <p className="mt-2 max-w-2xl text-sm leading-relaxed text-ink-soft">The Academy isn&apos;t a brochure — it&apos;s a working system. Register once and your identity carries across courses, missions, evidence, talent and jobs.</p>
             <div className="mt-5 grid gap-3 sm:grid-cols-2">

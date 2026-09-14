@@ -2,13 +2,13 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "DigitalBurj — Learn. Build. Work. Grow. Go Global.",
+    name: "DigitalBurj",
     short_name: "DigitalBurj",
-    description: "Practical skills, technology and opportunity ecosystem.",
+    description: "Technology company in Dubai: Academy, business automation, software builds, verified talent.",
     start_url: "/",
     display: "standalone",
-    background_color: "#0A0616",
-    theme_color: "#2EE6FF",
-    icons: [{ src: "/brand/db-icon-aurora.svg", sizes: "any", type: "image/svg+xml" }],
+    background_color: "#F5F1E8",
+    theme_color: "#1B4D8F",
+    icons: [{ src: "/brand/db-icon.svg", sizes: "any", type: "image/svg+xml" }],
   };
 }

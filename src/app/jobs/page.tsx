@@ -23,7 +23,7 @@ export default function Jobs() {
       </section>
       <section className="container-db max-w-4xl pb-20">
         <div className="mb-8 flex justify-center">
-          <AcademyLink path="/jobs" className="inline-flex items-center rounded-xl bg-ink px-6 py-3 text-sm font-bold uppercase tracking-[0.06em] text-paper">Open the live jobs board →</AcademyLink>
+          <AcademyLink path="/jobs" className="inline-flex items-center rounded-xl bg-ink px-6 py-3 text-sm font-bold text-paper">Open the live jobs board →</AcademyLink>
         </div>
         <CTASection />
       </section>

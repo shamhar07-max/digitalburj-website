@@ -16,7 +16,7 @@ export default function Talent() {
       <PageHero tag="talent.digitalburj.com" title={<>Capability backed by evidence.</>} sub="Certificates here describe exactly what was assessed — with an ID anyone can verify. Experience records only cover supervised work actually completed." />
       <section className="container-db py-12">
         <div className="overflow-hidden rounded-2xl border border-hair bg-panel">
-          <div className="hidden grid-cols-[190px_1fr_1.2fr] gap-4 border-b-2 border-ink bg-panel-deep/60 px-5 py-3 font-mono-d text-[11px] font-bold uppercase tracking-[0.14em] text-ink-faint sm:grid" aria-hidden>
+          <div className="hidden grid-cols-[190px_1fr_1.2fr] gap-4 border-b-2 border-ink bg-panel-deep/60 px-5 py-3 text-[11px] font-bold text-ink-faint sm:grid" aria-hidden>
             <span>Level</span><span>Demonstrates</span><span>Evidence required</span>
           </div>
           {[
@@ -46,7 +46,7 @@ export default function Talent() {
         </Reveal>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Button href="/academy">Earn it in the Academy</Button>
-          <AcademyLink path="/talent" className="inline-flex items-center rounded-xl border-2 border-ink px-6 py-3 text-sm font-bold uppercase tracking-[0.06em] text-ink">Open the live directory →</AcademyLink>
+          <AcademyLink path="/talent" className="inline-flex items-center rounded-xl border-2 border-ink px-6 py-3 text-sm font-bold text-ink">Open the live directory →</AcademyLink>
         </div>
         <div className="mt-10"><CTASection /></div>
       </section>

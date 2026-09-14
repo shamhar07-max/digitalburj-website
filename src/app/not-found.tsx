@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <section className="container-db max-w-2xl py-20 text-center sm:py-28">
-      <p className="font-mono-d text-xs font-bold uppercase tracking-[0.24em] text-coral">Error 404</p>
+      <p className="text-xs font-bold uppercase text-coral">Error 404</p>
       <h1 className="font-display mt-4 text-5xl font-extrabold tracking-tight text-ink sm:text-6xl">
         Wrong door.
       </h1>
@@ -21,7 +21,7 @@ export default function NotFound() {
         <Button href="/">Back home</Button>
         <Button href="/contact" variant="outline">Talk to us</Button>
       </div>
-      <p className="font-mono-d mt-10 text-xs text-ink-faint">
+      <p className="mt-10 text-xs text-ink-faint">
         <a href="/journal" className="underline hover:text-cobalt">Journal</a>
         {" · "}
         <a href="/academy" className="underline hover:text-cobalt">Academy</a>

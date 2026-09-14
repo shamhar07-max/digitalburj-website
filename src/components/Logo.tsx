@@ -6,8 +6,8 @@ export function Logo({ className }: { className?: string; dark?: boolean }) {
     <Link href="/" className={className ?? "flex shrink-0 items-center"} aria-label="DigitalBurj home">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/brand/db-lockup-aurora.svg"
-        alt="DigitalBurj — Learn, Build, Work, Grow, Go Global"
+        src="/brand/db-lockup.svg"
+        alt="DigitalBurj"
         width={400}
         height={120}
         className="h-10 w-auto sm:h-11"

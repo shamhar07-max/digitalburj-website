@@ -21,7 +21,7 @@ const STAGES = [
 export default function Projects() {
   return (
     <>
-      <PageHero tag="DB-M-2026 · Method" title={<>How an engagement runs, in writing.</>} sub="The same loop for a startup MVP and an SME fix. Fixed scopes, staged payments, and limits stated before money moves." chips={["Fixed quotes", "30 / 40 / 30 milestones", "You own the accounts", "Change orders in writing"]} />
+      <PageHero tag="Method" title={<>How an engagement runs, in writing.</>} sub="The same loop for a startup MVP and an SME fix. Fixed scopes, staged payments, and limits stated before money moves." chips={["Fixed quotes", "30 / 40 / 30 milestones", "You own the accounts", "Change orders in writing"]} />
       <section className="container-db py-12">
         <SectionHead index="01" kicker="The five stages" title={<>Validate → Build → Launch → Learn → Scale.</>} />
         <div className="mt-8 overflow-hidden rounded-2xl border border-hair bg-panel">
@@ -32,7 +32,7 @@ export default function Projects() {
                 <h2 className="text-xl font-extrabold tracking-tight text-ink" style={{ fontFamily: "var(--font-sora)" }}>{s.t}</h2>
                 <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">{s.d}</p>
               </div>
-              <p className="font-mono-d text-xs leading-relaxed text-ink-faint sm:pt-8"><span className="font-semibold text-tealx">OUTPUT — </span>{s.out}</p>
+              <p className="font-mono-d text-xs leading-relaxed text-ink-faint sm:pt-8"><span className="font-semibold text-ink-soft">Output — </span>{s.out}</p>
             </div>
           ))}
         </div>
@@ -66,10 +66,10 @@ export default function Projects() {
             {LIFECYCLE.map(([t, d, exit], i) => (
               <Reveal key={t} delay={(i % 3) * 0.03}>
                 <div className="kpi-edge h-full rounded-2xl border border-hair bg-panel p-5">
-                  <p className="font-mono-d text-xs font-semibold text-cobalt">G.{String(i + 1).padStart(2, "0")}</p>
+                  <p className="font-mono-d text-xs font-semibold text-cobalt">0{i + 1}</p>
                   <h3 className="mt-1.5 font-bold text-ink">{t}</h3>
                   <p className="mt-1.5 text-[13px] leading-relaxed text-ink-soft">{d}</p>
-                  <p className="font-mono-d mt-3 border-t border-hair pt-2.5 text-[11px] leading-relaxed text-ink-faint"><span className="font-semibold text-tealx">GATE — </span>{exit}</p>
+                  <p className="font-mono-d mt-3 border-t border-hair pt-2.5 text-[11px] leading-relaxed text-ink-faint"><span className="font-semibold text-ink-soft">Exit — </span>{exit}</p>
                 </div>
               </Reveal>
             ))}

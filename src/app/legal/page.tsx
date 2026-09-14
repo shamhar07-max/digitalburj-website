@@ -16,7 +16,7 @@ const BLOCKS = [
 export default function Legal() {
   return (
     <>
-      <PageHero tag="DB-LEGAL" title={<>Plain rules, kept promises.</>} sub="The short version of how we handle data, engagements and cookies. Formal documents available on request." />
+      <PageHero tag="Legal" title={<>Plain rules, kept promises.</>} sub="The short version of how we handle data, engagements and cookies. Formal documents available on request." />
       <section className="container-db max-w-3xl py-12">
         <div className="space-y-4">
           {BLOCKS.map((b, i) => (

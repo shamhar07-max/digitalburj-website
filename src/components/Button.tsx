@@ -10,16 +10,16 @@ type ButtonProps = {
   showArrow?: boolean;
 };
 
-/** Editorial hard-shadow buttons with shine sweep. */
+/** Editorial buttons — flat paper surfaces, one signal blue. */
 export function Button({ href, children, variant = "primary", className, showArrow = true }: ButtonProps) {
   const base =
-    "btn-shine group inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-bold transition-all duration-200 hover:-translate-y-0.5 whitespace-nowrap active:translate-y-0";
+    "group inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-bold transition-all duration-200 hover:-translate-y-0.5 whitespace-nowrap active:translate-y-0";
   const variants = {
-    primary: "border-2 border-ink bg-cobalt text-white shadow-[4px_4px_0_#18B8D6] hover:shadow-[6px_6px_0_#18B8D6]",
-    dark: "border-2 border-ink bg-navy text-white shadow-[4px_4px_0_rgba(0,224,255,0.28)] hover:shadow-[6px_6px_0_rgba(0,224,255,0.32)]",
-    gold: "border-2 border-ink bg-amberx text-[#2a2008] shadow-[4px_4px_0_#8d82bf] hover:shadow-[6px_6px_0_#8d82bf]",
-    paper: "border-2 border-cobalt/50 bg-panel-deep text-ink shadow-[4px_4px_0_#FF6BD6] hover:shadow-[6px_6px_0_#FF6BD6]",
-    outline: "border-2 border-ink/70 bg-transparent text-ink hover:border-cobalt hover:text-cobalt",
+    primary: "border border-cobalt bg-cobalt text-white hover:bg-cobalt-deep",
+    dark: "border border-ink bg-navy text-paper hover:bg-navy-2",
+    gold: "border border-amberx bg-amberbg text-amber-deep hover:border-amber-deep",
+    paper: "border border-cobalt/50 bg-panel text-ink hover:border-cobalt",
+    outline: "border-2 border-ink text-ink hover:border-cobalt hover:text-cobalt",
     ghost: "text-ink-soft hover:text-cobalt underline-offset-4 hover:underline",
   };
   return (

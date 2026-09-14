@@ -37,9 +37,9 @@ const done = [
 export default function ProcessPage() {
   return (
     <>
-      <PageHero tag="How we work" title={<>A project isn&apos;t done <span className="text-foil-gold">when the code exists.</span></>}
+      <PageHero tag="How we work" title={<>A project is done when it is delivered, verified, and documented.</>}
         sub="The delivery lifecycle every DigitalBurj engagement follows — and the written definition of done we hold ourselves to before asking for sign-off."
-        chips={["Written definition of done", "Independent verification", "Evidence-backed"]} />
+        chips={["Written definition of done", "Independent verification", "Evidence on record"]} />
 
       <section className="container-db py-12">
         <RevealGroup className="grid gap-6 md:grid-cols-2">

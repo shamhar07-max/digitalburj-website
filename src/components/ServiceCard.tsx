@@ -28,7 +28,7 @@ export function ServiceCard({ service, big = false }: { service: Service; big?: 
         />
       </div>
       <div className="mt-8">
-        <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.16em] text-fg-faint">
+        <span className="mb-2 block text-xs font-semibold text-fg-faint">
           {service.pillar}
         </span>
         <h3 className="font-display text-lg font-semibold text-fg sm:text-xl">{service.title}</h3>

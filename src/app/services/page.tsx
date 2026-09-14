@@ -22,17 +22,17 @@ const GROUPS: { id: string; n: string; t: string; lede: string; items: string[] 
 export default function ServicesPage() {
   return (
     <>
-      <PageHero tag="DB-CAP · Capabilities" title={<>Seven groups. One method.</>} sub="Not thirty competing services. Each group below is a doorway into the same operating system: discover → diagnose → design → build → test → launch → improve." chips={["Fixed scope", "Acceptance criteria", "Outcomes, not activities"]} />
+      <PageHero tag="Capabilities" title={<>Seven groups. One method.</>} sub="Not thirty competing services. Each group below is a doorway into the same operating system: discover → diagnose → design → build → test → launch → improve." chips={["Fixed scope", "Acceptance criteria", "Measured outcomes"]} />
       {GROUPS.map((g) => (
         <section key={g.id} id={g.id} className="scroll-mt-24 border-b border-hair last:border-b-0">
           <div className="container-db grid gap-6 py-12 lg:grid-cols-[1fr_1.4fr] lg:items-start">
             <Reveal>
-              <p className="font-mono-d text-xs font-semibold uppercase tracking-[0.22em] text-cyanx">{g.n}</p>
+              <p className="font-mono-d text-xs font-semibold text-ink-faint">{g.n}</p>
               <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-ink sm:text-4xl" style={{ fontFamily: "var(--font-sora)" }}>
                 <a href={`/services/${g.id}`} className="transition-colors hover:text-cobalt">{g.t} →</a>
               </h2>
               <p className="mt-3 max-w-md leading-relaxed text-ink-soft">{g.lede}</p>
-              <a href={`/services/${g.id}`} className="font-mono-d mt-3 inline-block text-xs font-bold uppercase tracking-[0.12em] text-cobalt hover:underline">Open detail page</a>
+              <a href={`/services/${g.id}`} className="mt-3 inline-block text-xs font-bold text-cobalt hover:underline">Open detail page →</a>
             </Reveal>
             <div className="grid gap-3 sm:grid-cols-2">
               {g.items.map((item) => (

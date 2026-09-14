@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function Global() {
   return (
     <>
-      <PageHero tag="jobs.digitalburj.com/global" title={<>Become useful <span className="text-foil-gold">in any country.</span></>} sub="For 12th-pass and degree holders with no experience: learn how real workplaces operate, practise it, and carry evidence — so you're hireable locally and abroad." editorial="Preparation we control. Visas employers and governments decide." />
+      <PageHero tag="Global careers" title={<>Workplace readiness, wherever you intend to work.</>} sub="For 12th-pass and degree holders with no experience: learn how real workplaces operate, practise it, and carry evidence — so you're hireable locally and abroad." editorial="Preparation we control. Hiring and visas belong to employers and governments." />
       <section className="container-db grid gap-6 py-12 md:grid-cols-2">
         <Reveal>
           <div className="card-tower h-full rounded-3xl p-8">
