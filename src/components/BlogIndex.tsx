@@ -41,7 +41,7 @@ export function BlogIndex() {
       <p className="mt-4 text-xs text-ink-faint">{list.length} articles</p>
       <div className="mt-4 grid gap-4 sm:grid-cols-2">
         {list.map((p) => (
-          <a key={p.slug} href={`/journal/${p.slug}`} className="group flex gap-4 rounded-2xl border border-hair bg-panel p-3 transition-all hover:-translate-y-0.5 hover:border-cobalt hover:shadow-[0_14px_36px_-18px_rgba(27,77,143,0.35)]">
+          <a key={p.slug} href={`/journal/${p.slug}`} className="card-tower group flex gap-4 p-3 transition-all hover:border-cobalt/50">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={imgFor(p.slug)}

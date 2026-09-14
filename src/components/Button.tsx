@@ -10,16 +10,21 @@ type ButtonProps = {
   showArrow?: boolean;
 };
 
-/** Editorial buttons — flat paper surfaces, one signal blue. */
+/** Cinematic buttons — neon signal fills, glass rails, gold currency. */
 export function Button({ href, children, variant = "primary", className, showArrow = true }: ButtonProps) {
   const base =
-    "group inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-bold transition-all duration-200 hover:-translate-y-0.5 whitespace-nowrap active:translate-y-0";
+    "btn-shine group relative inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-bold transition-all duration-200 hover:-translate-y-0.5 whitespace-nowrap active:translate-y-0";
   const variants = {
-    primary: "border border-cobalt bg-cobalt text-white hover:bg-cobalt-deep",
-    dark: "border border-ink bg-navy text-paper hover:bg-navy-2",
-    gold: "border border-amberx bg-amberbg text-amber-deep hover:border-amber-deep",
-    paper: "border border-cobalt/50 bg-panel text-ink hover:border-cobalt",
-    outline: "border-2 border-ink text-ink hover:border-cobalt hover:text-cobalt",
+    primary:
+      "bg-cobalt text-[#050810] hover:glow-cy hover:bg-cobalt-deep",
+    dark:
+      "border border-hair bg-panel/80 text-ink backdrop-blur-sm hover:border-cobalt/60 hover:bg-panel",
+    gold:
+      "bg-gold text-[#050810] hover:glow-gold hover:bg-amber-deep",
+    paper:
+      "border border-hair bg-panel/70 text-ink backdrop-blur-sm hover:border-cobalt/70",
+    outline:
+      "border border-cobalt/40 text-cobalt hover:border-cobalt hover:text-ink hover:bg-cobalt/10",
     ghost: "text-ink-soft hover:text-cobalt underline-offset-4 hover:underline",
   };
   return (

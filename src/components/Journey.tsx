@@ -49,7 +49,7 @@ export function ChapterRail() {
           </span>
           <span className={cn(
             "block rounded-full transition-all",
-            active === c.id ? "h-2.5 w-2.5 bg-coral" : "h-1.5 w-1.5 bg-ink/25 group-hover:bg-ink/60"
+            active === c.id ? "h-2.5 w-2.5 bg-coral glow-gold" : "h-1.5 w-1.5 bg-ink/25 group-hover:bg-ink/60"
           )} />
         </a>
       ))}
@@ -63,9 +63,9 @@ export function NextChapter({ href, label }: { href: string; label: string }) {
     <div className="mt-10 flex justify-center">
       <a
         href={href}
-        className="group inline-flex items-center gap-2 rounded-full border border-hair bg-panel px-5 py-2.5 text-xs font-bold text-ink-soft transition-all hover:-translate-y-0.5 hover:border-ink hover:text-ink"
+        className="group inline-flex items-center gap-2 rounded-full border border-hair bg-panel/80 px-5 py-2.5 font-mono-d text-xs font-bold uppercase tracking-wider text-ink-soft backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-cobalt/60 hover:text-cobalt"
       >
-        Next — {label}
+        <span className="text-cobalt">Next</span> — {label}
         <span className="transition-transform duration-200 group-hover:translate-y-0.5">↓</span>
       </a>
     </div>

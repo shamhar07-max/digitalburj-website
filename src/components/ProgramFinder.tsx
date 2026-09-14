@@ -26,7 +26,7 @@ function Grid({ items }: { items: Program[] }) {
   return (
     <div className="grid gap-4 sm:grid-cols-2">
       {items.map((p) => (
-        <div key={p.name} className="group rounded-2xl border border-hair bg-panel p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-cobalt/50 hover:shadow-[0_14px_36px_-14px_rgba(27,77,143,0.35)]">
+        <div key={p.name} className="card-tower group p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-cobalt/50">
           <div className="flex items-start justify-between gap-3">
             <h3 className="font-bold text-ink">{p.name}</h3>
             <Pill color={p.color}>{p.level}</Pill>

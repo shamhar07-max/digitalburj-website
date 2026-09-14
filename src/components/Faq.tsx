@@ -14,17 +14,17 @@ export function Faq() {
         "@type": "FAQPage",
         mainEntity: FAQS.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
       }) }} />
-      <div className="overflow-hidden rounded-2xl border-2 border-ink bg-panel">
+      <div className="overflow-hidden rounded-2xl border border-hair bg-panel/60 backdrop-blur-sm">
       {FAQS.map((f, i) => (
-        <details key={i} className="group border-b-2 border-ink/10 last:border-b-0" open={i === 0}>
+        <details key={i} className="group border-b border-hair last:border-b-0" open={i === 0}>
           <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 transition-colors hover:bg-panel-deep/60 [&::-webkit-details-marker]:hidden">
             <span className="flex items-baseline gap-4">
-              <span className="rounded-md bg-cobalt/10 px-2 py-0.5 text-xs font-bold text-cobalt">{i + 1}</span>
+              <span className="rounded-md bg-cobalt/10 px-2 py-0.5 font-mono-d text-xs font-bold text-cobalt">0{i + 1}</span>
               <span className="text-[15px] font-bold text-ink">{f.q}</span>
             </span>
-            <span className="font-display flex h-7 w-7 shrink-0 items-center justify-center rounded-md border-2 border-ink text-lg font-bold leading-none text-cyanx transition-transform duration-200 group-open:rotate-45">+</span>
+            <span className="font-display flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-cobalt/40 text-lg font-bold leading-none text-cobalt transition-transform duration-200 group-open:rotate-45">+</span>
           </summary>
-          <p className="border-t-2 border-dashed border-hair bg-lab px-6 py-5 text-sm leading-relaxed text-ink-soft sm:pl-[4.5rem]">{f.a}</p>
+          <p className="border-t border-dashed border-hair bg-lab px-6 py-5 text-sm leading-relaxed text-ink-soft sm:pl-[4.5rem]">{f.a}</p>
         </details>
       ))}
       </div>

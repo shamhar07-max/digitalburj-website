@@ -1,13 +1,29 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Unbounded, Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { PageChrome } from "@/components/PageChrome";
 
-const inter = IBM_Plex_Sans({ variable: "--font-inter", subsets: ["latin"], weight: ["400", "500", "600", "700"], style: ["normal", "italic"], display: "swap" });
-const grotesk = IBM_Plex_Sans({ variable: "--font-sora", subsets: ["latin"], weight: ["500", "600", "700"], display: "swap" });
-const groteskBlack = IBM_Plex_Sans({ variable: "--font-black", subsets: ["latin"], weight: ["700"], display: "swap" });
-const plexmono = IBM_Plex_Mono({ variable: "--font-plexmono", subsets: ["latin"], weight: ["400", "500", "600"], display: "swap" });
+const unbounded = Unbounded({
+  variable: "--font-unbounded",
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
+  display: "swap",
+});
+const manrope = Manrope({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  style: ["normal"],
+  display: "swap",
+});
+const jetbrains = JetBrains_Mono({
+  variable: "--font-plexmono",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://digitalburj.com"),
@@ -24,7 +40,7 @@ export const metadata: Metadata = {
     "generative engine optimization", "sales training Dubai",
   ],
   authors: [{ name: "DigitalBurj" }],
-  icons: { icon: "/brand/db-icon.svg", apple: "/brand/db-icon.svg" },
+  icons: { icon: "/brand/db-icon-inverse.svg", apple: "/brand/db-icon-inverse.svg" },
   openGraph: {
     title: "DigitalBurj — Technology company in Dubai",
     description: "DigitalBurj in Dubai: Academy, business automation, software builds, verified talent and career services.",
@@ -44,7 +60,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#F5F1E8",
+  themeColor: "#050810",
   width: "device-width",
   initialScale: 1,
 };
@@ -59,11 +75,15 @@ const ORG_JSONLD = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${grotesk.variable} ${groteskBlack.variable} ${plexmono.variable}`}>
+    <html
+      lang="en"
+      className={`${unbounded.variable} ${manrope.variable} ${jetbrains.variable}`}
+    >
       <body className="flex min-h-full flex-col bg-lab text-ink">
-        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[300] focus:rounded-lg focus:bg-cobalt focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-white">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[300] focus:rounded-lg focus:bg-cobalt focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-ink" style={{ color: "#050810" }}>
           Skip to content
         </a>
+        <PageChrome />
         <Navbar />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_JSONLD) }} />
         <main id="main-content" className="flex-1">{children}</main>

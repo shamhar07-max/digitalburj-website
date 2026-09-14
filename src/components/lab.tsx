@@ -8,12 +8,12 @@ export function SectionHead({
 }: { index: string; kicker: string; title: React.ReactNode; lede?: string; dark?: boolean; accent?: string }) {
   return (
     <div className="max-w-3xl">
-      <p className={cn("text-[13px] font-bold", dark ? "text-white/70" : "text-ink-faint")}>
-        <span className={accent}>{index}</span>
+      <p className={cn("font-mono-d text-[12px] font-semibold uppercase tracking-[0.14em]", dark ? "text-white/60" : "text-ink-faint")}>
+        <span className={cn(accent, "text-glow-cy")}>{index}</span>
         <span className={cn("mx-2", dark ? "text-white/30" : "text-hair")}>/</span>
         {kicker}
       </p>
-      <h2 className={cn("font-display mt-4 text-balance text-3xl font-extrabold leading-[1.04] tracking-tight sm:text-[2.75rem]", dark ? "text-white" : "text-ink")}>
+      <h2 className={cn("font-display mt-4 text-balance text-3xl font-extrabold leading-[1.06] tracking-tight sm:text-[2.75rem]", dark ? "text-white" : "text-ink")}>
         {title}
       </h2>
       {lede && <p className={cn("mt-4 max-w-2xl text-base leading-relaxed", dark ? "text-white/70" : "text-ink-soft")}>{lede}</p>}
