@@ -113,27 +113,27 @@ export default function Home() {
           <div className="mt-5 grid gap-2 sm:grid-cols-3 lg:grid-cols-6">
             <AcademyLink path="/courses" className="kpi-edge group rounded-xl border border-hair bg-panel px-3 py-3 text-center transition-all hover:-translate-y-0.5 hover:border-cobalt">
               <p className="font-mono-d text-[11px] font-bold leading-snug text-ink group-hover:text-cobalt">Learn →</p>
-              <p className="mt-1 text-xs text-ink-soft">Courses & missions</p>
+              <p className="mt-1 text-xs text-ink-soft">Courses & missions</p><p className="font-mono-d mt-1 text-[9px] tracking-[0.14em] text-tealx">● BETA · LIVE</p>
             </AcademyLink>
             <AcademyLink path="/talent" className="kpi-edge group rounded-xl border border-hair bg-panel px-3 py-3 text-center transition-all hover:-translate-y-0.5 hover:border-cobalt">
               <p className="font-mono-d text-[11px] font-bold leading-snug text-ink group-hover:text-cobalt">Prove →</p>
-              <p className="mt-1 text-xs text-ink-soft">Verified talent</p>
+              <p className="mt-1 text-xs text-ink-soft">Verified talent</p><p className="font-mono-d mt-1 text-[9px] tracking-[0.14em] text-tealx">● BETA · LIVE</p>
             </AcademyLink>
             <AcademyLink path="/jobs" className="kpi-edge group rounded-xl border border-hair bg-panel px-3 py-3 text-center transition-all hover:-translate-y-0.5 hover:border-cobalt">
               <p className="font-mono-d text-[11px] font-bold leading-snug text-ink group-hover:text-cobalt">Earn →</p>
-              <p className="mt-1 text-xs text-ink-soft">Live jobs board</p>
+              <p className="mt-1 text-xs text-ink-soft">Live jobs board</p><p className="font-mono-d mt-1 text-[9px] tracking-[0.14em] text-tealx">● BETA · LIVE</p>
             </AcademyLink>
             <a href="/studio" className="kpi-edge group rounded-xl border border-hair bg-panel px-3 py-3 text-center transition-all hover:-translate-y-0.5 hover:border-cobalt">
               <p className="font-mono-d text-[11px] font-bold leading-snug text-ink group-hover:text-cobalt">Build →</p>
-              <p className="mt-1 text-xs text-ink-soft">Studio intake</p>
+              <p className="mt-1 text-xs text-ink-soft">Studio intake</p><p className="font-mono-d mt-1 text-[9px] tracking-[0.14em] text-amber-deep">● MANUAL REVIEW</p>
             </a>
             <AcademyLink path="/projects" className="kpi-edge group rounded-xl border border-hair bg-panel px-3 py-3 text-center transition-all hover:-translate-y-0.5 hover:border-cobalt">
               <p className="font-mono-d text-[11px] font-bold leading-snug text-ink group-hover:text-cobalt">Run →</p>
-              <p className="mt-1 text-xs text-ink-soft">Client portal</p>
+              <p className="mt-1 text-xs text-ink-soft">Client portal</p><p className="font-mono-d mt-1 text-[9px] tracking-[0.14em] text-tealx">● BETA · LIVE</p>
             </AcademyLink>
             <a href="/journal" className="kpi-edge group rounded-xl border border-hair bg-panel px-3 py-3 text-center transition-all hover:-translate-y-0.5 hover:border-cobalt">
               <p className="font-mono-d text-[11px] font-bold leading-snug text-ink group-hover:text-cobalt">Read →</p>
-              <p className="mt-1 text-xs text-ink-soft">500 field guides</p>
+              <p className="mt-1 text-xs text-ink-soft">500 field guides</p><p className="font-mono-d mt-1 text-[9px] tracking-[0.14em] text-cobalt">● MATURE</p>
             </a>
           </div>
           <p className="mt-4 text-center text-sm text-ink-soft">Learn → Build → Work → Grow → Go Global. One login across courses, missions and evidence — <AcademyLink path="/register" className="font-bold text-cobalt hover:underline">create it here</AcademyLink>.</p>

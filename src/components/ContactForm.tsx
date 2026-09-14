@@ -23,17 +23,10 @@ const labelCls = "mb-2 block text-sm font-bold text-ink";
 
 export function ContactForm() {
   const [sent, setSent] = useState(false);
+  const [ref, setRef] = useState<number | null>(null);
+  const [sending, setSending] = useState(false);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const form = new FormData(e.currentTarget);
-    const name = String(form.get("name") ?? "");
-    const email = String(form.get("email") ?? "");
-    const company = String(form.get("company") ?? "");
-    const interest = String(form.get("interest") ?? "");
-    const budget = String(form.get("budget") ?? "");
-    const message = String(form.get("message") ?? "");
-
+  function mailtoFallback(name: string, email: string, company: string, interest: string, budget: string, message: string) {
     const body = [
       `Name: ${name}`,
       `Company: ${company || "—"}`,
@@ -42,12 +35,40 @@ export function ContactForm() {
       "",
       message,
     ].join("\n");
-
-    const mailto = `mailto:hello@digitalburj.com?subject=${encodeURIComponent(
+    window.location.href = `mailto:hello@digitalburj.com?subject=${encodeURIComponent(
       `New project inquiry — ${name}`
     )}&body=${encodeURIComponent(body)}&cc=${encodeURIComponent(email)}`;
+  }
 
-    window.location.href = mailto;
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const name = String(form.get("name") ?? "");
+    const email = String(form.get("email") ?? "");
+    const company = String(form.get("company") ?? "");
+    const interest = String(form.get("interest") ?? "");
+    const budget = String(form.get("budget") ?? "");
+    const message = String(form.get("message") ?? "");
+    setSending(true);
+    try {
+      const base = process.env.NEXT_PUBLIC_ACADEMY_URL || "/platform";
+      const res = await fetch(`${base}/api/leads`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, company, interest, budget, message }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok) {
+        setRef(data.id);
+        setSent(true);
+        return;
+      }
+    } catch {
+      // intake desk unreachable → mailto fallback below
+    } finally {
+      setSending(false);
+    }
+    mailtoFallback(name, email, company, interest, budget, message);
     setSent(true);
   }
 
@@ -56,8 +77,14 @@ export function ContactForm() {
       <div className="card-tower flex flex-col items-center gap-4 p-10 text-center">
         <CheckCircle2 size={40} className="text-tealx" />
         <h3 className="font-display text-xl font-extrabold text-ink">
-          Your email client should be opening now
+          {ref ? `Received — inquiry #${ref}` : "Your email client should be opening now"}
         </h3>
+        {ref && (
+          <p className="max-w-md text-sm text-ink-soft">
+            Your inquiry is logged in our system and a human reads every one.
+            We reply within 3 working days — no auto-drip, no spam.
+          </p>
+        )}
         <p className="max-w-sm text-sm text-ink-soft">
           If nothing opened, email us directly at{" "}
           <a href="mailto:hello@digitalburj.com" className="font-semibold text-cobalt hover:underline">
