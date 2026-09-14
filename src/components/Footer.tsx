@@ -15,7 +15,7 @@ export function Footer() {
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-md">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/brand/db-lockup-blend.svg" alt="DigitalBurj — Learn, Build, Work, Grow, Go Global" width={400} height={120} className="h-auto w-full max-w-[340px]" loading="lazy" />
+            <img src="/brand/db-lockup-cyber.svg" alt="DigitalBurj — Learn, Build, Work, Grow, Go Global" width={400} height={120} className="h-auto w-full max-w-[340px]" loading="lazy" />
             <p className="font-mono-d mt-4 text-xs font-semibold uppercase tracking-[0.22em] text-coral">Intelligence. Engineered.</p>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-ink-soft">
               A technology company that understands business problems and builds the technology to solve them.

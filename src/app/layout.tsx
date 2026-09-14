@@ -1,14 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Space_Grotesk, JetBrains_Mono, IBM_Plex_Serif } from "next/font/google";
+import { Rajdhani, Orbitron, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
-const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
-const grotesk = Space_Grotesk({ variable: "--font-sora", subsets: ["latin"], weight: ["500", "600", "700"], display: "swap" });
-const groteskBlack = Space_Grotesk({ variable: "--font-black", subsets: ["latin"], weight: ["700"], display: "swap" });
+const inter = Rajdhani({ variable: "--font-inter", subsets: ["latin"], weight: ["400", "500", "600", "700"], display: "swap" });
+const grotesk = Orbitron({ variable: "--font-sora", subsets: ["latin"], weight: ["500", "600", "700"], display: "swap" });
+const groteskBlack = Orbitron({ variable: "--font-black", subsets: ["latin"], weight: ["900"], display: "swap" });
 const jbmono = JetBrains_Mono({ variable: "--font-plexmono", subsets: ["latin"], weight: ["400", "500", "600"], display: "swap" });
-const plexserif = IBM_Plex_Serif({ variable: "--font-plexserif", subsets: ["latin"], weight: ["400", "500"], style: ["normal", "italic"], display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://digitalburj.com"),
@@ -26,7 +25,7 @@ export const metadata: Metadata = {
     "sales training Dubai", "admin assistant course", "talent certification",
   ],
   authors: [{ name: "DigitalBurj" }],
-  icons: { icon: "/brand/db-icon-neo.svg", apple: "/brand/db-icon-neo.svg" },
+  icons: { icon: "/brand/db-icon-cyber.svg", apple: "/brand/db-icon-cyber.svg" },
   openGraph: {
     title: "DigitalBurj — Intelligence Engineered",
     description: "Human intelligence × AI systems × engineered execution. Academy, Studio, Business AI, Talent, Global Careers.",
@@ -46,7 +45,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#FAF6EE",
+  themeColor: "#04050C",
   width: "device-width",
   initialScale: 1,
 };
@@ -62,7 +61,7 @@ const ORG_JSONLD = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${grotesk.variable} ${groteskBlack.variable} ${jbmono.variable} ${plexserif.variable}`}>
+    <html lang="en" className={`${inter.variable} ${grotesk.variable} ${groteskBlack.variable} ${jbmono.variable}`}>
       <body className="flex min-h-full flex-col bg-lab text-ink">
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[300] focus:rounded-lg focus:bg-cobalt focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-white">
           Skip to content

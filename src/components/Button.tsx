@@ -15,10 +15,10 @@ export function Button({ href, children, variant = "primary", className, showArr
   const base =
     "btn-shine group inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-bold transition-all duration-200 hover:-translate-y-0.5 whitespace-nowrap active:translate-y-0";
   const variants = {
-    primary: "border-2 border-ink bg-cobalt text-white shadow-[4px_4px_0_#12332A] hover:shadow-[6px_6px_0_#12332A]",
-    dark: "border-2 border-ink bg-navy text-white shadow-[4px_4px_0_rgba(18,51,42,0.35)] hover:shadow-[6px_6px_0_rgba(18,51,42,0.4)]",
-    gold: "border-2 border-ink bg-amberx text-[#171204] shadow-[4px_4px_0_rgba(0,0,0,0.4)] hover:shadow-[6px_6px_0_rgba(0,0,0,0.4)]",
-    paper: "border-2 border-white/70 bg-white text-[#0A1B3F] shadow-[4px_4px_0_rgba(0,0,0,0.35)] hover:shadow-[6px_6px_0_rgba(0,0,0,0.4)]",
+    primary: "border-2 border-ink bg-cobalt text-white shadow-[4px_4px_0_#00ADC4] hover:shadow-[6px_6px_0_#00ADC4]",
+    dark: "border-2 border-ink bg-navy text-white shadow-[4px_4px_0_rgba(0,224,255,0.28)] hover:shadow-[6px_6px_0_rgba(0,224,255,0.32)]",
+    gold: "border-2 border-ink bg-amberx text-[#05060D] shadow-[4px_4px_0_rgba(0,0,0,0.4)] hover:shadow-[6px_6px_0_rgba(0,0,0,0.4)]",
+    paper: "border-2 border-cobalt/50 bg-panel-deep text-ink shadow-[4px_4px_0_#FF2ED4] hover:shadow-[6px_6px_0_#FF2ED4]",
     outline: "border-2 border-ink/70 bg-transparent text-ink hover:border-cobalt hover:text-cobalt",
     ghost: "text-ink-soft hover:text-cobalt underline-offset-4 hover:underline",
   };

@@ -150,7 +150,7 @@ export default function Home() {
               <Button href="/academy" variant="outline">Browse programs</Button>
             </div>
           </div>
-          <div className="overflow-hidden rounded-2xl border-2 border-ink bg-white shadow-[8px_8px_0_#12332A]">
+          <div className="overflow-hidden rounded-2xl border-2 border-ink bg-panel-deep shadow-[8px_8px_0_#FF2ED4]">
             <div className="flex items-center justify-between bg-amberx px-5 py-2.5">
               <span className="font-mono-d text-[11px] font-bold tracking-[0.18em] text-ink">SPECIMEN · L3 CERTIFIED</span>
               <BadgeCheck size={17} className="text-ink" />
@@ -176,7 +176,7 @@ export default function Home() {
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((s, i) => (
             <Reveal key={s.slug} delay={(i % 3) * 0.04}>
-              <a href="/services" className="group block h-full rounded-2xl border border-hair bg-panel p-6 transition-all duration-200 hover:-translate-y-1 hover:border-cyanx hover:shadow-[0_16px_40px_-16px_rgba(217,72,28,0.4)]">
+              <a href="/services" className="group block h-full rounded-2xl border border-hair bg-panel p-6 transition-all duration-200 hover:-translate-y-1 hover:border-cyanx hover:shadow-[0_16px_40px_-16px_rgba(0,224,255,0.5)]">
                 <p className="font-mono-d text-[11px] tracking-[0.18em] text-ink-faint">CAP.{String(i + 1).padStart(2, "0")}</p>
                 <h3 className="font-display mt-2 text-xl font-extrabold tracking-tight text-ink group-hover:text-cobalt">{s.name}</h3>
                 <p className="mt-1.5 text-[13px] leading-relaxed text-ink-soft">{s.tagline}</p>
@@ -209,7 +209,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="rounded-2xl border-2 border-ink bg-panel p-7 shadow-[6px_6px_0_#12332A]">
+          <div className="rounded-2xl border-2 border-ink bg-panel p-7 shadow-[6px_6px_0_#00ADC4]">
             <p className="font-mono-d text-[10px] tracking-[0.2em] text-ink-faint">SIMPLIFIED FLOW</p>
             <div className="mt-2 font-mono-d text-[12px] leading-[2] text-ink-soft">
               <p>POST_LOAD <span className="text-ink-faint">→</span> VERIFY_CARRIER</p>
@@ -250,7 +250,7 @@ export default function Home() {
             ))}
           </div>
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <a href="/contact" className="btn-shine inline-flex items-center gap-2 rounded-lg border-2 border-ink bg-cobalt px-6 py-3 text-sm font-bold text-white shadow-[4px_4px_0_#12332A] transition-all duration-200 hover:-translate-y-0.5">
+            <a href="/contact" className="btn-shine inline-flex items-center gap-2 rounded-lg border-2 border-ink bg-cobalt px-6 py-3 text-sm font-bold text-white shadow-[4px_4px_0_#00ADC4] transition-all duration-200 hover:-translate-y-0.5">
               Put us to the test <span aria-hidden>→</span>
             </a>
             <NextChapter href="#finale" label="Answers" />
