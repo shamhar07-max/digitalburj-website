@@ -136,7 +136,7 @@ export function Navbar() {
           <div className="hidden items-center gap-4 lg:flex">
             <a
               href="/contact"
-              className="btn-shine inline-flex items-center gap-1.5 rounded-lg border-2 border-ink bg-cobalt px-5 py-2.5 text-[13px] font-bold uppercase tracking-[0.06em] text-[#061018] shadow-[4px_4px_0_#FF2ED4] transition-transform hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_#FF2ED4]"
+              className="btn-shine inline-flex items-center gap-1.5 rounded-lg border-2 border-ink bg-cobalt px-5 py-2.5 text-[13px] font-bold uppercase tracking-[0.06em] text-[#05201f] shadow-[4px_4px_0_#FF6BD6] transition-transform hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_#FF6BD6]"
             >
               Start a project <ArrowUpRight size={15} />
             </a>
@@ -178,7 +178,7 @@ export function Navbar() {
                 className="rounded-lg px-2 py-2.5 text-[15px] font-semibold text-ink-soft hover:bg-panel-deep hover:text-ink">
                 About
               </a>
-              <a href="/contact" className="my-4 rounded-lg bg-cobalt px-5 py-3 text-center text-sm font-bold uppercase tracking-[0.06em] text-[#061018]">Start a project</a>
+              <a href="/contact" className="my-4 rounded-lg bg-cobalt px-5 py-3 text-center text-sm font-bold uppercase tracking-[0.06em] text-[#05201f]">Start a project</a>
             </nav>
           </div>
         )}

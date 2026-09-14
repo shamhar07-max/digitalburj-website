@@ -24,7 +24,7 @@ export function SectionHead({
 export function Pill({ children, color = "cobalt" }: { children: React.ReactNode; color?: "cobalt" | "cyan" | "violet" | "amber" | "teal" | "ink" }) {
   const map: Record<string, string> = {
     cobalt: "border-cobalt/40 bg-cobalt/[0.08] text-cobalt",
-    cyan: "border-cyanx/40 bg-cyanx/[0.08] text-[#A33A12]",
+    cyan: "border-cyanx/40 bg-cyanx/[0.08] text-[#8d82bf]",
     violet: "border-viol/40 bg-viol/[0.08] text-viol",
     amber: "border-amberx/50 bg-amberbg text-amber-deep",
     teal: "border-tealx/40 bg-tealx/[0.08] text-tealx",

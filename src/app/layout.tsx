@@ -1,12 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Rajdhani, Orbitron, JetBrains_Mono } from "next/font/google";
+import { Karla, Playfair_Display, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
-const inter = Rajdhani({ variable: "--font-inter", subsets: ["latin"], weight: ["400", "500", "600", "700"], display: "swap" });
-const grotesk = Orbitron({ variable: "--font-sora", subsets: ["latin"], weight: ["500", "600", "700"], display: "swap" });
-const groteskBlack = Orbitron({ variable: "--font-black", subsets: ["latin"], weight: ["900"], display: "swap" });
+const inter = Karla({ variable: "--font-inter", subsets: ["latin"], weight: ["400", "500", "600", "700"], display: "swap" });
+const grotesk = Playfair_Display({ variable: "--font-sora", subsets: ["latin"], weight: ["500", "600", "700"], style: ["normal", "italic"], display: "swap" });
+const groteskBlack = Playfair_Display({ variable: "--font-black", subsets: ["latin"], weight: ["900"], style: ["normal", "italic"], display: "swap" });
 const jbmono = JetBrains_Mono({ variable: "--font-plexmono", subsets: ["latin"], weight: ["400", "500", "600"], display: "swap" });
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     "sales training Dubai", "admin assistant course", "talent certification",
   ],
   authors: [{ name: "DigitalBurj" }],
-  icons: { icon: "/brand/db-icon-cyber.svg", apple: "/brand/db-icon-cyber.svg" },
+  icons: { icon: "/brand/db-icon-aurora.svg", apple: "/brand/db-icon-aurora.svg" },
   openGraph: {
     title: "DigitalBurj — Intelligence Engineered",
     description: "Human intelligence × AI systems × engineered execution. Academy, Studio, Business AI, Talent, Global Careers.",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#04050C",
+  themeColor: "#0A0616",
   width: "device-width",
   initialScale: 1,
 };

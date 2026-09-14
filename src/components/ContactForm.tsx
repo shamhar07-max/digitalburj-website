@@ -179,7 +179,7 @@ export function ContactForm() {
 
       <button
         type="submit"
-        className="btn-shine group inline-flex w-full items-center justify-center gap-2 rounded-lg border-2 border-ink bg-cobalt px-6 py-3.5 text-sm font-bold text-white shadow-[4px_4px_0_#00ADC4] transition-all duration-200 hover:-translate-y-0.5 sm:w-auto"
+        className="btn-shine group inline-flex w-full items-center justify-center gap-2 rounded-lg border-2 border-ink bg-cobalt px-6 py-3.5 text-sm font-bold text-white shadow-[4px_4px_0_#18B8D6] transition-all duration-200 hover:-translate-y-0.5 sm:w-auto"
       >
         Send message
         <ArrowUpRight

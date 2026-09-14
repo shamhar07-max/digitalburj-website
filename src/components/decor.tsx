@@ -28,14 +28,14 @@ export function Sticker({ className = "" }: { className?: string }) {
         <defs>
           <path id="sticker-circle" d="M56,56 m-42,0 a42,42 0 1,1 84,0 a42,42 0 1,1 -84,0" />
         </defs>
-        <circle cx="56" cy="56" r="54" fill="#00ADC4" />
-        <circle cx="56" cy="56" r="54" fill="none" stroke="#D9FF3D" strokeWidth="1.5" strokeDasharray="4 3" />
-        <text fontSize="11.5" fontWeight="700" letterSpacing="2.5" fill="#E9EFFF" fontFamily="monospace">
+        <circle cx="56" cy="56" r="54" fill="#18B8D6" />
+        <circle cx="56" cy="56" r="54" fill="none" stroke="#FFD166" strokeWidth="1.5" strokeDasharray="4 3" />
+        <text fontSize="11.5" fontWeight="700" letterSpacing="2.5" fill="#F3ECFF" fontFamily="monospace">
           <textPath href="#sticker-circle">EVIDENCE FIRST • DB-LAB • DUBAI •</textPath>
         </text>
       </svg>
       <div className="absolute inset-0 flex items-center justify-center">
-        <BadgeCheck size={30} className="text-[#D9FF3D]" />
+        <BadgeCheck size={30} className="text-[#FFD166]" />
       </div>
     </div>
   );
@@ -45,7 +45,7 @@ export function Sticker({ className = "" }: { className?: string }) {
 export function ConsoleStack() {
   return (
     <div className="relative mx-auto w-full max-w-[420px] pb-10 pr-4 pt-6">
-      <div className="animate-floaty-late absolute right-0 top-0 w-[62%] rounded-2xl border-2 border-ink bg-panel-deep p-4 shadow-[6px_6px_0_rgba(255,46,212,0.5)]" style={{ "--tilt": "3deg", transform: "rotate(3deg)" } as React.CSSProperties}>
+      <div className="animate-floaty-late absolute right-0 top-0 w-[62%] rounded-2xl border-2 border-ink bg-panel-deep p-4 shadow-[6px_6px_0_rgba(255,107,214,0.5)]" style={{ "--tilt": "3deg", transform: "rotate(3deg)" } as React.CSSProperties}>
         <p className="font-mono-d text-[10px] tracking-[0.2em] text-ink-faint">FIG.01 — LIVE SYSTEM</p>
         <div className="mt-2 space-y-1.5">
           {[
@@ -64,11 +64,11 @@ export function ConsoleStack() {
         </div>
         <div className="mt-2 flex justify-between font-mono-d text-[10px] text-ink-faint"><span>5 TRACKS</span><span className="font-semibold text-tealx">● SYNCED</span></div>
       </div>
-      <div className="animate-floaty relative w-[82%] rounded-2xl border-2 border-ink bg-panel-deep shadow-[8px_8px_0_#FF2ED4]" style={{ "--tilt": "-2deg", transform: "rotate(-2deg)" } as React.CSSProperties}>
+      <div className="animate-floaty relative w-[82%] rounded-2xl border-2 border-ink bg-panel-deep shadow-[8px_8px_0_#FF6BD6]" style={{ "--tilt": "-2deg", transform: "rotate(-2deg)" } as React.CSSProperties}>
         <div className="tape absolute -top-3 left-8 h-6 w-20 -rotate-6" aria-hidden />
         <div className="flex items-center justify-between rounded-t-[14px] bg-amberx px-5 py-2.5">
-          <span className="font-mono-d text-[11px] font-bold tracking-[0.18em] text-[#05060D]">SPECIMEN · L3 CERTIFIED</span>
-          <BadgeCheck size={17} className="text-[#05060D]" />
+          <span className="font-mono-d text-[11px] font-bold tracking-[0.18em] text-[#2a2008]">SPECIMEN · L3 CERTIFIED</span>
+          <BadgeCheck size={17} className="text-[#2a2008]" />
         </div>
         <div className="px-5 py-4">
           <p className="font-mono-d text-[11px] text-ink-faint">CREDENTIAL NO.</p>
@@ -83,11 +83,11 @@ export function ConsoleStack() {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-0 right-6 rounded-xl border-2 border-ink bg-tealx px-4 py-2.5 text-white shadow-[4px_4px_0_#00ADC4]" style={{ transform: "rotate(2deg)" }}>
+      <div className="absolute bottom-0 right-6 rounded-xl border-2 border-ink bg-tealx px-4 py-2.5 text-white shadow-[4px_4px_0_#18B8D6]" style={{ transform: "rotate(2deg)" }}>
         <p className="font-mono-d text-[10px] tracking-[0.16em] opacity-80">ASSESSMENT QUEUE</p>
         <p className="font-display text-sm font-extrabold">14 graded this week</p>
       </div>
-      <div className="animate-floaty absolute -bottom-4 left-2 w-[58%] rounded-xl border-2 border-ink bg-panel-deep px-4 py-3 shadow-[5px_5px_0_rgba(255,46,212,0.5)]" style={{ "--tilt": "-3deg", transform: "rotate(-3deg)" } as React.CSSProperties}>
+      <div className="animate-floaty absolute -bottom-4 left-2 w-[58%] rounded-xl border-2 border-ink bg-panel-deep px-4 py-3 shadow-[5px_5px_0_rgba(255,107,214,0.5)]" style={{ "--tilt": "-3deg", transform: "rotate(-3deg)" } as React.CSSProperties}>
         <div className="flex items-center justify-between gap-2">
           <p className="font-mono-d text-[10px] tracking-[0.16em] text-ink-faint">REVIEWER SIGN-OFF</p>
           <span className="font-mono-d rounded-full bg-tealx/15 px-2 py-0.5 text-[10px] font-bold text-tealx">● APPROVED</span>
@@ -115,7 +115,7 @@ export function Tabs<T extends string>({ tabs, active, onChange }: { tabs: { id:
           onClick={() => onChange(t.id)}
           className={cn(
             "rounded-lg px-4 py-2 text-sm font-bold transition-colors",
-            active === t.id ? "bg-cobalt text-white shadow-[0_4px_16px_-4px_rgba(11,107,79,0.7)]" : "text-ink-soft hover:text-ink"
+            active === t.id ? "bg-cobalt text-white shadow-[0_4px_16px_-4px_rgba(24,184,214,0.7)]" : "text-ink-soft hover:text-ink"
           )}
         >
           {t.label}
@@ -130,8 +130,8 @@ export function CredChip() {
   return (
     <div className="overflow-hidden rounded-2xl border border-hair bg-panel">
       <div className="flex items-center justify-between bg-amberx px-5 py-2.5">
-        <span className="font-mono-d text-[11px] font-bold tracking-[0.18em] text-[#05060D]">SPECIMEN · L3 CERTIFIED</span>
-        <BadgeCheck size={17} className="text-[#05060D]" />
+        <span className="font-mono-d text-[11px] font-bold tracking-[0.18em] text-[#2a2008]">SPECIMEN · L3 CERTIFIED</span>
+        <BadgeCheck size={17} className="text-[#2a2008]" />
       </div>
       <div className="px-5 py-4">
         <p className="font-mono-d text-[11px] text-ink-faint">CREDENTIAL NO.</p>

@@ -35,7 +35,7 @@ export function DocShell({
           <h1 className="mt-5 text-balance text-3xl font-extrabold leading-[1.06] tracking-tight text-ink sm:text-[2.75rem]" style={{ fontFamily: "var(--font-sora)" }}>
             {title}
           </h1>
-          <p className="mt-4 text-base leading-relaxed text-ink-soft" style={{ borderLeft: "4px solid #FF2ED4", paddingLeft: "1rem" }}>{excerpt}</p>
+          <p className="mt-4 text-base leading-relaxed text-ink-soft" style={{ borderLeft: "4px solid #FF6BD6", paddingLeft: "1rem" }}>{excerpt}</p>
           {(date || reading) && (
             <p className="font-mono-d mt-5 text-xs uppercase tracking-[0.14em] text-ink-faint">
               {date && <>Published {date}</>}{date && updated && " · "}{updated && <>Updated {updated}</>}{reading && ` · ${reading} min read`}
@@ -57,7 +57,7 @@ export function DocShell({
             </div>
           </div>
         )}
-        <div className="mt-12 rounded-2xl border-2 border-ink bg-panel p-7 text-center shadow-[6px_6px_0_#FF2ED4]">
+        <div className="mt-12 rounded-2xl border-2 border-ink bg-panel p-7 text-center shadow-[6px_6px_0_#FF6BD6]">
           <p className="font-display text-xl font-extrabold text-ink">Want this handled for your business?</p>
           <p className="mt-2 text-sm text-ink-soft">Fixed scope, written quote, reply within 24 hours.</p>
           <div className="mt-5"><Button href="/contact">Talk to us</Button></div>

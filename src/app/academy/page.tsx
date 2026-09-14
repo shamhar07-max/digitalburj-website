@@ -250,7 +250,7 @@ export default function Academy() {
       </section>
       <section className="container-db max-w-4xl pb-6">
         <Reveal>
-          <div className="rounded-3xl border-2 border-ink bg-panel p-8 shadow-[6px_6px_0_#00ADC4]">
+          <div className="rounded-3xl border-2 border-ink bg-panel p-8 shadow-[6px_6px_0_#18B8D6]">
             <p className="font-mono-d text-[11px] tracking-[0.22em] text-ink-faint">THE LIVE PLATFORM · ONE LOGIN</p>
             <h2 className="font-display mt-3 text-2xl font-extrabold text-ink">Don&apos;t read about it. Enter it.</h2>
             <p className="mt-2 max-w-2xl text-sm leading-relaxed text-ink-soft">The Academy isn&apos;t a brochure — it&apos;s a working system. Register once and your identity carries across courses, missions, evidence, talent and jobs.</p>
